@@ -1,4 +1,5 @@
 
+import ContactPage from "./pages/ContactPage";
 import { Link, Route, Routes } from "react-router-dom";
 import PlantGrid from "./components/catalog/PlantGrid";
 import ProductDetailPage from "./pages/ProductDetailPage";
@@ -19,7 +20,11 @@ function Header() {
           <Link to="/" className="font-medium hover:text-green-700">
             Inicio
           </Link>
-          <Link to="/contacto" className="font-medium hover:text-green-700">
+
+          <Link
+            to="/contacto"
+            className="font-medium hover:text-green-700"
+          >
             Contacto
           </Link>
         </nav>
@@ -50,14 +55,21 @@ function CatalogPage() {
   );
 }
 
-function ContactPagePlaceholder() {
+function NotFoundPage() {
   return (
     <section className="mx-auto max-w-7xl px-5 py-16">
-      <h1 className="text-3xl font-semibold">Contacto</h1>
+      <h1 className="text-3xl font-semibold">
+        Página no encontrada
+      </h1>
+
       <p className="mt-3 text-gray-600">
-        Estamos preparando nuestra página de contacto.
+        La página que buscas no existe.
       </p>
-      <Link to="/" className="mt-5 inline-block font-medium text-green-800 underline">
+
+      <Link
+        to="/"
+        className="mt-4 inline-block font-medium text-green-800 underline"
+      >
         Volver al catálogo
       </Link>
     </section>
@@ -71,19 +83,18 @@ function App() {
 
       <Routes>
         <Route path="/" element={<CatalogPage />} />
-        <Route path="/producto/:slug" element={<ProductDetailPage />} />
-        <Route path="/contacto" element={<ContactPagePlaceholder />} />
+
         <Route
-          path="*"
-          element={
-            <section className="mx-auto max-w-7xl px-5 py-16">
-              <h1 className="text-3xl font-semibold">Página no encontrada</h1>
-              <Link to="/" className="mt-4 inline-block text-green-800 underline">
-                Volver al catálogo
-              </Link>
-            </section>
-          }
+          path="/producto/:slug"
+          element={<ProductDetailPage />}
         />
+
+        <Route
+          path="/contacto"
+          element={<ContactPage />}
+        />
+
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
 
       <footer className="border-t border-green-900/10 px-5 py-6 text-center text-sm text-gray-500">
