@@ -22,7 +22,7 @@ function PlantCard({ plant }: PlantCardProps) {
             />
           ) : (
             <span className="px-4 text-center text-sm text-gray-500">
-              Fotografía próximamente
+              
             </span>
           )}
         </div>

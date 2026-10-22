@@ -1,4 +1,3 @@
-
 import ContactPage from "./pages/ContactPage";
 import { Link, Route, Routes } from "react-router-dom";
 import PlantGrid from "./components/catalog/PlantGrid";
@@ -21,10 +20,7 @@ function Header() {
             Inicio
           </Link>
 
-          <Link
-            to="/contacto"
-            className="font-medium hover:text-green-700"
-          >
+          <Link to="/contacto" className="font-medium hover:text-green-700">
             Contacto
           </Link>
         </nav>
@@ -35,36 +31,46 @@ function Header() {
 
 function CatalogPage() {
   return (
-    <section className="mx-auto max-w-7xl px-5 py-10">
-      <div className="mb-8">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-green-700">
-          Vivero Nativa
-        </p>
+    <>
+      {/* Banner principal */}
+      <section className="relative flex min-h-[250px] items-center overflow-hidden sm:min-h-[320px] md:min-h-[380px]">
+        <img
+          src="/imagenes/plantas/home.jpg"
+          alt="Plantas de Vivero Nativa"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
 
-        <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">
-          Catálogo de plantas
-        </h1>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#f8f6ef]/95 via-[#f8f6ef]/75 to-transparent" />
 
-        <p className="mt-3 max-w-2xl text-sm leading-6 text-gray-600 md:text-base">
-          Explora nuestra variedad de plantas para tu hogar, oficina o jardín.
-        </p>
-      </div>
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-12 sm:py-16">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#2f6b45]">
+            Plantas que dan vida a tus espacios
+          </p>
 
-      <PlantGrid />
-    </section>
+          <h1 className="mt-4 max-w-xl text-3xl font-semibold leading-tight tracking-tight text-[#203b2d] sm:text-4xl md:text-5xl">
+            Descubre nuestra colección de plantas
+          </h1>
+
+          <p className="mt-4 max-w-md text-sm leading-6 text-gray-700 sm:text-base">
+            Naturaleza, frescura y bienestar en cada rincón de tu hogar, oficina
+            o jardín.
+          </p>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-5 py-8 sm:py-10">
+        <PlantGrid />
+      </section>
+    </>
   );
 }
 
 function NotFoundPage() {
   return (
     <section className="mx-auto max-w-7xl px-5 py-16">
-      <h1 className="text-3xl font-semibold">
-        Página no encontrada
-      </h1>
+      <h1 className="text-3xl font-semibold">Página no encontrada</h1>
 
-      <p className="mt-3 text-gray-600">
-        La página que buscas no existe.
-      </p>
+      <p className="mt-3 text-gray-600">La página que buscas no existe.</p>
 
       <Link
         to="/"
@@ -82,21 +88,18 @@ function App() {
       <Header />
 
       <Routes>
+        {/* Catálogo con banner, buscador y productos */}
         <Route path="/" element={<CatalogPage />} />
 
-        <Route
-          path="/producto/:slug"
-          element={<ProductDetailPage />}
-        />
+        {/* Detalle de cada producto */}
+        <Route path="/producto/:slug" element={<ProductDetailPage />} />
 
-        <Route
-          path="/contacto"
-          element={<ContactPage />}
-        />
+        {/* Página de contacto */}
+        <Route path="/contacto" element={<ContactPage />} />
 
+        {/* Página no encontrada */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-
       <footer className="border-t border-green-900/10 px-5 py-6 text-center text-sm text-gray-500">
         Vivero Nativa · Un espacio para conectar con la naturaleza
       </footer>
