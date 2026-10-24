@@ -47,7 +47,7 @@ function CatalogPage() {
             Plantas que dan vida a tus espacios
           </p>
 
-          <h1 className="mt-4 max-w-xl text-3xl font-semibold leading-tight tracking-tight text-[#203b2d] sm:text-4xl md:text-5xl">
+          <h1 className="mt-4 max-w-xl text-3xl font-semibold leading-tight tracking-tight text-[#203b2d] sm:text-4xl md:text-3xl">
             Descubre nuestra colección de plantas
           </h1>
 
