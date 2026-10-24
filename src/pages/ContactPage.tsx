@@ -11,57 +11,6 @@ function ContactPage() {
       aria-labelledby="contact-title"
     >
       <div className="mx-auto max-w-7xl px-5 py-12 sm:py-16">
-        <div className="grid overflow-hidden rounded-2xl border border-green-900/10 bg-white shadow-sm md:grid-cols-2">
-          <div className="flex flex-col items-start justify-center p-7 sm:p-10 lg:p-14">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-green-700">
-              Hablemos
-            </p>
-
-            <h2 className="mt-4 max-w-md text-3xl font-semibold leading-[1.1] tracking-tight text-[#203b2d] sm:text-4xl">
-              ¿Tienes alguna consulta?
-            </h2>
-
-            <p className="mt-5 max-w-md text-sm leading-7 text-gray-600 sm:text-base">
-              Escríbenos por WhatsApp y te ayudaremos a encontrar la planta
-              ideal para tu hogar, jardín o espacio de trabajo.
-            </p>
-
-            <a
-              href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-7 inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#203b2d] px-6 py-3 text-sm font-semibold text-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:bg-[#2f6b45] hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-green-800"
-            >
-              <span aria-hidden="true">◉</span>
-              Contactar por WhatsApp
-              <span aria-hidden="true">→</span>
-            </a>
-          </div>
-
-          <div className="relative min-h-[260px] overflow-hidden sm:min-h-[320px]">
-            <img
-              src="/imagenes/plantas/inicio.jpg"
-              alt="Plantas de Vivero Nativa"
-              loading="lazy"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-
-            <div className="absolute inset-0 flex items-center justify-center bg-[#203b2d]/30 p-6">
-              <div className="rounded-xl border border-white/60 bg-[#f8f6ef]/90 px-7 py-5 text-center shadow-lg backdrop-blur-sm">
-                <p className="text-sm font-medium uppercase tracking-[0.2em] text-green-800">
-                  Bienvenido a
-                </p>
-                <p className="mt-1 text-3xl font-semibold tracking-tight text-[#203b2d]">
-                  Vivero Nativa
-                </p>
-                <p className="mt-2 text-sm text-gray-600">
-                  Naturaleza para tus espacios
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <div className="mt-12 overflow-hidden rounded-3xl border border-green-900/10 bg-white shadow-sm sm:mt-16 lg:grid lg:grid-cols-[0.95fr_1.05fr]">
           <div className="relative isolate flex flex-col items-start justify-center overflow-hidden bg-[#203b2d] px-7 py-10 text-white sm:px-10 sm:py-14 lg:px-14 lg:py-16">
             <div

@@ -2887,7 +2887,7 @@ export const plants: Plant[] = [
   name: "Parante 40cm alto",
   slug: "parante-40cm-alto-240",
   category: "Parantes",
-  price: 35,
+  price: 30,
   shortDescription: "",
   description: "",
   light: "",

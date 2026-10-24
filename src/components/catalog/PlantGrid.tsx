@@ -80,8 +80,8 @@ function PlantGrid() {
           Buscar productos
         </label>
 
-        <div className="flex items-center gap-3 rounded-full border border-green-900/10 bg-white px-4 py-3 shadow-sm focus-within:ring-2 focus-within:ring-green-800">
-          <span aria-hidden="true">⌕</span>
+        <div className="flex items-center gap-3 rounded-full border border-green-900/15 bg-white px-5 py-3.5 shadow-sm transition-shadow focus-within:shadow-md focus-within:ring-2 focus-within:ring-green-800">
+          <span aria-hidden="true" className="text-lg text-gray-500">⌕</span>
 
           <input
             id="plant-search"
@@ -89,13 +89,13 @@ function PlantGrid() {
             value={search}
             onChange={(event) => setSearch(event.target.value)}
             placeholder="Buscar planta o producto..."
-            className="w-full min-w-0 bg-transparent text-sm outline-none"
+            className="w-full min-w-0 bg-transparent text-sm text-[#203b2d] outline-none placeholder:text-gray-500"
           />
         </div>
       </div>
 
       <div
-        className="mb-8 flex gap-2 overflow-x-auto pb-2"
+        className="mb-8 flex gap-2 overflow-x-auto px-0.5 pb-3"
         aria-label="Filtrar por categoría"
       >
         {categories.map((category) => {
@@ -107,7 +107,7 @@ function PlantGrid() {
               type="button"
               onClick={() => setSelectedCategory(category)}
               aria-pressed={isSelected}
-              className={`shrink-0 rounded-full px-4 py-2 text-sm transition-colors ${
+              className={`min-h-10 shrink-0 rounded-full px-4 py-2 text-sm font-medium transition duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800 ${
                 isSelected
                   ? "bg-[#203b2d] text-white"
                   : "bg-[#e8e5dc] text-[#203b2d] hover:bg-[#dcd9cf]"
@@ -119,13 +119,13 @@ function PlantGrid() {
         })}
       </div>
 
-      <p className="mb-4 text-sm text-gray-600" aria-live="polite">
+      <p className="mb-5 text-sm text-gray-600" aria-live="polite">
         {filteredPlants.length} productos encontrados
       </p>
 
       {filteredPlants.length > 0 ? (
         <>
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
             {paginatedPlants.map((plant) => (
               <PlantCard key={plant.slug} plant={plant} />
             ))}
@@ -133,14 +133,14 @@ function PlantGrid() {
 
           {totalPages > 1 && (
             <nav
-              className="mt-8 flex flex-wrap items-center justify-center gap-2"
+              className="mt-10 flex flex-wrap items-center justify-center gap-2"
               aria-label="Paginación de productos"
             >
               <button
                 type="button"
                 onClick={() => changePage(currentPage - 1)}
                 disabled={currentPage === 1}
-                className="rounded-full border border-green-900/15 px-4 py-2 text-sm font-medium text-[#203b2d] transition hover:bg-[#e8e5dc] disabled:cursor-not-allowed disabled:opacity-40"
+                className="min-h-10 rounded-full border border-green-900/15 px-4 py-2 text-sm font-medium text-[#203b2d] transition hover:bg-[#e8e5dc] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800 disabled:cursor-not-allowed disabled:opacity-40"
               >
                 Anterior
               </button>
@@ -154,7 +154,7 @@ function PlantGrid() {
                   type="button"
                   onClick={() => changePage(page)}
                   aria-current={currentPage === page ? "page" : undefined}
-                  className={`h-10 min-w-10 rounded-full px-3 text-sm font-semibold transition ${
+                  className={`h-10 min-w-10 rounded-full px-3 text-sm font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800 ${
                     currentPage === page
                       ? "bg-[#203b2d] text-white"
                       : "bg-[#e8e5dc] text-[#203b2d] hover:bg-[#dcd9cf]"
@@ -168,7 +168,7 @@ function PlantGrid() {
                 type="button"
                 onClick={() => changePage(currentPage + 1)}
                 disabled={currentPage === totalPages}
-                className="rounded-full border border-green-900/15 px-4 py-2 text-sm font-medium text-[#203b2d] transition hover:bg-[#e8e5dc] disabled:cursor-not-allowed disabled:opacity-40"
+                className="min-h-10 rounded-full border border-green-900/15 px-4 py-2 text-sm font-medium text-[#203b2d] transition hover:bg-[#e8e5dc] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800 disabled:cursor-not-allowed disabled:opacity-40"
               >
                 Siguiente
               </button>
@@ -180,7 +180,7 @@ function PlantGrid() {
           </p>
         </>
       ) : (
-        <div className="rounded-xl bg-white px-5 py-12 text-center">
+        <div className="rounded-2xl border border-green-900/10 bg-white px-5 py-14 text-center shadow-sm">
           <p className="font-medium text-[#203b2d]">
             No encontramos productos
           </p>
@@ -196,7 +196,7 @@ function PlantGrid() {
               setSelectedCategory(categories[0]);
               setCurrentPage(1);
             }}
-            className="mt-4 text-sm font-semibold text-green-800 underline"
+            className="mt-4 min-h-10 text-sm font-semibold text-green-800 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800"
           >
             Limpiar filtros
           </button>

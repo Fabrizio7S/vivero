@@ -1,6 +1,7 @@
 
 import { Link, useParams } from "react-router-dom";
 import { plants } from "../data/plants";
+import { formatPrice, getProductWhatsAppUrl } from "../utils/product";
 
 function ProductDetailPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -27,16 +28,16 @@ function ProductDetailPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#f8f6ef] px-4 py-8 sm:px-6 sm:py-12">
+    <main className="min-h-screen bg-[#f8f6ef] px-4 py-10 sm:px-6 sm:py-14">
       <div className="mx-auto max-w-5xl">
         <Link
           to="/"
-          className="inline-flex min-h-11 items-center font-medium text-[#203b2d] hover:underline"
+          className="inline-flex min-h-11 items-center font-medium text-[#203b2d] underline-offset-4 transition-colors hover:text-green-800 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-green-800"
         >
           ← Volver al catálogo
         </Link>
 
-        <article className="mt-6 grid gap-8 rounded-2xl bg-white p-5 shadow-sm sm:p-8 md:grid-cols-2 md:gap-10">
+        <article className="mt-6 grid gap-8 rounded-2xl border border-green-900/10 bg-white p-5 shadow-sm sm:p-8 md:grid-cols-2 md:gap-10 lg:p-10">
           <div className="flex aspect-square items-center justify-center overflow-hidden rounded-xl bg-[#e9e9df]">
             {plant.image ? (
               <img
@@ -46,19 +47,23 @@ function ProductDetailPage() {
               />
             ) : (
               <span className="px-4 text-center text-sm text-gray-500">
-                Fotografía próximamente
+                
               </span>
             )}
           </div>
 
           <div className="flex flex-col justify-center">
-            <p className="text-sm font-medium uppercase tracking-wider text-green-700">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-green-700 sm:text-sm">
               {plant.category}
             </p>
 
-            <h1 className="mt-3 text-3xl font-semibold text-[#203b2d] sm:text-4xl">
+            <h1 className="mt-3 break-words text-3xl font-semibold leading-tight tracking-tight text-[#203b2d] sm:text-4xl">
               {plant.name}
             </h1>
+
+            <p className="mt-4 text-2xl font-semibold tracking-tight text-[#203b2d] sm:text-3xl">
+              {formatPrice(plant.price)}
+            </p>
 
             <p className="mt-5 leading-7 text-gray-600">
               {plant.description}
@@ -80,12 +85,15 @@ function ProductDetailPage() {
               </section>
             </div>
 
-            <Link
-              to="/contacto"
-              className="mt-8 inline-flex min-h-12 items-center justify-center rounded-full bg-[#203b2d] px-6 py-3 font-semibold text-white transition hover:bg-[#2f6b45]"
+            <a
+              href={getProductWhatsAppUrl(plant)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[#203b2d] px-6 py-3 text-center font-semibold text-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:bg-[#2f6b45] hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-green-800 sm:w-fit"
             >
-              Consultar disponibilidad
-            </Link>
+              Consultar por WhatsApp
+              <span className="ml-2" aria-hidden="true">↗</span>
+            </a>
           </div>
         </article>
       </div>
