@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { redesSociales, type RedSocial } from "../data/redes";
+import { redesSociales, type RedSocial } from "../../config/vivero";
 
 // Logos simplificados de cada red (usan el color del texto).
 const iconos: Record<RedSocial, ReactNode> = {
@@ -31,8 +31,8 @@ interface SocialLinksProps {
 function SocialLinks({ variant = "dark", className = "" }: SocialLinksProps) {
   const buttonColors =
     variant === "dark"
-      ? "bg-[#f8f6ef]/10 text-[#f8f6ef] hover:bg-[#f8f6ef] hover:text-[#203b2d] focus-visible:outline-white"
-      : "bg-[#203b2d]/[0.07] text-[#203b2d] hover:bg-[#203b2d] hover:text-[#f8f6ef] focus-visible:outline-green-800";
+      ? "bg-crema/10 text-crema hover:bg-crema hover:text-bosque focus-visible:outline-white"
+      : "bg-bosque/[0.07] text-bosque hover:bg-bosque hover:text-crema focus-visible:outline-green-800";
 
   return (
     <ul className={`flex items-center gap-3 ${className}`}>

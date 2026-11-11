@@ -1,28 +1,34 @@
-// Fila del inventario (Excel "Inventario Vivero Nativa").
-export interface InventoryItem {
-  id: number;
-  name: string;
-  slug: string;
-  category: string;
-  price: number;
-  shortDescription: string;
-  description: string;
-  light: string;
-  watering: string;
-  image: string;
+// Fila del inventario (src/data/inventario.ts, copia del Excel).
+export interface ItemInventario {
+  categoria: string;
+  nombre: string;
+  precio: number;
 }
 
-// Producto que se muestra en la web (solo los que tienen fotos).
+// Datos de una planta tal como se escriben en src/data/plantas.ts.
+export interface PlantaDatos {
+  slug: string;
+  nombre: string;
+  categoria: string;
+  // Nombre(s) en el inventario de los que se toma el precio.
+  nombresEnInventario?: string[];
+  // Por defecto todas tienen envío a todo el Perú.
+  envioNacional?: boolean;
+  descripcion: string;
+  luz: string;
+  riego: string;
+}
+
+// Planta lista para mostrarse en la web (datos + precios + fotos).
+// La arma src/lib/catalogo.ts; los componentes usan este tipo.
 export interface Plant {
   slug: string;
   name: string;
   category: string;
-  // Precios del inventario. Vacío = "Consultar precio"; varios = según tamaño.
+  // Vacío = "Consultar precio"; varios = según tamaño (ordenados de menor a mayor).
   prices: number[];
   images: string[];
-  // Se puede enviar a todo el Perú.
   shipsNationwide: boolean;
-  shortDescription: string;
   description: string;
   light: string;
   watering: string;

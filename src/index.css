@@ -1,8 +1,21 @@
 @import "tailwindcss";
 
-/* Fuente de títulos: usar con la clase `font-display`. */
+/*
+  Colores y fuentes de la marca. Cambiando un valor aquí se actualiza en toda la web.
+  Uso en las clases: bg-bosque, text-hoja, border-crema/30, etc.
+*/
 @theme {
-  --font-display: "Fraunces", Georgia, serif;
+  --font-display: "Fraunces", Georgia, serif; /* títulos: clase font-display */
+
+  --color-bosque: #203b2d; /* verde oscuro principal (textos, botones, footer) */
+  --color-hoja: #2f6b45; /* verde medio (acentos, hover) */
+  --color-crema: #f8f6ef; /* fondo general */
+  --color-lino: #f3f1e8; /* fondo de los recuadros de cuidados */
+  --color-arena: #e8e5dc; /* fondo de botones y fotos */
+  --color-arena-oscura: #dcd9cf; /* hover de botones arena */
+  --color-piedra: #e9e9df; /* fondo de la galería */
+  --color-menta: #e7efe3; /* distintivo de envío */
+  --color-salvia: #d7dfc9; /* subtítulos sobre fondo verde */
 }
 
 :root {

@@ -1,11 +1,12 @@
 import { useState } from "react";
 
-interface ProductGalleryProps {
+interface PlantGalleryProps {
   images: string[];
   name: string;
 }
 
-function ProductGallery({ images, name }: ProductGalleryProps) {
+// Galería de fotos de la ficha: foto grande con flechas y miniaturas debajo.
+function PlantGallery({ images, name }: PlantGalleryProps) {
   const [selected, setSelected] = useState(0);
   const total = images.length;
 
@@ -13,7 +14,7 @@ function ProductGallery({ images, name }: ProductGalleryProps) {
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="relative aspect-square overflow-hidden rounded-xl bg-[#e9e9df]">
+      <div className="relative aspect-square overflow-hidden rounded-xl bg-piedra">
         <img
           src={images[selected]}
           alt={`${name}, foto ${selected + 1} de ${total}`}
@@ -29,7 +30,7 @@ function ProductGallery({ images, name }: ProductGalleryProps) {
               type="button"
               onClick={() => go(selected - 1)}
               aria-label="Foto anterior"
-              className="absolute left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-lg text-[#203b2d] shadow-sm transition hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800"
+              className="absolute left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-lg text-bosque shadow-sm transition hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800"
             >
               <span aria-hidden="true">‹</span>
             </button>
@@ -37,11 +38,11 @@ function ProductGallery({ images, name }: ProductGalleryProps) {
               type="button"
               onClick={() => go(selected + 1)}
               aria-label="Foto siguiente"
-              className="absolute right-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-lg text-[#203b2d] shadow-sm transition hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800"
+              className="absolute right-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-lg text-bosque shadow-sm transition hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800"
             >
               <span aria-hidden="true">›</span>
             </button>
-            <span className="absolute bottom-3 right-3 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-[#203b2d] shadow-sm">
+            <span className="absolute bottom-3 right-3 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-bosque shadow-sm">
               {selected + 1} / {total}
             </span>
           </>
@@ -57,9 +58,9 @@ function ProductGallery({ images, name }: ProductGalleryProps) {
               onClick={() => setSelected(index)}
               aria-label={`Ver foto ${index + 1}`}
               aria-current={index === selected ? "true" : undefined}
-              className={`aspect-square overflow-hidden rounded-lg bg-[#e9e9df] transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800 ${
+              className={`aspect-square overflow-hidden rounded-lg bg-piedra transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800 ${
                 index === selected
-                  ? "ring-2 ring-[#203b2d] ring-offset-2"
+                  ? "ring-2 ring-bosque ring-offset-2"
                   : "opacity-70 hover:opacity-100"
               }`}
             >
@@ -79,4 +80,4 @@ function ProductGallery({ images, name }: ProductGalleryProps) {
   );
 }
 
-export default ProductGallery;
+export default PlantGallery;

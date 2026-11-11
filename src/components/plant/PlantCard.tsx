@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
+import { formatPriceLabel, productWhatsAppUrl } from "../../lib/formato";
 import type { Plant } from "../../types/plant";
-import { formatPriceLabel, getProductWhatsAppUrl } from "../../utils/product";
+import { ArrowRightIcon, TruckIcon } from "../ui/icons";
 import ShippingBadge from "./ShippingBadge";
 
 interface PlantCardProps {
@@ -9,42 +10,7 @@ interface PlantCardProps {
   rank?: number;
 }
 
-function ArrowIcon({ className = "h-4 w-4" }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-      aria-hidden="true"
-    >
-      <path d="M5 12h14M13 6l6 6-6 6" />
-    </svg>
-  );
-}
-
-function TruckIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="h-3.5 w-3.5 shrink-0"
-      aria-hidden="true"
-    >
-      <path d="M3 6.5h11v9H3zM14 9.5h3.5L21 13v2.5h-7z" />
-      <circle cx="7" cy="17.5" r="1.8" />
-      <circle cx="17.5" cy="17.5" r="1.8" />
-    </svg>
-  );
-}
-
+// Tarjeta de una planta (catálogo y más vendidas).
 function PlantCard({ plant, rank }: PlantCardProps) {
   const [mainImage, hoverImage] = plant.images;
   const detailUrl = `/producto/${plant.slug}`;
@@ -54,7 +20,7 @@ function PlantCard({ plant, rank }: PlantCardProps) {
     <article
       className={`group flex h-full flex-col overflow-hidden rounded-2xl transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_48px_-20px_rgba(32,59,45,0.45)] sm:rounded-3xl ${
         isBestSeller
-          ? "bg-[#f8f6ef] text-[#203b2d]"
+          ? "bg-crema text-bosque"
           : "border border-green-900/10 bg-white"
       }`}
     >
@@ -63,7 +29,7 @@ function PlantCard({ plant, rank }: PlantCardProps) {
         className="block overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-green-800"
         aria-label={`Ver detalles de ${plant.name}`}
       >
-        <div className="relative aspect-square overflow-hidden bg-[#e8e5dc]">
+        <div className="relative aspect-square overflow-hidden bg-arena">
           <img
             src={mainImage}
             alt={`${plant.name} en maceta, planta de ${plant.category.toLowerCase()}`}
@@ -87,14 +53,14 @@ function PlantCard({ plant, rank }: PlantCardProps) {
 
           {/* En celular el envío va como franja sobre la foto (no cabe como pastilla). */}
           {plant.shipsNationwide && (
-            <span className="absolute inset-x-0 bottom-0 flex items-center justify-center gap-1 bg-white/90 py-1 text-[11px] font-semibold text-[#2f6b45] sm:hidden">
-              <TruckIcon />
+            <span className="absolute inset-x-0 bottom-0 flex items-center justify-center gap-1 bg-white/90 py-1 text-[11px] font-semibold text-hoja sm:hidden">
+              <TruckIcon className="h-3.5 w-3.5 shrink-0" />
               Envío a todo el Perú
             </span>
           )}
 
           {isBestSeller && (
-            <span className="font-display absolute left-2.5 top-2.5 flex h-8 min-w-8 items-center justify-center rounded-full bg-[#203b2d] px-2.5 text-sm font-semibold text-[#f8f6ef] sm:left-3.5 sm:top-3.5 sm:h-11 sm:min-w-11 sm:px-3 sm:text-lg">
+            <span className="font-display absolute left-2.5 top-2.5 flex h-8 min-w-8 items-center justify-center rounded-full bg-bosque px-2.5 text-sm font-semibold text-crema sm:left-3.5 sm:top-3.5 sm:h-11 sm:min-w-11 sm:px-3 sm:text-lg">
               #{rank}
             </span>
           )}
@@ -105,7 +71,7 @@ function PlantCard({ plant, rank }: PlantCardProps) {
         <h3 className="font-display text-base font-medium leading-tight sm:text-[22px]">
           <Link
             to={detailUrl}
-            className="transition-colors hover:text-[#2f6b45] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800"
+            className="transition-colors hover:text-hoja focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800"
           >
             {plant.name}
           </Link>
@@ -125,8 +91,8 @@ function PlantCard({ plant, rank }: PlantCardProps) {
           <p
             className={`font-bold ${
               plant.prices.length > 0
-                ? "text-sm text-[#203b2d] sm:text-lg"
-                : "text-xs text-[#2f6b45] sm:text-base"
+                ? "text-sm text-bosque sm:text-lg"
+                : "text-xs text-hoja sm:text-base"
             }`}
           >
             {formatPriceLabel(plant.prices)}
@@ -134,22 +100,22 @@ function PlantCard({ plant, rank }: PlantCardProps) {
 
           {isBestSeller ? (
             <a
-              href={getProductWhatsAppUrl(plant)}
+              href={productWhatsAppUrl(plant.name)}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Pedir ${plant.name} por WhatsApp`}
-              className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-[#203b2d] px-3.5 text-sm font-semibold text-[#f8f6ef] transition hover:-translate-y-0.5 hover:bg-[#2f6b45] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800 sm:min-h-11 sm:px-4"
+              className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-bosque px-3.5 text-sm font-semibold text-crema transition hover:-translate-y-0.5 hover:bg-hoja focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800 sm:min-h-11 sm:px-4"
             >
               Pedir
-              <ArrowIcon />
+              <ArrowRightIcon className="h-4 w-4" />
             </a>
           ) : (
             <Link
               to={detailUrl}
               aria-label={`Ver detalles de ${plant.name}`}
-              className="hidden h-10 w-10 shrink-0 items-center sm:flex justify-center rounded-full bg-[#e7efe3] text-[#203b2d] transition hover:bg-[#203b2d] hover:text-[#f8f6ef] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800 sm:h-11 sm:w-11"
+              className="hidden h-10 w-10 shrink-0 items-center sm:flex justify-center rounded-full bg-menta text-bosque transition hover:bg-bosque hover:text-crema focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800 sm:h-11 sm:w-11"
             >
-              <ArrowIcon className="h-[18px] w-[18px]" />
+              <ArrowRightIcon />
             </Link>
           )}
         </div>

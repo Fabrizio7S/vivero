@@ -2,13 +2,16 @@
 // Se usan en dos sitios:
 //  - Al compilar (vite.config.ts): se escriben en el HTML de cada página para Google.
 //  - En el navegador (usePageSeo): se actualizan al navegar sin recargar.
+//
+// Para cambiar el título o la descripción de la portada en Google: homeSeo().
+// Para cambiar el formato del título de las plantas: productSeo().
 
-import { catalogo } from "./data/catalogo";
-import { redesSociales } from "./data/redes";
-import type { Plant } from "./types/plant";
+import { redesSociales, vivero as datosVivero } from "../config/vivero";
+import type { Plant } from "../types/plant";
+import { catalogo } from "./catalogo";
 
-export const SITE_URL = "https://www.viveronativa.com";
-export const SITE_NAME = "Vivero Nativa";
+export const SITE_URL = datosVivero.dominio;
+export const SITE_NAME = datosVivero.nombre;
 
 const SHARE_IMAGE = `${SITE_URL}/marca/compartir.jpg`;
 const LOGO = `${SITE_URL}/marca/logo-cuadrado.png`;
@@ -56,27 +59,27 @@ function priceText(prices: number[]): string {
 
 const viveroId = `${SITE_URL}/#vivero`;
 
-const vivero = {
+const viveroSchema = {
   "@type": "GardenStore",
   "@id": viveroId,
   name: SITE_NAME,
   url: `${SITE_URL}/`,
   logo: LOGO,
   image: SHARE_IMAGE,
-  telephone: "+51994684483",
+  telephone: `+${datosVivero.whatsapp}`,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Casica - Poro Portón",
-    addressLocality: "Lurín",
-    addressRegion: "Lima",
-    postalCode: "15823",
-    addressCountry: "PE",
+    streetAddress: datosVivero.direccion.calle,
+    addressLocality: datosVivero.direccion.distrito,
+    addressRegion: datosVivero.direccion.ciudad,
+    postalCode: datosVivero.direccion.codigoPostal,
+    addressCountry: datosVivero.direccion.pais,
   },
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-    opens: "08:00",
-    closes: "18:00",
+    opens: datosVivero.horario.abre,
+    closes: datosVivero.horario.cierra,
   },
   areaServed: { "@type": "Country", name: "Perú" },
   sameAs: redesSociales.map((red) => red.url),
@@ -100,7 +103,7 @@ export function homeSeo(): PageSeo {
         inLanguage: "es-PE",
         publisher: { "@id": viveroId },
       },
-      { "@context": "https://schema.org", ...vivero },
+      { "@context": "https://schema.org", ...viveroSchema },
     ],
   };
 }
@@ -177,10 +180,6 @@ export function notFoundSeo(): PageSeo {
     noindex: true,
     jsonLd: [],
   };
-}
-
-export function findPlant(slug: string | undefined): Plant | undefined {
-  return catalogo.find((plant) => plant.slug === slug);
 }
 
 // ---------- Solo para el HTML que se genera al compilar ----------

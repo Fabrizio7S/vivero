@@ -1,24 +1,22 @@
-import { catalogo, masVendidos } from "../../data/catalogo";
-import PlantCard from "./PlantCard";
+import { bestSellers } from "../../lib/catalogo";
+import { SECTION_IDS } from "../../lib/scroll";
+import PlantCard from "../plant/PlantCard";
 
-// Top de ventas en su orden (solo los que tienen fotos y se muestran en la web).
-const bestSellers = masVendidos
-  .map((slug) => catalogo.find((plant) => plant.slug === slug))
-  .filter((plant) => plant !== undefined);
-
+// "Las plantas más vendidas". Cuáles y en qué orden se elige en
+// src/data/plantas.ts (lista `masVendidos`).
 function BestSellers() {
   if (bestSellers.length === 0) return null;
 
   return (
     <section
-      id="mas-vendidos"
+      id={SECTION_IDS.masVendidos}
       aria-labelledby="mas-vendidos-title"
-      className="scroll-mt-24 bg-[#203b2d] px-4 py-10 text-[#f8f6ef] sm:px-6 sm:py-16"
+      className="scroll-mt-24 bg-bosque px-4 py-10 text-crema sm:px-6 sm:py-16"
     >
       <div className="mx-auto max-w-7xl">
         <div className="mb-6 flex flex-wrap items-end justify-between gap-4 sm:mb-8">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#d7dfc9] sm:text-[13px]">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-salvia sm:text-[13px]">
               Top de ventas
             </p>
             <h2
@@ -30,8 +28,8 @@ function BestSellers() {
           </div>
 
           <a
-            href="#catalogo"
-            className="hidden min-h-12 items-center gap-2.5 rounded-full border border-[#f8f6ef]/30 px-5 text-[15px] font-semibold text-[#f8f6ef] transition hover:bg-[#f8f6ef]/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white sm:inline-flex"
+            href={`#${SECTION_IDS.catalogo}`}
+            className="hidden min-h-12 items-center gap-2.5 rounded-full border border-crema/30 px-5 text-[15px] font-semibold text-crema transition hover:bg-crema/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white sm:inline-flex"
           >
             Ver todo el catálogo
             <span aria-hidden="true">→</span>

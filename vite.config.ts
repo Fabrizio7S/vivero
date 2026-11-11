@@ -3,7 +3,7 @@ import { join } from "node:path";
 import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
-import { catalogo } from "./src/data/catalogo";
+import { catalogo } from "./src/lib/catalogo";
 import {
   homeSeo,
   productSeo,
@@ -11,7 +11,7 @@ import {
   renderHead,
   renderSitemap,
   type PageSeo,
-} from "./src/seo";
+} from "./src/lib/seo";
 import type { Plant } from "./src/types/plant";
 
 function fillPage(html: string, seo: PageSeo, plant?: Plant): string {
