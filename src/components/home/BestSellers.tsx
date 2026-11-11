@@ -11,7 +11,7 @@ function BestSellers() {
     <section
       id={SECTION_IDS.masVendidos}
       aria-labelledby="mas-vendidos-title"
-      className="scroll-mt-24 bg-bosque px-4 py-10 text-crema sm:px-6 sm:py-16"
+      className="scroll-mt-24 bg-bosque px-4 pb-10 pt-8 text-crema sm:px-6 sm:pb-16 sm:pt-10"
     >
       <div className="mx-auto max-w-7xl">
         <div className="mb-6 flex flex-wrap items-end justify-between gap-4 sm:mb-8">
