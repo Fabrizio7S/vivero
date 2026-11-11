@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import PlantGallery from "../components/plant/PlantGallery";
 import ShippingBadge from "../components/plant/ShippingBadge";
 import { DropIcon, SunIcon } from "../components/ui/icons";
+import { vivero } from "../config/vivero";
 import { usePageSeo } from "../hooks/usePageSeo";
 import { findPlant } from "../lib/catalogo";
 import { formatPrice, formatPriceLabel, productWhatsAppUrl } from "../lib/formato";
@@ -79,6 +80,8 @@ function PlantPage() {
               </p>
             )}
 
+            <p className="mt-2 text-sm font-medium text-gray-600">{vivero.textos.notaPrecio}</p>
+
             {plant.shipsNationwide && (
               <div className="mt-4">
                 <ShippingBadge size="md" />
@@ -108,7 +111,7 @@ function PlantPage() {
               rel="noopener noreferrer"
               className="mt-8 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-bosque px-6 py-3 text-center font-semibold text-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:bg-hoja hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-green-800 sm:w-fit"
             >
-              Consultar por WhatsApp
+              Comprar por WhatsApp
               <span className="ml-2" aria-hidden="true">
                 ↗
               </span>

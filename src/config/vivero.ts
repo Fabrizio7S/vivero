@@ -35,6 +35,8 @@ export const vivero = {
     lema: "Tu vivero en Lurín. Te ayudamos a elegir la planta ideal para cada espacio y te la enviamos a cualquier lugar del Perú.",
     envios:
       "Enviamos nuestras plantas a todo el Perú, bien embaladas para que lleguen sanas a tu casa.",
+    // Aviso bajo el precio en la ficha de cada planta.
+    notaPrecio: "Precio no incluye maceta.",
   },
 } as const;
 
