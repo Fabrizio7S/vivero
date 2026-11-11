@@ -1,43 +1,30 @@
-
 import { useMemo, useRef, useState } from "react";
-import { catalogo, masVendidos } from "../../data/catalogo";
+import { useSearchParams } from "react-router-dom";
+import { catalogo } from "../../data/catalogo";
+import { normalize } from "../../utils/product";
 import PlantCard from "./PlantCard";
 
-const ITEMS_PER_PAGE = 9;
-const BEST_SELLERS = "Más vendidos";
+const ITEMS_PER_PAGE = 12;
+const ALL = "Todas";
 
-// Top de ventas en su orden, luego las categorías que tienen productos con fotos.
-const bestSellers = masVendidos
-  .map((slug) => catalogo.find((plant) => plant.slug === slug))
-  .filter((plant) => plant !== undefined);
-
-const categories = [
-  BEST_SELLERS,
-  ...new Set(catalogo.map((plant) => plant.category)),
-];
-
-// Minúsculas y sin tildes, para que "sandia" encuentre "Sandía".
-function normalize(text: string): string {
-  return text
-    .toLocaleLowerCase("es")
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "");
-}
+// Solo categorías que tienen productos con fotos.
+const categories = [ALL, ...new Set(catalogo.map((plant) => plant.category))];
 
 function PlantGrid() {
-  const [search, setSearch] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState(BEST_SELLERS);
-  const [currentPage, setCurrentPage] = useState(1);
+  // La búsqueda vive en la URL (?q=) porque el buscador está en el encabezado.
+  const [searchParams, setSearchParams] = useSearchParams();
+  const search = searchParams.get("q") ?? "";
+
+  const [selectedCategory, setSelectedCategory] = useState(ALL);
+  // La página se guarda junto a la búsqueda: si la búsqueda cambia, vuelve a la 1.
+  const [pagination, setPagination] = useState({ page: 1, search });
+  const currentPage = pagination.search === search ? pagination.page : 1;
+  const setCurrentPage = (page: number) => setPagination({ page, search });
 
   const catalogTopRef = useRef<HTMLElement>(null);
 
   const filteredPlants = useMemo(() => {
     const normalizedSearch = normalize(search.trim());
-
-    // En "Más vendidos" sin búsqueda se muestra el top; al escribir se busca en todo.
-    if (selectedCategory === BEST_SELLERS && !normalizedSearch) {
-      return bestSellers;
-    }
 
     return catalogo.filter((plant) => {
       const matchesSearch =
@@ -45,8 +32,7 @@ function PlantGrid() {
         normalize(plant.category).includes(normalizedSearch);
 
       const matchesCategory =
-        selectedCategory === BEST_SELLERS ||
-        plant.category === selectedCategory;
+        selectedCategory === ALL || plant.category === selectedCategory;
 
       return matchesSearch && matchesCategory;
     });
@@ -56,17 +42,11 @@ function PlantGrid() {
 
   const paginatedPlants = useMemo(() => {
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-
-    return filteredPlants.slice(
-      startIndex,
-      startIndex + ITEMS_PER_PAGE,
-    );
+    return filteredPlants.slice(startIndex, startIndex + ITEMS_PER_PAGE);
   }, [filteredPlants, currentPage]);
 
   const changePage = (page: number) => {
-    const nextPage = Math.max(1, Math.min(totalPages, page));
-
-    setCurrentPage(nextPage);
+    setCurrentPage(Math.max(1, Math.min(totalPages, page)));
 
     requestAnimationFrame(() => {
       catalogTopRef.current?.scrollIntoView({
@@ -76,69 +56,68 @@ function PlantGrid() {
     });
   };
 
+  const clearFilters = () => {
+    setSelectedCategory(ALL);
+    setCurrentPage(1);
+    setSearchParams({}, { replace: true });
+  };
+
+  const chipClass = (isActive: boolean) =>
+    `min-h-11 shrink-0 rounded-full px-5 text-sm font-semibold transition duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800 ${
+      isActive
+        ? "bg-[#203b2d] text-[#f8f6ef]"
+        : "bg-[#e8e5dc] text-[#203b2d] hover:bg-[#dcd9cf]"
+    }`;
+
   return (
     <section
       ref={catalogTopRef}
-      aria-label="Catálogo de plantas"
-      className="scroll-mt-4"
+      aria-labelledby="catalogo-title"
+      className="scroll-mt-28"
     >
-      <div className="mx-auto mb-5 max-w-xl">
-        <label htmlFor="plant-search" className="sr-only">
-          Buscar productos
-        </label>
+      <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between sm:gap-5">
+        <div>
+          <h2
+            id="catalogo-title"
+            className="font-display text-[26px] font-medium leading-tight tracking-tight sm:text-4xl"
+          >
+            Todo el catálogo
+          </h2>
+          <p className="mt-1.5 text-sm text-gray-600" aria-live="polite">
+            {search.trim()
+              ? `${filteredPlants.length} resultados para “${search.trim()}”`
+              : `${filteredPlants.length} productos`}
+          </p>
+        </div>
 
-        <div className="flex items-center gap-3 rounded-full border border-green-900/15 bg-white px-5 py-3.5 shadow-sm transition-shadow focus-within:shadow-md focus-within:ring-2 focus-within:ring-green-800">
-          <span aria-hidden="true" className="text-lg text-gray-500">⌕</span>
+        <div
+          className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0"
+          aria-label="Filtrar por categoría"
+        >
+          {categories.map((category) => {
+            const isSelected = selectedCategory === category;
 
-          <input
-            id="plant-search"
-            type="search"
-            value={search}
-            onChange={(event) => {
-              setSearch(event.target.value);
-              setCurrentPage(1);
-            }}
-            placeholder="Buscar planta o producto..."
-            className="w-full min-w-0 bg-transparent text-sm text-[#203b2d] outline-none placeholder:text-gray-500"
-          />
+            return (
+              <button
+                key={category}
+                type="button"
+                onClick={() => {
+                  setSelectedCategory(category);
+                  setCurrentPage(1);
+                }}
+                aria-pressed={isSelected}
+                className={chipClass(isSelected)}
+              >
+                {category}
+              </button>
+            );
+          })}
         </div>
       </div>
 
-      <div
-        className="mb-8 flex gap-2 overflow-x-auto px-0.5 pb-3"
-        aria-label="Filtrar por categoría"
-      >
-        {categories.map((category) => {
-          const isSelected = selectedCategory === category;
-
-          return (
-            <button
-              key={category}
-              type="button"
-              onClick={() => {
-                setSelectedCategory(category);
-                setCurrentPage(1);
-              }}
-              aria-pressed={isSelected}
-              className={`min-h-10 shrink-0 rounded-full px-4 py-2 text-sm font-medium transition duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800 ${
-                isSelected
-                  ? "bg-[#203b2d] text-white"
-                  : "bg-[#e8e5dc] text-[#203b2d] hover:bg-[#dcd9cf]"
-              }`}
-            >
-              {category}
-            </button>
-          );
-        })}
-      </div>
-
-      <p className="mb-5 text-sm text-gray-600" aria-live="polite">
-        {filteredPlants.length} productos encontrados
-      </p>
-
       {filteredPlants.length > 0 ? (
         <>
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+          <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-8 sm:gap-6 md:grid-cols-3 lg:grid-cols-4">
             {paginatedPlants.map((plant) => (
               <PlantCard key={plant.slug} plant={plant} />
             ))}
@@ -153,65 +132,54 @@ function PlantGrid() {
                 type="button"
                 onClick={() => changePage(currentPage - 1)}
                 disabled={currentPage === 1}
-                className="min-h-10 rounded-full border border-green-900/15 px-4 py-2 text-sm font-medium text-[#203b2d] transition hover:bg-[#e8e5dc] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800 disabled:cursor-not-allowed disabled:opacity-40"
+                className="min-h-11 rounded-full border border-green-900/20 px-4 text-sm font-semibold text-[#203b2d] transition hover:bg-[#e8e5dc] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800 disabled:cursor-not-allowed disabled:opacity-40"
               >
                 Anterior
               </button>
 
-              {Array.from(
-                { length: totalPages },
-                (_, index) => index + 1,
-              ).map((page) => (
-                <button
-                  key={page}
-                  type="button"
-                  onClick={() => changePage(page)}
-                  aria-current={currentPage === page ? "page" : undefined}
-                  className={`h-10 min-w-10 rounded-full px-3 text-sm font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800 ${
-                    currentPage === page
-                      ? "bg-[#203b2d] text-white"
-                      : "bg-[#e8e5dc] text-[#203b2d] hover:bg-[#dcd9cf]"
-                  }`}
-                >
-                  {page}
-                </button>
-              ))}
+              {Array.from({ length: totalPages }, (_, index) => index + 1).map(
+                (page) => (
+                  <button
+                    key={page}
+                    type="button"
+                    onClick={() => changePage(page)}
+                    aria-current={currentPage === page ? "page" : undefined}
+                    className={`h-11 min-w-11 rounded-full px-3 text-sm font-bold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800 ${
+                      currentPage === page
+                        ? "bg-[#203b2d] text-[#f8f6ef]"
+                        : "bg-[#e8e5dc] text-[#203b2d] hover:bg-[#dcd9cf]"
+                    }`}
+                  >
+                    {page}
+                  </button>
+                ),
+              )}
 
               <button
                 type="button"
                 onClick={() => changePage(currentPage + 1)}
                 disabled={currentPage === totalPages}
-                className="min-h-10 rounded-full border border-green-900/15 px-4 py-2 text-sm font-medium text-[#203b2d] transition hover:bg-[#e8e5dc] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800 disabled:cursor-not-allowed disabled:opacity-40"
+                className="min-h-11 rounded-full border border-green-900/20 px-4 text-sm font-semibold text-[#203b2d] transition hover:bg-[#e8e5dc] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800 disabled:cursor-not-allowed disabled:opacity-40"
               >
                 Siguiente
               </button>
             </nav>
           )}
-
-          <p className="mt-4 text-center text-sm text-gray-500">
-            Página {currentPage} de {totalPages}
-          </p>
         </>
       ) : (
-        <div className="rounded-2xl border border-green-900/10 bg-white px-5 py-14 text-center shadow-sm">
-          <p className="font-medium text-[#203b2d]">
+        <div className="mt-8 rounded-3xl border border-green-900/10 bg-white px-5 py-14 text-center">
+          <p className="font-display text-xl font-medium text-[#203b2d]">
             No encontramos productos
           </p>
-
-          <p className="mt-2 text-sm text-gray-500">
+          <p className="mt-2 text-sm text-gray-600">
             Prueba con otro nombre o selecciona otra categoría.
           </p>
-
           <button
             type="button"
-            onClick={() => {
-              setSearch("");
-              setSelectedCategory(BEST_SELLERS);
-              setCurrentPage(1);
-            }}
-            className="mt-4 min-h-10 text-sm font-semibold text-green-800 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800"
+            onClick={clearFilters}
+            className="mt-4 min-h-11 text-sm font-semibold text-green-800 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800"
           >
-            Limpiar filtros
+            Limpiar búsqueda
           </button>
         </div>
       )}

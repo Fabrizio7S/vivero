@@ -7,6 +7,14 @@ const priceFormatter = new Intl.NumberFormat("es-PE", {
   currency: "PEN",
 });
 
+// Minúsculas y sin tildes, para que "sandia" encuentre "Sandía".
+export function normalize(text: string): string {
+  return text
+    .toLocaleLowerCase("es")
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "");
+}
+
 export function formatPrice(price: number): string {
   return priceFormatter.format(price);
 }
