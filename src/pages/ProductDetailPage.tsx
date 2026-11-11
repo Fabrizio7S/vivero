@@ -44,7 +44,7 @@ function ProductDetailPage() {
           ← Volver al catálogo
         </Link>
 
-        <article className="mt-6 grid gap-8 rounded-2xl border border-green-900/10 bg-white p-5 shadow-sm sm:p-8 md:grid-cols-2 md:gap-10 lg:p-10">
+        <article className="mt-6 grid gap-8 rounded-3xl border border-green-900/10 bg-white p-5 shadow-sm sm:p-8 md:grid-cols-2 md:gap-10 lg:p-10">
           {/* key: reinicia la foto elegida al cambiar de producto */}
           <ProductGallery key={plant.slug} images={plant.images} name={plant.name} />
 
@@ -53,7 +53,7 @@ function ProductDetailPage() {
               {plant.category}
             </p>
 
-            <h1 className="mt-3 break-words text-3xl font-semibold leading-tight tracking-tight text-[#203b2d] sm:text-4xl">
+            <h1 className="font-display mt-3 break-words text-3xl font-medium leading-tight tracking-tight text-[#203b2d] sm:text-4xl">
               {plant.name}
             </h1>
 

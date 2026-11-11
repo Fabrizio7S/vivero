@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* Fuente de títulos: usar con la clase `font-display`. */
+@theme {
+  --font-display: "Fraunces", Georgia, serif;
+}
+
 :root {
   font-family: Inter, "Segoe UI", Arial, Helvetica, sans-serif;
   color: #203b2d;
