@@ -1,7 +1,7 @@
 
-import type { Plant } from "../types/plant";
+import type { InventoryItem } from "../types/plant";
 
-export const plants: Plant[] = [
+export const plants: InventoryItem[] = [
  {
     id: 1,
     name: "Orquídea",

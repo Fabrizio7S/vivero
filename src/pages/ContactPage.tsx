@@ -1,4 +1,4 @@
-const whatsappNumber = "51994684483";
+import { whatsappNumber } from "../utils/product";
 const whatsappMessage = encodeURIComponent(
   "Hola, Vivero Nativa. Quisiera consultar sobre sus productos.",
 );

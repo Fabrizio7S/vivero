@@ -4,7 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "fotos": "node scripts/generar-fotos.mjs",
+    "predev": "npm run fotos",
     "dev": "vite",
+    "prebuild": "npm run fotos",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview"

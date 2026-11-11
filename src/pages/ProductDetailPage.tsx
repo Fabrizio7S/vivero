@@ -1,34 +1,40 @@
-
 import { Link, useParams } from "react-router-dom";
-import { plants } from "../data/plants";
-import { formatPrice, getProductWhatsAppUrl } from "../utils/product";
+import ProductGallery from "../components/catalog/ProductGallery";
+import { catalogo } from "../data/catalogo";
+import {
+  formatPrice,
+  formatPriceLabel,
+  getProductWhatsAppUrl,
+} from "../utils/product";
 
 function ProductDetailPage() {
   const { slug } = useParams<{ slug: string }>();
 
-  const plant = plants.find((item) => item.slug === slug);
+  const plant = catalogo.find((item) => item.slug === slug);
 
   if (!plant) {
     return (
-      <main className="flex min-h-screen flex-col items-center justify-center bg-[#f8f6ef] px-6 text-center">
+      <section className="flex min-h-[60vh] flex-col items-center justify-center px-6 text-center">
         <h1 className="text-2xl font-semibold text-[#203b2d]">
           Producto no encontrado
         </h1>
         <p className="mt-3 text-gray-600">
           No encontramos el producto que buscas.
         </p>
-        <Link
-          to="/"
-          className="mt-6 font-semibold text-green-800 underline"
-        >
+        <Link to="/" className="mt-6 font-semibold text-green-800 underline">
           Volver al catálogo
         </Link>
-      </main>
+      </section>
     );
   }
 
+  const careSections = [
+    { title: "Iluminación", text: plant.light },
+    { title: "Riego", text: plant.watering },
+  ].filter((section) => section.text);
+
   return (
-    <main className="min-h-screen bg-[#f8f6ef] px-4 py-10 sm:px-6 sm:py-14">
+    <section className="px-4 py-10 sm:px-6 sm:py-14">
       <div className="mx-auto max-w-5xl">
         <Link
           to="/"
@@ -38,19 +44,8 @@ function ProductDetailPage() {
         </Link>
 
         <article className="mt-6 grid gap-8 rounded-2xl border border-green-900/10 bg-white p-5 shadow-sm sm:p-8 md:grid-cols-2 md:gap-10 lg:p-10">
-          <div className="flex aspect-square items-center justify-center overflow-hidden rounded-xl bg-[#e9e9df]">
-            {plant.image ? (
-              <img
-                src={plant.image}
-                alt={plant.name}
-                className="h-full w-full object-cover"
-              />
-            ) : (
-              <span className="px-4 text-center text-sm text-gray-500">
-                
-              </span>
-            )}
-          </div>
+          {/* key: reinicia la foto elegida al cambiar de producto */}
+          <ProductGallery key={plant.slug} images={plant.images} name={plant.name} />
 
           <div className="flex flex-col justify-center">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-green-700 sm:text-sm">
@@ -62,28 +57,32 @@ function ProductDetailPage() {
             </h1>
 
             <p className="mt-4 text-2xl font-semibold tracking-tight text-[#203b2d] sm:text-3xl">
-              {formatPrice(plant.price)}
+              {formatPriceLabel(plant.prices)}
             </p>
 
-            <p className="mt-5 leading-7 text-gray-600">
-              {plant.description}
-            </p>
+            {plant.prices.length > 1 && (
+              <p className="mt-2 text-sm text-gray-600">
+                Precio según tamaño:{" "}
+                {plant.prices.map((price) => formatPrice(price)).join(" · ")}
+              </p>
+            )}
 
-            <div className="mt-8 space-y-5">
-              <section>
-                <h2 className="font-semibold text-[#203b2d]">
-                  Iluminación
-                </h2>
-                <p className="mt-1 text-gray-600">{plant.light}</p>
-              </section>
+            {plant.description && (
+              <p className="mt-5 leading-7 text-gray-600">{plant.description}</p>
+            )}
 
-              <section>
-                <h2 className="font-semibold text-[#203b2d]">
-                  Riego
-                </h2>
-                <p className="mt-1 text-gray-600">{plant.watering}</p>
-              </section>
-            </div>
+            {careSections.length > 0 && (
+              <div className="mt-8 space-y-5">
+                {careSections.map((section) => (
+                  <section key={section.title}>
+                    <h2 className="font-semibold text-[#203b2d]">
+                      {section.title}
+                    </h2>
+                    <p className="mt-1 text-gray-600">{section.text}</p>
+                  </section>
+                ))}
+              </div>
+            )}
 
             <a
               href={getProductWhatsAppUrl(plant)}
@@ -97,7 +96,7 @@ function ProductDetailPage() {
           </div>
         </article>
       </div>
-    </main>
+    </section>
   );
 }
 

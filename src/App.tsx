@@ -1,5 +1,6 @@
 
-import { Link, Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, Route, Routes, useLocation } from "react-router-dom";
 import PlantGrid from "./components/catalog/PlantGrid";
 import ContactPage from "./pages/ContactPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
@@ -129,9 +130,21 @@ function Footer() {
   );
 }
 
+// Al abrir un producto, empezar desde arriba de la página.
+function ScrollToTop() {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (!hash) window.scrollTo(0, 0);
+  }, [pathname, hash]);
+
+  return null;
+}
+
 function App() {
   return (
     <main className="min-h-screen bg-[#f8f6ef] text-[#203b2d]">
+      <ScrollToTop />
       <Header />
 
       <Routes>

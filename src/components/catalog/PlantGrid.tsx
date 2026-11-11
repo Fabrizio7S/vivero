@@ -1,40 +1,43 @@
 
-import { useEffect, useMemo, useRef, useState } from "react";
-import { plants } from "../../data/plants";
+import { useMemo, useRef, useState } from "react";
+import { catalogo } from "../../data/catalogo";
 import PlantCard from "./PlantCard";
 
 const ITEMS_PER_PAGE = 9;
+const ALL_CATEGORIES = "Todas";
 
+// Solo las categorías que tienen productos con fotos.
 const categories = [
-  "Interior",
-  "Aromáticas",
-  "Flores y exterior",
-  "Frutales",
-  "Otros",
-  "Macetas",
-  "Sustratos y abonos",
-  "Líquidos",
-  "Parantes",
+  ALL_CATEGORIES,
+  ...new Set(catalogo.map((plant) => plant.category)),
 ];
+
+// Minúsculas y sin tildes, para que "sandia" encuentre "Sandía".
+function normalize(text: string): string {
+  return text
+    .toLocaleLowerCase("es")
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "");
+}
 
 function PlantGrid() {
   const [search, setSearch] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+  const [selectedCategory, setSelectedCategory] = useState(ALL_CATEGORIES);
   const [currentPage, setCurrentPage] = useState(1);
 
   const catalogTopRef = useRef<HTMLElement>(null);
 
   const filteredPlants = useMemo(() => {
-    const normalizedSearch = search.trim().toLocaleLowerCase("es");
+    const normalizedSearch = normalize(search.trim());
 
-    return plants.filter((plant) => {
+    return catalogo.filter((plant) => {
       const matchesSearch =
-        plant.name.toLocaleLowerCase("es").includes(normalizedSearch) ||
-        plant.category.toLocaleLowerCase("es").includes(normalizedSearch);
+        normalize(plant.name).includes(normalizedSearch) ||
+        normalize(plant.category).includes(normalizedSearch);
 
       const matchesCategory =
-        plant.category.toLocaleLowerCase("es") ===
-        selectedCategory.toLocaleLowerCase("es");
+        selectedCategory === ALL_CATEGORIES ||
+        plant.category === selectedCategory;
 
       return matchesSearch && matchesCategory;
     });
@@ -51,10 +54,6 @@ function PlantGrid() {
     );
   }, [filteredPlants, currentPage]);
 
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [search, selectedCategory]);
-
   const changePage = (page: number) => {
     const nextPage = Math.max(1, Math.min(totalPages, page));
 
@@ -70,7 +69,6 @@ function PlantGrid() {
 
   return (
     <section
-      id="catalogo"
       ref={catalogTopRef}
       aria-label="Catálogo de plantas"
       className="scroll-mt-4"
@@ -87,7 +85,10 @@ function PlantGrid() {
             id="plant-search"
             type="search"
             value={search}
-            onChange={(event) => setSearch(event.target.value)}
+            onChange={(event) => {
+              setSearch(event.target.value);
+              setCurrentPage(1);
+            }}
             placeholder="Buscar planta o producto..."
             className="w-full min-w-0 bg-transparent text-sm text-[#203b2d] outline-none placeholder:text-gray-500"
           />
@@ -105,7 +106,10 @@ function PlantGrid() {
             <button
               key={category}
               type="button"
-              onClick={() => setSelectedCategory(category)}
+              onClick={() => {
+                setSelectedCategory(category);
+                setCurrentPage(1);
+              }}
               aria-pressed={isSelected}
               className={`min-h-10 shrink-0 rounded-full px-4 py-2 text-sm font-medium transition duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800 ${
                 isSelected
@@ -193,7 +197,7 @@ function PlantGrid() {
             type="button"
             onClick={() => {
               setSearch("");
-              setSelectedCategory(categories[0]);
+              setSelectedCategory(ALL_CATEGORIES);
               setCurrentPage(1);
             }}
             className="mt-4 min-h-10 text-sm font-semibold text-green-800 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800"
