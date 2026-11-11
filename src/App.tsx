@@ -9,7 +9,8 @@ import {
 } from "react-router-dom";
 import BestSellers from "./components/catalog/BestSellers";
 import PlantGrid from "./components/catalog/PlantGrid";
-import ContactPage from "./pages/ContactPage";
+import SocialLinks from "./components/SocialLinks";
+import ContactPage, { mapsUrl } from "./pages/ContactPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import { whatsappNumber } from "./utils/product";
 
@@ -143,22 +144,37 @@ function Header() {
 
 function Hero() {
   return (
+    // Portada original: foto de fondo a todo el ancho con el texto encima.
     <section
       id="inicio"
-      className="mx-auto flex max-w-7xl scroll-mt-28 flex-col-reverse gap-6 px-4 pb-8 pt-6 sm:px-6 md:flex-row md:items-center md:gap-10 md:pb-12 md:pt-10"
+      className="relative flex min-h-[340px] scroll-mt-28 items-center overflow-hidden sm:min-h-[400px] md:min-h-[460px]"
     >
-      <div className="min-w-0 md:flex-1">
-        <h1 className="font-display text-[34px] font-medium leading-[1.04] tracking-tight text-[#203b2d] sm:text-5xl lg:text-6xl">
-          Plantas que dan vida a{" "}
-          <em className="italic text-[#2f6b45]">tus espacios</em>
+      <img
+        src="/imagenes/plantas/home.jpg"
+        alt="Plantas de Vivero Nativa"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+
+      <div className="absolute inset-0 bg-gradient-to-r from-[#f8f6ef]/95 via-[#f8f6ef]/80 to-[#f8f6ef]/10" />
+
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 sm:py-20">
+        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#2f6b45]">
+          Plantas que dan vida a tus espacios
+        </p>
+
+        <h1 className="mt-5 max-w-xl text-4xl font-semibold leading-[1.08] tracking-tight text-[#203b2d] sm:text-5xl md:text-6xl">
+          Descubre nuestra colección de plantas
         </h1>
-        <p className="mt-3 max-w-md text-base leading-7 text-gray-700 sm:mt-4 sm:text-lg">
-          Cultivadas en nuestro vivero de Lurín y listas para tu hogar, oficina o
+
+        <p className="mt-5 max-w-md text-base leading-7 text-gray-700 sm:text-lg">
+          Naturaleza, frescura y bienestar en cada rincón de tu hogar, oficina o
           jardín.
         </p>
+
+        <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-4">
         <a
           href="#mas-vendidos"
-          className="mt-6 inline-flex min-h-[52px] items-center gap-3 rounded-full bg-[#203b2d] px-6 text-[15px] font-semibold text-[#f8f6ef] shadow-[0_14px_30px_-14px_rgba(32,59,45,0.7)] transition hover:-translate-y-0.5 hover:bg-[#2f6b45] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-green-800 sm:mt-7 sm:px-7 sm:text-base"
+          className="inline-flex min-h-[52px] items-center gap-3 rounded-full bg-[#203b2d] px-6 text-[15px] font-semibold text-[#f8f6ef] shadow-[0_14px_30px_-14px_rgba(32,59,45,0.7)] transition hover:-translate-y-0.5 hover:bg-[#2f6b45] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-green-800 sm:px-7 sm:text-base"
         >
           Ver las más vendidas
           <svg
@@ -174,14 +190,9 @@ function Hero() {
             <path d="M12 5v14M6 13l6 6 6-6" />
           </svg>
         </a>
-      </div>
 
-      <div className="h-52 overflow-hidden rounded-3xl bg-[#e8e5dc] sm:h-72 md:h-[360px] md:flex-[1.15] md:rounded-[28px]">
-        <img
-          src="/imagenes/plantas/home.jpg"
-          alt="Plantas de Vivero Nativa"
-          className="h-full w-full object-cover"
-        />
+        <SocialLinks variant="light" />
+        </div>
       </div>
     </section>
   );
@@ -231,33 +242,76 @@ function NotFoundPage() {
 
 const currentYear = new Date().getFullYear();
 
+const footerLink =
+  "inline-flex min-h-10 items-center text-[15px] text-[#f8f6ef]/80 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white";
+
+function FooterTitle({ children }: { children: string }) {
+  return (
+    <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#d7dfc9]">
+      {children}
+    </h2>
+  );
+}
+
 function Footer() {
   return (
-    <footer className="bg-[#203b2d] px-4 py-8 text-[#f8f6ef] sm:px-6">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 text-center sm:flex-row sm:text-left">
-        <a href="/#inicio" className="flex items-center">
-          <img
-            src="/imagenes/plantas/logo1.png"
-            alt="Vivero Nativa"
-            className="h-12 w-auto object-contain"
-          />
-        </a>
+    <footer className="bg-[#203b2d] px-4 pt-12 text-[#f8f6ef] sm:px-6 sm:pt-16">
+      <div className="mx-auto grid max-w-7xl gap-10 pb-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_0.8fr_1.2fr_1fr] lg:gap-12">
+        <div>
+          <Link to="/" className="inline-flex focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+            {/* El logo es verde oscuro: se muestra en blanco sobre el fondo verde. */}
+            <img
+              src="/imagenes/plantas/logo1.png"
+              alt="Vivero Nativa"
+              className="h-11 w-auto object-contain brightness-0 invert"
+            />
+          </Link>
+          <p className="mt-4 max-w-xs text-[15px] leading-7 text-[#f8f6ef]/75">
+            Tu vivero en Lurín. Te ayudamos a elegir la planta ideal para cada
+            espacio y te la enviamos a cualquier lugar del Perú.
+          </p>
+          <SocialLinks className="mt-6" />
+        </div>
 
-        <nav className="flex flex-wrap justify-center gap-x-6 text-sm text-[#f8f6ef]/90">
-          <a href="/#mas-vendidos" className="py-2.5 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
-            Más vendidos
-          </a>
-          <a href="/#catalogo" className="py-2.5 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
-            Catálogo
-          </a>
-          <a href="/#contacto" className="py-2.5 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
-            Contacto
-          </a>
+        <nav aria-label="Pie de página">
+          <FooterTitle>Explora</FooterTitle>
+          <ul className="mt-4 space-y-1">
+            <li><a href="/#mas-vendidos" className={footerLink}>Más vendidos</a></li>
+            <li><a href="/#catalogo" className={footerLink}>Catálogo</a></li>
+            <li><a href="/#contacto" className={footerLink}>Contacto</a></li>
+          </ul>
         </nav>
 
-        <p className="text-[13px] text-[#f8f6ef]/70">
-          © {currentYear} Vivero Nativa · Lurín, Lima
-        </p>
+        <div>
+          <FooterTitle>Contacto</FooterTitle>
+          <ul className="mt-4 space-y-3 text-[15px] leading-6 text-[#f8f6ef]/80">
+            <li>
+              <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className={footerLink}>
+                Casica - Poro Portón, Lurín 15823
+              </a>
+            </li>
+            <li>
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={`${footerLink} gap-2`}>
+                <WhatsAppIcon className="h-4 w-4" />
+                +51 994 684 483
+              </a>
+            </li>
+            <li>Lunes a domingo, 8:00 a. m. – 6:00 p. m.</li>
+          </ul>
+        </div>
+
+        <div>
+          <FooterTitle>Envíos</FooterTitle>
+          <p className="mt-4 text-[15px] leading-7 text-[#f8f6ef]/80">
+            Enviamos nuestras plantas a todo el Perú, bien embaladas para que
+            lleguen sanas a tu casa.
+          </p>
+        </div>
+      </div>
+
+      <div className="mx-auto flex max-w-7xl flex-col gap-2 border-t border-[#f8f6ef]/15 py-6 text-[13px] text-[#f8f6ef]/60 sm:flex-row sm:justify-between">
+        <p>© {currentYear} Vivero Nativa. Todos los derechos reservados.</p>
+        <p>Lurín, Lima · Perú</p>
       </div>
     </footer>
   );

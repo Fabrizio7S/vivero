@@ -30,8 +30,21 @@ function ProductDetailPage() {
   }
 
   const careSections = [
-    { title: "Iluminación", text: plant.light },
-    { title: "Riego", text: plant.watering },
+    {
+      title: "Iluminación",
+      text: plant.light,
+      icon: (
+        <>
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+        </>
+      ),
+    },
+    {
+      title: "Riego",
+      text: plant.watering,
+      icon: <path d="M12 3s6 6.6 6 11a6 6 0 0 1-12 0c0-4.4 6-11 6-11Z" />,
+    },
   ].filter((section) => section.text);
 
   return (
@@ -79,13 +92,36 @@ function ProductDetailPage() {
             )}
 
             {careSections.length > 0 && (
-              <div className="mt-8 space-y-5">
+              <div className="mt-7 grid gap-3">
                 {careSections.map((section) => (
-                  <section key={section.title}>
-                    <h2 className="font-semibold text-[#203b2d]">
-                      {section.title}
-                    </h2>
-                    <p className="mt-1 text-gray-600">{section.text}</p>
+                  <section
+                    key={section.title}
+                    className="flex gap-3.5 rounded-2xl bg-[#f3f1e8] p-4"
+                  >
+                    <span
+                      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-[#2f6b45]"
+                      aria-hidden="true"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="h-5 w-5"
+                      >
+                        {section.icon}
+                      </svg>
+                    </span>
+                    <div>
+                      <h2 className="font-semibold text-[#203b2d]">
+                        {section.title}
+                      </h2>
+                      <p className="mt-1 text-[15px] leading-6 text-gray-600">
+                        {section.text}
+                      </p>
+                    </div>
                   </section>
                 ))}
               </div>

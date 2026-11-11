@@ -1,4 +1,5 @@
 import type { Plant } from "../types/plant";
+import { descripciones } from "./descripciones";
 import { fotosPorPlanta } from "./fotos";
 import { plants as inventario } from "./plants";
 
@@ -103,8 +104,8 @@ export const catalogo: Plant[] = entradas
     images: fotosPorPlanta[entrada.slug] ?? [],
     shipsNationwide: entrada.envioNacional ?? true,
     shortDescription: entrada.shortDescription ?? "",
-    description: entrada.description ?? "",
-    light: entrada.light ?? "",
-    watering: entrada.watering ?? "",
+    description: entrada.description ?? descripciones[entrada.slug]?.description ?? "",
+    light: entrada.light ?? descripciones[entrada.slug]?.light ?? "",
+    watering: entrada.watering ?? descripciones[entrada.slug]?.watering ?? "",
   }))
   .filter((planta) => planta.images.length > 0);

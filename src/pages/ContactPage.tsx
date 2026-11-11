@@ -1,10 +1,11 @@
+import SocialLinks from "../components/SocialLinks";
 import { whatsappNumber } from "../utils/product";
 
 const whatsappMessage = encodeURIComponent(
   "Hola, Vivero Nativa. Quisiera consultar sobre sus productos.",
 );
 
-const mapsUrl =
+export const mapsUrl =
   "https://www.google.com/maps/search/?api=1&query=Casica%20-%20Poro%20Port%C3%B3n%2C%20Lur%C3%ADn%2015823";
 
 function ContactPage() {
@@ -74,6 +75,11 @@ function ContactPage() {
                 <p className="mt-1 text-sm text-[#f8f6ef]/75">+51 994 684 483</p>
               </div>
             </div>
+          </div>
+
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <p className="text-[15px] font-semibold">Síguenos</p>
+            <SocialLinks />
           </div>
         </div>
 
