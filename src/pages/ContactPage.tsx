@@ -87,6 +87,8 @@ function ContactPage() {
           <img
             src="/Web/helecho-babilonico-3-close.webp"
             alt="Hojas de Helecho Babilónico"
+            width={1200}
+            height={1200}
             loading="lazy"
             className="absolute inset-0 h-full w-full object-cover"
           />

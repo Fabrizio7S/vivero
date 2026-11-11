@@ -1,28 +1,25 @@
-
 <!doctype html>
-<html lang="es">
+<html lang="es-PE">
   <head>
     <meta charset="UTF-8" />
-    <link
-      rel="icon"
-      type="image/png"
-      href="/imagenes/plantas/encabezado.png"
-    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Descubre plantas y productos para tu hogar y jardín en Vivero Nativa."
-    />
+    <meta name="theme-color" content="#203b2d" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/marca/icono-32.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/marca/icono-48.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/marca/icono-192.png" />
+    <link rel="apple-touch-icon" href="/marca/apple-touch-icon.png" />
+    <link rel="preload" as="image" href="/imagenes/plantas/home.webp" fetchpriority="high" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Inter:wght@400;500;600;700&display=swap"
     />
-    <title>Vivero Nativa</title>
+    <!-- Título, descripción, Open Graph y datos estructurados: los escribe vite.config.ts (src/seo.ts) -->
+    <!--seo:start--><title>Vivero Nativa</title><!--seo:end-->
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><!--app:start--><!--app:end--></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

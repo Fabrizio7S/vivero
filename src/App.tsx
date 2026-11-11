@@ -12,6 +12,8 @@ import PlantGrid from "./components/catalog/PlantGrid";
 import SocialLinks from "./components/SocialLinks";
 import ContactPage, { mapsUrl } from "./pages/ContactPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
+import { usePageSeo } from "./hooks/usePageSeo";
+import { homeSeo, notFoundSeo } from "./seo";
 import { whatsappNumber } from "./utils/product";
 
 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
@@ -98,11 +100,14 @@ function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-green-900/10 bg-[#f8f6ef]/95 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-6 gap-y-3 px-4 py-3 sm:px-6">
-        <Link to="/" className="flex shrink-0 items-center">
+        <Link to="/" className="flex shrink-0 items-center" aria-label="Vivero Nativa, ir al inicio">
           <img
-            src="/imagenes/plantas/logo1.png"
+            src="/marca/logo-color.webp"
             alt="Vivero Nativa"
-            className="h-11 w-auto object-contain sm:h-[52px]"
+            width={684}
+            height={128}
+            fetchPriority="high"
+            className="h-9 w-auto sm:h-11"
           />
         </Link>
 
@@ -150,9 +155,12 @@ function Hero() {
       className="relative flex min-h-[340px] scroll-mt-28 items-center overflow-hidden sm:min-h-[400px] md:min-h-[460px]"
     >
       <img
-        src="/imagenes/plantas/home.jpg"
-        alt="Plantas de Vivero Nativa"
-        className="absolute inset-0 h-full w-full object-cover"
+        src="/imagenes/plantas/home.webp"
+        alt="Plantas de interior en macetas de Vivero Nativa: monstera, filodendros y helechos"
+        width={1920}
+        height={729}
+        fetchPriority="high"
+        className="absolute inset-0 h-full w-full object-cover object-right"
       />
 
       <div className="absolute inset-0 bg-gradient-to-r from-[#f8f6ef]/95 via-[#f8f6ef]/80 to-[#f8f6ef]/10" />
@@ -198,7 +206,12 @@ function Hero() {
   );
 }
 
+const homePageSeo = homeSeo();
+const notFoundPageSeo = notFoundSeo();
+
 function CatalogPage() {
+  usePageSeo(homePageSeo);
+
   // Si se llega con una búsqueda desde otra página, ir al catálogo (solo al entrar).
   useEffect(() => {
     if (new URLSearchParams(window.location.search).has("q")) scrollToCatalog();
@@ -222,6 +235,8 @@ function CatalogPage() {
 }
 
 function NotFoundPage() {
+  usePageSeo(notFoundPageSeo);
+
   return (
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28">
       <h1 className="font-display text-3xl font-medium tracking-tight text-[#203b2d] sm:text-4xl">
@@ -259,11 +274,14 @@ function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 pb-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_0.8fr_1.2fr_1fr] lg:gap-12">
         <div>
           <Link to="/" className="inline-flex focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
-            {/* El logo es verde oscuro: se muestra en blanco sobre el fondo verde. */}
+            {/* Versión blanca y amarilla del logo, para el fondo verde. */}
             <img
-              src="/imagenes/plantas/logo1.png"
+              src="/marca/logo-blanco.webp"
               alt="Vivero Nativa"
-              className="h-11 w-auto object-contain brightness-0 invert"
+              width={684}
+              height={128}
+              loading="lazy"
+              className="h-10 w-auto"
             />
           </Link>
           <p className="mt-4 max-w-xs text-[15px] leading-7 text-[#f8f6ef]/75">

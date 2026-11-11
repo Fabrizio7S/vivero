@@ -1,7 +1,9 @@
 import { Link, useParams } from "react-router-dom";
 import ProductGallery from "../components/catalog/ProductGallery";
 import ShippingBadge from "../components/catalog/ShippingBadge";
-import { catalogo } from "../data/catalogo";
+import { useMemo } from "react";
+import { usePageSeo } from "../hooks/usePageSeo";
+import { findPlant, notFoundSeo, productSeo } from "../seo";
 import {
   formatPrice,
   formatPriceLabel,
@@ -11,7 +13,9 @@ import {
 function ProductDetailPage() {
   const { slug } = useParams<{ slug: string }>();
 
-  const plant = catalogo.find((item) => item.slug === slug);
+  const plant = findPlant(slug);
+  const seo = useMemo(() => (plant ? productSeo(plant) : notFoundSeo()), [plant]);
+  usePageSeo(seo);
 
   if (!plant) {
     return (

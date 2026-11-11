@@ -66,7 +66,9 @@ function PlantCard({ plant, rank }: PlantCardProps) {
         <div className="relative aspect-square overflow-hidden bg-[#e8e5dc]">
           <img
             src={mainImage}
-            alt={plant.name}
+            alt={`${plant.name} en maceta, planta de ${plant.category.toLowerCase()}`}
+            width={1200}
+            height={1200}
             loading="lazy"
             className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105"
           />
@@ -76,6 +78,8 @@ function PlantCard({ plant, rank }: PlantCardProps) {
               src={hoverImage}
               alt=""
               aria-hidden="true"
+              width={1200}
+              height={1200}
               loading="lazy"
               className="absolute inset-0 h-full w-full object-cover opacity-0 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
             />

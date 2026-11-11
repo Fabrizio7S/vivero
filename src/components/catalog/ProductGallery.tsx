@@ -17,6 +17,9 @@ function ProductGallery({ images, name }: ProductGalleryProps) {
         <img
           src={images[selected]}
           alt={`${name}, foto ${selected + 1} de ${total}`}
+          width={1200}
+          height={1200}
+          fetchPriority="high"
           className="h-full w-full object-cover"
         />
 
@@ -63,6 +66,8 @@ function ProductGallery({ images, name }: ProductGalleryProps) {
               <img
                 src={image}
                 alt=""
+                width={1200}
+                height={1200}
                 loading="lazy"
                 className="h-full w-full object-cover"
               />
