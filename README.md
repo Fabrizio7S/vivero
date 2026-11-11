@@ -90,6 +90,7 @@ recursos/               Originales (no se publican): logos en alta, foto de port
 
 scripts/
   generar-fotos.mjs     Lee public/Web y crea src/data/fotos.ts (se ejecuta solo)
+  prerender.mjs         Al compilar, pone el diseño completo en el HTML de cada página
 
 src/
   config/vivero.ts      ★ Datos del vivero: contacto, horario, textos, redes
@@ -111,9 +112,11 @@ src/
   hooks/usePageSeo.ts   Actualiza título y descripción al navegar
   types/plant.ts        Tipos de datos
   App.tsx               Rutas de la web
+  main.tsx              Arranque en el navegador (activa el HTML ya generado)
+  entry-server.tsx      Arranque al compilar (genera el HTML de cada página)
   index.css             Colores y fuentes de la marca
 
-vite.config.ts          Al compilar: crea una página HTML por planta y el sitemap.xml
+vite.config.ts          Al compilar: crea una página HTML por planta (con su SEO) y el sitemap.xml
 vercel.json             Configuración de Vercel (direcciones limpias)
 ```
 
@@ -121,7 +124,10 @@ vercel.json             Configuración de Vercel (direcciones limpias)
 
 ---
 
-## SEO (Google)
+## SEO (Google) y velocidad
+
+- Al compilar, cada página se genera con su diseño completo en el HTML (prerender):
+  se ve al instante, sin esperar a JavaScript, y Google lee la página real.
 
 - Cada planta tiene su propia página `https://www.viveronativa.com/producto/<slug>` con
   título, descripción, foto y datos estructurados (Product + BreadcrumbList).

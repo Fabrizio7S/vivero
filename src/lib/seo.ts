@@ -216,37 +216,8 @@ export function renderHead(seo: PageSeo): string {
   return lines.filter(Boolean).join("\n    ");
 }
 
-// Contenido en HTML puro dentro de <div id="root">, para buscadores que no
-// ejecutan JavaScript. React lo reemplaza en cuanto carga la página.
-export function renderFallback(seo: PageSeo, plant?: Plant): string {
-  const box = 'style="max-width:72rem;margin:0 auto;padding:2.5rem 1rem;line-height:1.6"';
-
-  if (plant) {
-    return `<main ${box}>
-      <h1>${escapeHtml(plant.name)}</h1>
-      <img src="${plant.images[0]}" alt="${escapeHtml(plant.name)}" width="1200" height="1200" style="max-width:320px;height:auto" />
-      <p>${escapeHtml(plant.description)}</p>
-      <p><strong>Iluminación:</strong> ${escapeHtml(plant.light)}</p>
-      <p><strong>Riego:</strong> ${escapeHtml(plant.watering)}</p>
-      <p>Envío a todo el Perú.</p>
-      <p><a href="/">Ver todas las plantas de Vivero Nativa</a></p>
-    </main>`;
-  }
-
-  const links = catalogo
-    .map((p) => `<li><a href="/producto/${p.slug}">${escapeHtml(p.name)}</a></li>`)
-    .join("");
-
-  return `<main ${box}>
-      <h1>Descubre nuestra colección de plantas</h1>
-      <p>${escapeHtml(seo.description)}</p>
-      <h2>Nuestras plantas</h2>
-      <ul>${links}</ul>
-    </main>`;
-}
-
 // Mapa del sitio. Las plantas nuevas se añaden solas: basta con agregarlas a
-// src/data/catalogo.ts y poner sus fotos en public/Web. Para una página nueva
+// src/data/plantas.ts y poner sus fotos en public/Web. Para una página nueva
 // (por ejemplo /nosotros), añádela a la lista `pages` de esta función.
 export function renderSitemap(lastmod: string): string {
   const pages = [

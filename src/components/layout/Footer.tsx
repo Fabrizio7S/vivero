@@ -86,7 +86,8 @@ function Footer() {
       </div>
 
       <div className="mx-auto flex max-w-7xl flex-col gap-2 border-t border-crema/15 py-6 text-[13px] text-crema/60 sm:flex-row sm:justify-between">
-        <p>
+        {/* El año se calcula también al compilar: si cambió desde entonces, no es un error. */}
+        <p suppressHydrationWarning>
           © {currentYear} {vivero.nombre}. Todos los derechos reservados.
         </p>
         <p>

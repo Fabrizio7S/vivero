@@ -8,7 +8,7 @@
     "predev": "npm run fotos",
     "dev": "vite",
     "prebuild": "npm run fotos",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist-server && node scripts/prerender.mjs",
     "lint": "oxlint",
     "preview": "vite preview"
   },

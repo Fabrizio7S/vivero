@@ -4,48 +4,36 @@ import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import { catalogo } from "./src/lib/catalogo";
-import {
-  homeSeo,
-  productSeo,
-  renderFallback,
-  renderHead,
-  renderSitemap,
-  type PageSeo,
-} from "./src/lib/seo";
-import type { Plant } from "./src/types/plant";
+import { homeSeo, productSeo, renderHead, renderSitemap, type PageSeo } from "./src/lib/seo";
 
-function fillPage(html: string, seo: PageSeo, plant?: Plant): string {
-  return html
-    .replace(
-      /<!--seo:start-->[\s\S]*?<!--seo:end-->/,
-      `<!--seo:start-->${renderHead(seo)}<!--seo:end-->`,
-    )
-    .replace(
-      /<!--app:start-->[\s\S]*?<!--app:end-->/,
-      `<!--app:start-->${renderFallback(seo, plant)}<!--app:end-->`,
-    );
+// Escribe título, descripción, Open Graph y datos estructurados en el <head>.
+function fillHead(html: string, seo: PageSeo): string {
+  return html.replace(
+    /<!--seo:start-->[\s\S]*?<!--seo:end-->/,
+    `<!--seo:start-->${renderHead(seo)}<!--seo:end-->`,
+  );
 }
 
-// SEO al compilar:
-// - Portada: título, descripción, Open Graph y datos estructurados en index.html.
-// - Una página HTML por planta (dist/producto/<slug>.html) con sus propios datos,
-//   para que Google vea cada planta aunque no ejecute JavaScript.
+// SEO al compilar (`npm run build`):
+// - Portada: datos SEO en index.html.
+// - Una página HTML por planta (dist/producto/<slug>.html) con sus propios datos SEO.
 // - sitemap.xml con todas las páginas.
+// Después, scripts/prerender.mjs pone dentro de cada página el diseño completo.
 function seoPlugin(): Plugin {
   let outDir = "dist";
-  let isBuild = false;
+  let isClientBuild = false;
 
   return {
     name: "vivero-seo",
     configResolved(config) {
       outDir = join(config.root, config.build.outDir);
-      isBuild = config.command === "build";
+      isClientBuild = config.command === "build" && !config.build.ssr;
     },
     transformIndexHtml(html) {
-      return fillPage(html, homeSeo());
+      return fillHead(html, homeSeo());
     },
     closeBundle() {
-      if (!isBuild) return;
+      if (!isClientBuild) return;
 
       const template = readFileSync(join(outDir, "index.html"), "utf8");
       mkdirSync(join(outDir, "producto"), { recursive: true });
@@ -53,7 +41,7 @@ function seoPlugin(): Plugin {
       for (const plant of catalogo) {
         writeFileSync(
           join(outDir, "producto", `${plant.slug}.html`),
-          fillPage(template, productSeo(plant), plant),
+          fillHead(template, productSeo(plant)),
         );
       }
 
