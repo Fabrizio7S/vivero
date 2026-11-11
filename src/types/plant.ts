@@ -20,6 +20,8 @@ export interface Plant {
   // Precios del inventario. Vacío = "Consultar precio"; varios = según tamaño.
   prices: number[];
   images: string[];
+  // Se puede enviar a todo el Perú.
+  shipsNationwide: boolean;
   shortDescription: string;
   description: string;
   light: string;

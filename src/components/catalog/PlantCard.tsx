@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import type { Plant } from "../../types/plant";
 import { formatPriceLabel } from "../../utils/product";
+import ShippingBadge from "./ShippingBadge";
 
 interface PlantCardProps {
   plant: Plant;
@@ -61,6 +62,12 @@ function PlantCard({ plant }: PlantCardProps) {
         >
           {formatPriceLabel(plant.prices)}
         </p>
+
+        {plant.shipsNationwide && (
+          <div className="mt-3">
+            <ShippingBadge />
+          </div>
+        )}
 
         {plant.shortDescription && (
           <p className="mt-2 text-sm leading-6 text-gray-600">

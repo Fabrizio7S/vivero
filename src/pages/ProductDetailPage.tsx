@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import ProductGallery from "../components/catalog/ProductGallery";
+import ShippingBadge from "../components/catalog/ShippingBadge";
 import { catalogo } from "../data/catalogo";
 import {
   formatPrice,
@@ -65,6 +66,12 @@ function ProductDetailPage() {
                 Precio según tamaño:{" "}
                 {plant.prices.map((price) => formatPrice(price)).join(" · ")}
               </p>
+            )}
+
+            {plant.shipsNationwide && (
+              <div className="mt-4">
+                <ShippingBadge size="md" />
+              </div>
             )}
 
             {plant.description && (
