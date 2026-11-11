@@ -1,14 +1,18 @@
 
 import { useMemo, useRef, useState } from "react";
-import { catalogo } from "../../data/catalogo";
+import { catalogo, masVendidos } from "../../data/catalogo";
 import PlantCard from "./PlantCard";
 
 const ITEMS_PER_PAGE = 9;
-const ALL_CATEGORIES = "Todas";
+const BEST_SELLERS = "Más vendidos";
 
-// Solo las categorías que tienen productos con fotos.
+// Top de ventas en su orden, luego las categorías que tienen productos con fotos.
+const bestSellers = masVendidos
+  .map((slug) => catalogo.find((plant) => plant.slug === slug))
+  .filter((plant) => plant !== undefined);
+
 const categories = [
-  ALL_CATEGORIES,
+  BEST_SELLERS,
   ...new Set(catalogo.map((plant) => plant.category)),
 ];
 
@@ -22,7 +26,7 @@ function normalize(text: string): string {
 
 function PlantGrid() {
   const [search, setSearch] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState(ALL_CATEGORIES);
+  const [selectedCategory, setSelectedCategory] = useState(BEST_SELLERS);
   const [currentPage, setCurrentPage] = useState(1);
 
   const catalogTopRef = useRef<HTMLElement>(null);
@@ -30,13 +34,18 @@ function PlantGrid() {
   const filteredPlants = useMemo(() => {
     const normalizedSearch = normalize(search.trim());
 
+    // En "Más vendidos" sin búsqueda se muestra el top; al escribir se busca en todo.
+    if (selectedCategory === BEST_SELLERS && !normalizedSearch) {
+      return bestSellers;
+    }
+
     return catalogo.filter((plant) => {
       const matchesSearch =
         normalize(plant.name).includes(normalizedSearch) ||
         normalize(plant.category).includes(normalizedSearch);
 
       const matchesCategory =
-        selectedCategory === ALL_CATEGORIES ||
+        selectedCategory === BEST_SELLERS ||
         plant.category === selectedCategory;
 
       return matchesSearch && matchesCategory;
@@ -197,7 +206,7 @@ function PlantGrid() {
             type="button"
             onClick={() => {
               setSearch("");
-              setSelectedCategory(ALL_CATEGORIES);
+              setSelectedCategory(BEST_SELLERS);
               setCurrentPage(1);
             }}
             className="mt-4 min-h-10 text-sm font-semibold text-green-800 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800"

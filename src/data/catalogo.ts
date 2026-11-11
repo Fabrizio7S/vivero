@@ -26,12 +26,12 @@ const entradas: EntradaCatalogo[] = [
   { slug: "aglaonema-rosada-legacy", name: "Aglaonema Rosada Legacy", category: "Interior" },
   { slug: "alocasia-amazonica", name: "Alocasia Amazónica", category: "Interior", inventario: ["Alocasia Amazónica"] },
   { slug: "alocasia-frydek", name: "Alocasia Frydek", category: "Interior", inventario: ["Alocasia Frydek"] },
-  { slug: "anturio-amarillo", name: "Anturio Amarillo", category: "Interior" },
-  { slug: "anturio-chocolate", name: "Anturio Chocolate", category: "Interior" },
-  { slug: "anturio-magnifico", name: "Anturio Magnífico", category: "Interior" },
-  { slug: "anturio-morado", name: "Anturio Morado", category: "Interior" },
-  { slug: "anturio-rojo", name: "Anturio Rojo", category: "Interior" },
-  { slug: "anturio-rosado", name: "Anturio Rosado", category: "Interior" },
+  { slug: "anturio-amarillo", name: "Anturio Amarillo", category: "Interior", inventario: ["Anturio"] },
+  { slug: "anturio-chocolate", name: "Anturio Chocolate", category: "Interior", inventario: ["Anturio"] },
+  { slug: "anturio-magnifico", name: "Anturio Magnífico", category: "Interior", inventario: ["Anturio"] },
+  { slug: "anturio-morado", name: "Anturio Morado", category: "Interior", inventario: ["Anturio"] },
+  { slug: "anturio-rojo", name: "Anturio Rojo", category: "Interior", inventario: ["Anturio"] },
+  { slug: "anturio-rosado", name: "Anturio Rosado", category: "Interior", inventario: ["Anturio"] },
   { slug: "bambu-de-la-suerte", name: "Bambú de la Suerte", category: "Interior" },
   { slug: "begonia-cruz-de-hierro", name: "Begonia Cruz de Hierro", category: "Interior" },
   { slug: "begonia-rex-fucsia", name: "Begonia Rex Fucsia", category: "Interior" },
@@ -74,6 +74,14 @@ const entradas: EntradaCatalogo[] = [
   { slug: "tradescantia", name: "Tradescantia", category: "Interior", inventario: ["Tradescantia"] },
   { slug: "zamioculca-negra", name: "Zamioculca Negra", category: "Interior" },
   { slug: "zamioculca-verde", name: "Zamioculca Verde", category: "Interior" },
+];
+
+// Top de ventas, en orden. Es lo primero que ve el cliente en el catálogo.
+export const masVendidos: string[] = [
+  "helecho-babilonico",
+  "hiedra-vinca",
+  "anturio-rojo",
+  "caladium-blanco",
 ];
 
 function preciosDelInventario(nombres: string[] = []): number[] {
