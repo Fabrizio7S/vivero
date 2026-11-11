@@ -2,10 +2,10 @@
 //   data/plantas.ts (textos) + data/inventario.ts (precios) + data/fotos.ts (fotos).
 // No hace falta editar este archivo para agregar o cambiar plantas.
 
-import { fotosPorPlanta } from "../data/fotos";
-import { inventario } from "../data/inventario";
-import { masVendidos, plantas } from "../data/plantas";
-import type { Plant } from "../types/plant";
+import { fotosPorPlanta } from "../data/fotos.ts";
+import { inventario } from "../data/inventario.ts";
+import { masVendidos, plantas } from "../data/plantas.ts";
+import type { Plant } from "../types/plant.ts";
 
 function preciosDelInventario(nombres: string[] = []): number[] {
   const precios = inventario

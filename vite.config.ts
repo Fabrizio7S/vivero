@@ -3,8 +3,8 @@ import { join } from "node:path";
 import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
-import { catalogo } from "./src/lib/catalogo";
-import { homeSeo, productSeo, renderHead, renderSitemap, type PageSeo } from "./src/lib/seo";
+import { catalogo } from "./src/lib/catalogo.ts";
+import { homeSeo, productSeo, renderHead, renderSitemap, type PageSeo } from "./src/lib/seo.ts";
 
 // Escribe título, descripción, Open Graph y datos estructurados en el <head>.
 function fillHead(html: string, seo: PageSeo): string {

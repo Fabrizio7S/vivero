@@ -14,7 +14,7 @@
 //  - Una planta sin fotos no aparece en la web (aunque esté en esta lista).
 // ============================================================================
 
-import type { PlantaDatos } from "../types/plant";
+import type { PlantaDatos } from "../types/plant.ts";
 
 // Plantas destacadas en "Las plantas más vendidas", en este orden (por slug).
 export const masVendidos: string[] = [

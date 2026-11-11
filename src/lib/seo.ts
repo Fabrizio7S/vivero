@@ -6,9 +6,9 @@
 // Para cambiar el título o la descripción de la portada en Google: homeSeo().
 // Para cambiar el formato del título de las plantas: productSeo().
 
-import { redesSociales, vivero as datosVivero } from "../config/vivero";
-import type { Plant } from "../types/plant";
-import { catalogo } from "./catalogo";
+import { redesSociales, vivero as datosVivero } from "../config/vivero.ts";
+import type { Plant } from "../types/plant.ts";
+import { catalogo } from "./catalogo.ts";
 
 export const SITE_URL = datosVivero.dominio;
 export const SITE_NAME = datosVivero.nombre;

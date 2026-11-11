@@ -4,7 +4,7 @@
 //  Si un nombre se repite con varios precios, son tamaños distintos.
 // ============================================================================
 
-import type { ItemInventario } from "../types/plant";
+import type { ItemInventario } from "../types/plant.ts";
 
 export const inventario: ItemInventario[] = [
   { categoria: "Interior", nombre: "Orquídea", precio: 90 },
