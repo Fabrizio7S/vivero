@@ -6,7 +6,7 @@
 // Para cambiar el título o la descripción de la portada en Google: homeSeo().
 // Para cambiar el formato del título de las plantas: productSeo().
 
-import { redesSociales, vivero as datosVivero } from "../config/vivero.ts";
+import { mapsUrl, redesSociales, vivero as datosVivero } from "../config/vivero.ts";
 import type { Plant } from "../types/plant.ts";
 import { catalogo } from "./catalogo.ts";
 
@@ -16,19 +16,16 @@ export const SITE_NAME = datosVivero.nombre;
 const SHARE_IMAGE = `${SITE_URL}/marca/compartir.jpg`;
 const LOGO = `${SITE_URL}/marca/logo-cuadrado.png`;
 
+// Etiqueta "keywords" de la portada. Google ya no la usa para posicionar (Bing un
+// poco); lo que cuenta es el título, la descripción y el texto visible de la página.
 export const HOME_KEYWORDS = [
   "Vivero Nativa",
+  "Vivero Nativa Lurín",
   "vivero en Lurín",
   "vivero en Lima",
-  "venta de plantas",
+  "venta de plantas en Lima",
   "plantas de interior",
-  "plantas a domicilio",
-  "envío de plantas a todo el Perú",
-  "anturios",
-  "helechos",
-  "calatheas",
-  "monstera",
-  "begonias",
+  "plantas con envío a todo el Perú",
 ].join(", ");
 
 export interface PageSeo {
@@ -63,7 +60,10 @@ const viveroSchema = {
   "@type": "GardenStore",
   "@id": viveroId,
   name: SITE_NAME,
+  alternateName: datosVivero.seo.nombresAlternativos,
+  description: datosVivero.seo.descripcionNegocio,
   url: `${SITE_URL}/`,
+  hasMap: mapsUrl,
   logo: LOGO,
   image: SHARE_IMAGE,
   telephone: `+${datosVivero.whatsapp}`,
@@ -88,9 +88,8 @@ const viveroSchema = {
 export function homeSeo(): PageSeo {
   return {
     path: "/",
-    title: "Vivero Nativa | Venta de plantas de interior en Lima",
-    description:
-      "Vivero en Lurín, Lima. Anturios, helechos, calatheas, monsteras, begonias y más plantas de interior con envío a todo el Perú. Pide por WhatsApp.",
+    title: datosVivero.seo.titulo,
+    description: datosVivero.seo.descripcion,
     image: SHARE_IMAGE,
     imageAlt: "Plantas de interior de Vivero Nativa",
     type: "website",
@@ -136,14 +135,21 @@ export function productSeo(plant: Plant): PageSeo {
           };
 
   // Google muestra unos 60 caracteres del título: si no cabe, versión corta.
-  const longTitle = `${plant.name} – precio y cuidados | ${SITE_NAME}`;
-  const title = longTitle.length <= 60 ? longTitle : `${plant.name} | ${SITE_NAME}`;
+  // Nombre de la planta al inicio (es lo que busca la gente). Google muestra unos
+  // 60 caracteres: se usa la versión más completa que quepa.
+  const title =
+    [
+      `${plant.name}: precio en Lima y cuidados | ${SITE_NAME}`,
+      `${plant.name}: precio y cuidados | ${SITE_NAME}`,
+    ].find((option) => option.length <= 60) ?? `${plant.name} | ${SITE_NAME}`;
+
+  const { distrito, ciudad } = datosVivero.direccion;
 
   return {
     path: `/producto/${plant.slug}`,
     title,
     description: truncate(
-      `${plant.name}${priceText(plant.prices)}, con envío a todo el Perú. ${plant.description}`,
+      `${plant.name}${priceText(plant.prices)} en ${SITE_NAME}, ${distrito} (${ciudad}). Envío a todo el Perú. ${plant.description}`,
     ),
     image: images[0] ?? SHARE_IMAGE,
     imageAlt: plant.name,

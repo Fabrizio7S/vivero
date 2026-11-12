@@ -38,6 +38,22 @@ export const vivero = {
     // Aviso bajo el precio en la ficha de cada planta.
     notaPrecio: "Precio no incluye maceta.",
   },
+
+  // Cómo aparece la portada en Google.
+  // Reglas: palabra clave principal al inicio, texto natural (nunca listas de
+  // palabras sueltas) y solo cosas ciertas.
+  seo: {
+    // Máximo 60 caracteres (Google corta el resto).
+    titulo: "Vivero Nativa Lurín | Venta de plantas en Lima",
+    // Máximo 160 caracteres.
+    descripcion:
+      "Vivero Nativa, tu vivero en Lurín, Lima: plantas de interior y exterior como anturios, helechos, calatheas y monsteras. Envío a todo el Perú. Pide por WhatsApp.",
+    // Otros nombres reales con los que buscan el negocio.
+    nombresAlternativos: ["Vivero Nativa Lurín"],
+    // Descripción del negocio para la ficha de Google (datos estructurados).
+    descripcionNegocio:
+      "Vivero en Lurín, Lima. Venta de plantas de interior y de exterior con envío a todo el Perú y pedidos por WhatsApp.",
+  },
 } as const;
 
 // Redes sociales: aparecen en la portada, en contacto y en el footer.
