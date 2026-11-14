@@ -13,9 +13,8 @@ Hecha con React + TypeScript + Vite + Tailwind CSS.
 | ----------------------------------------------- | ---------------------------------------- |
 | Cambiar teléfono, dirección, horario o textos   | `src/config/vivero.ts`                   |
 | Cambiar o agregar una red social                | `src/config/vivero.ts` (`redesSociales`) |
-| Cambiar un precio                               | `src/data/inventario.ts`                 |
+| Cambiar precios, descripciones o cuidados       | El Excel → descargar CSV → `npm run excel` (ver abajo) |
 | Agregar una planta nueva                        | `public/Web/` (fotos) + `src/data/plantas.ts` |
-| Cambiar la descripción o cuidados de una planta | `src/data/plantas.ts`                    |
 | Cambiar las plantas "más vendidas"              | `src/data/plantas.ts` (`masVendidos`)    |
 | Cambiar los colores de la marca                 | `src/index.css` (bloque `@theme`)        |
 | Cambiar el título/descripción en Google         | `src/lib/seo.ts` (`homeSeo`)             |
@@ -57,10 +56,27 @@ Hecha con React + TypeScript + Vite + Tailwind CSS.
 
 ---
 
+## Actualizar desde el Excel
+
+Precios, categoría, nombre científico, descripción, luz, riego y cuidados salen del
+Google Sheets **"Catálogo Vivero Nativa (web)"**.
+
+1. En Google Sheets: **Archivo → Descargar → Valores separados por comas (.csv)**.
+2. Guarda el archivo como `recursos/catalogo-excel.csv` (reemplaza el anterior).
+3. Ejecuta `npm run excel`: regenera `src/data/inventario.ts`.
+4. `npm run build` avisa si alguna planta publicada no está en el Excel o no tiene precio.
+5. Sube los cambios (ver abajo).
+
+Si una columna del Excel está vacía para una planta, la web usa el texto de `src/data/plantas.ts`.
+Los nombres científicos marcados "por verificar" no se muestran.
+
+---
+
 ## Comandos
 
 ```bash
 npm install        # solo la primera vez
+npm run excel      # importar el Excel (recursos/catalogo-excel.csv)
 npm run dev        # ver la web en local: http://localhost:5173
 npm run build      # versión de producción (carpeta dist/)
 npm run preview    # ver la versión de producción: http://localhost:4173
@@ -86,17 +102,18 @@ public/                 Archivos que se publican tal cual
   imagenes/portada.webp Foto de la portada
   robots.txt            Instrucciones para Google
 
-recursos/               Originales (no se publican): logos en alta, foto de portada original
+recursos/               Originales (no se publican): logos, portada original y catalogo-excel.csv
 
 scripts/
   generar-fotos.mjs     Lee public/Web y crea src/data/fotos.ts (se ejecuta solo)
+  importar-excel.mjs    Lee recursos/catalogo-excel.csv y crea src/data/inventario.ts
   prerender.mjs         Al compilar, pone el diseño completo en el HTML de cada página
 
 src/
   config/vivero.ts      ★ Datos del vivero: contacto, horario, textos, redes
   data/
     plantas.ts          ★ Plantas de la web: textos, cuidados y "más vendidos"
-    inventario.ts       ★ Precios (copia del Excel)
+    inventario.ts       Generado desde el Excel (npm run excel): no editar
     fotos.ts            Generado automáticamente: no editar
   lib/
     catalogo.ts         Junta plantas + precios + fotos

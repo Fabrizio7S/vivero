@@ -70,6 +70,10 @@ function PlantPage() {
               {plant.name}
             </h1>
 
+            {plant.scientificName && (
+              <p className="mt-1 text-[15px] italic text-gray-500">{plant.scientificName}</p>
+            )}
+
             <p className="mt-4 text-2xl font-semibold tracking-tight text-bosque sm:text-3xl">
               {formatPriceLabel(plant.prices)}
             </p>
@@ -103,6 +107,26 @@ function PlantPage() {
                   </CareTip>
                 )}
               </div>
+            )}
+
+            {plant.height && (
+              <p className="mt-4 text-[15px] text-gray-600">
+                <span className="font-semibold text-bosque">Altura aproximada:</span> {plant.height}
+              </p>
+            )}
+
+            {plant.careTips.length > 0 && (
+              <section className="mt-6">
+                <h2 className="font-semibold text-bosque">Cuidados recomendados</h2>
+                <ul className="mt-2 space-y-1.5 text-[15px] leading-6 text-gray-600">
+                  {plant.careTips.map((tip) => (
+                    <li key={tip} className="flex gap-2.5">
+                      <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-hoja" aria-hidden="true" />
+                      {tip}
+                    </li>
+                  ))}
+                </ul>
+              </section>
             )}
 
             <a

@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "fotos": "node scripts/generar-fotos.mjs",
+    "excel": "node scripts/importar-excel.mjs",
     "predev": "npm run fotos",
     "dev": "vite",
     "prebuild": "npm run fotos",

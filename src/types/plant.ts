@@ -1,16 +1,26 @@
-// Fila del inventario (src/data/inventario.ts, copia del Excel).
+// Producto del inventario (src/data/inventario.ts, generado desde el Excel).
 export interface ItemInventario {
-  categoria: string;
+  categoria?: string;
   nombre: string;
-  precio: number;
+  // Varios precios = tamaños distintos (ordenados de menor a mayor).
+  precios: number[];
+  nombreCientifico?: string;
+  descripcion?: string;
+  luz?: string;
+  riego?: string;
+  altura?: string;
+  stock?: string;
+  cuidados?: string[];
 }
 
 // Datos de una planta tal como se escriben en src/data/plantas.ts.
+// Precio y textos salen del Excel; los textos de aquí se usan solo si el Excel
+// todavía no los tiene para esa planta.
 export interface PlantaDatos {
   slug: string;
   nombre: string;
   categoria: string;
-  // Nombre(s) en el inventario de los que se toma el precio.
+  // Nombre(s) exactos en el Excel, si son distintos a `nombre`.
   nombresEnInventario?: string[];
   // Por defecto todas tienen envío a todo el Perú.
   envioNacional?: boolean;
@@ -29,7 +39,10 @@ export interface Plant {
   prices: number[];
   images: string[];
   shipsNationwide: boolean;
+  scientificName?: string;
   description: string;
   light: string;
   watering: string;
+  height?: string;
+  careTips: string[];
 }

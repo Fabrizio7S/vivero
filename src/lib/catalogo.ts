@@ -1,33 +1,55 @@
 // Arma el catálogo de la web juntando:
-//   data/plantas.ts (textos) + data/inventario.ts (precios) + data/fotos.ts (fotos).
+//   data/inventario.ts (Excel: precios y textos) + data/plantas.ts (qué plantas
+//   se muestran y textos de respaldo) + data/fotos.ts (fotos).
 // No hace falta editar este archivo para agregar o cambiar plantas.
 
 import { fotosPorPlanta } from "../data/fotos.ts";
 import { inventario } from "../data/inventario.ts";
 import { masVendidos, plantas } from "../data/plantas.ts";
-import type { Plant } from "../types/plant.ts";
+import type { ItemInventario, Plant, PlantaDatos } from "../types/plant.ts";
 
-function preciosDelInventario(nombres: string[] = []): number[] {
-  const precios = inventario
-    .filter((item) => nombres.includes(item.nombre))
-    .map((item) => item.precio);
+const normalizar = (texto: string) =>
+  texto
+    .toLocaleLowerCase("es")
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .trim();
 
-  return [...new Set(precios)].sort((a, b) => a - b);
+const porNombre = new Map(inventario.map((item) => [normalizar(item.nombre), item]));
+
+// Productos del Excel que corresponden a una planta de la web.
+function itemsDelExcel(planta: PlantaDatos): ItemInventario[] {
+  const nombres = planta.nombresEnInventario ?? [planta.nombre];
+  return nombres
+    .map((nombre) => porNombre.get(normalizar(nombre)))
+    .filter((item) => item !== undefined);
 }
+
+// Plantas de data/plantas.ts que no se encontraron en el Excel (aviso al compilar).
+export const sinExcel: string[] = [];
 
 // Todas las plantas con al menos una foto, en el orden de data/plantas.ts.
 export const catalogo: Plant[] = plantas
-  .map((planta) => ({
-    slug: planta.slug,
-    name: planta.nombre,
-    category: planta.categoria,
-    prices: preciosDelInventario(planta.nombresEnInventario),
-    images: fotosPorPlanta[planta.slug] ?? [],
-    shipsNationwide: planta.envioNacional ?? true,
-    description: planta.descripcion,
-    light: planta.luz,
-    watering: planta.riego,
-  }))
+  .map((planta): Plant => {
+    const items = itemsDelExcel(planta);
+    if (items.length === 0) sinExcel.push(planta.nombre);
+    const excel = items[0];
+
+    return {
+      slug: planta.slug,
+      name: planta.nombre,
+      category: excel?.categoria ?? planta.categoria,
+      prices: [...new Set(items.flatMap((item) => item.precios))].sort((a, b) => a - b),
+      images: fotosPorPlanta[planta.slug] ?? [],
+      shipsNationwide: planta.envioNacional ?? true,
+      scientificName: excel?.nombreCientifico,
+      description: excel?.descripcion ?? planta.descripcion,
+      light: excel?.luz ?? planta.luz,
+      watering: excel?.riego ?? planta.riego,
+      height: excel?.altura,
+      careTips: excel?.cuidados ?? [],
+    };
+  })
   .filter((plant) => plant.images.length > 0);
 
 // Top de ventas en su orden (solo las que se muestran en la web).
