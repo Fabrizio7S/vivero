@@ -81,3 +81,35 @@ export const DropIcon = (props: IconProps) => (
     <path d="M12 3s6 6.6 6 11a6 6 0 0 1-12 0c0-4.4 6-11 6-11Z" />
   </Icon>
 );
+
+export const CartIcon = (props: IconProps) => (
+  <Icon {...props}>
+    <path d="M3 4h2l2.4 11.2a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.2L21 8H6.2" />
+    <circle cx="9.5" cy="20" r="1.2" />
+    <circle cx="17" cy="20" r="1.2" />
+  </Icon>
+);
+
+export const PlusIcon = (props: IconProps) => (
+  <Icon strokeWidth={2} {...props}>
+    <path d="M12 5v14M5 12h14" />
+  </Icon>
+);
+
+export const MinusIcon = (props: IconProps) => (
+  <Icon strokeWidth={2} {...props}>
+    <path d="M5 12h14" />
+  </Icon>
+);
+
+export const TrashIcon = (props: IconProps) => (
+  <Icon {...props}>
+    <path d="M4 7h16M10 11v6M14 11v6M6 7l1 12a1.5 1.5 0 0 0 1.5 1.4h7a1.5 1.5 0 0 0 1.5-1.4L18 7M9 7V4.5A1 1 0 0 1 10 3.5h4a1 1 0 0 1 1 1V7" />
+  </Icon>
+);
+
+export const CloseIcon = (props: IconProps) => (
+  <Icon strokeWidth={2} {...props}>
+    <path d="M6 6l12 12M18 6 6 18" />
+  </Icon>
+);

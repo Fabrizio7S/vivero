@@ -125,12 +125,14 @@ src/
   lib/
     catalogo.ts         Junta plantas + precios + fotos
     formato.ts          Formato de precios, búsqueda sin tildes, enlace de WhatsApp
+    carrito.tsx         Carrito: productos, cantidades, total y mensaje del pedido
     seo.ts              Títulos, descripciones, datos para Google y sitemap
     scroll.ts           Ids de las secciones de la portada
   components/
     layout/             Encabezado, buscador, footer
     home/               Secciones de la portada (portada, más vendidas, catálogo, contacto)
-    plant/              Tarjeta, galería y distintivo de envío de una planta
+    plant/              Tarjeta, galería, tamaños y distintivo de envío de una planta
+    cart/               Botón y panel del carrito
     ui/                 Íconos y botones de redes sociales
   pages/                Páginas: portada, ficha de planta, no encontrada
   hooks/usePageSeo.ts   Actualiza título y descripción al navegar
@@ -145,6 +147,16 @@ vercel.json             Configuración de Vercel (direcciones limpias)
 ```
 
 ★ = archivos pensados para editarse a mano.
+
+---
+
+## Carrito de compras
+
+- Funciona solo en el navegador del cliente (se guarda en `localStorage`): no hay servidor
+  ni base de datos.
+- El cliente agrega plantas (con su tamaño), cambia cantidades y pulsa **"Enviar pedido por
+  WhatsApp"**: se abre WhatsApp con el pedido completo y el total.
+- Código: `src/lib/carrito.tsx` (lógica y mensaje) y `src/components/cart/` (botón y panel).
 
 ---
 

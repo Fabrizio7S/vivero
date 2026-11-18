@@ -1,20 +1,28 @@
 import { Link } from "react-router-dom";
-import { formatPriceLabel, productWhatsAppUrl } from "../../lib/formato";
+import { useCart } from "../../lib/carrito";
+import { formatPriceLabel } from "../../lib/formato";
 import type { Plant } from "../../types/plant";
-import { ArrowRightIcon, TruckIcon } from "../ui/icons";
+import { ArrowRightIcon, CartIcon, TruckIcon } from "../ui/icons";
 import ShippingBadge from "./ShippingBadge";
 
 interface PlantCardProps {
   plant: Plant;
-  // Puesto en el top de ventas; muestra el número y el botón "Pedir".
+  // Puesto en el top de ventas; muestra el número y botones más grandes.
   rank?: number;
 }
+
+const bestSellerButton =
+  "inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-bosque px-3.5 text-sm font-semibold text-crema transition hover:-translate-y-0.5 hover:bg-hoja focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800 sm:min-h-11 sm:px-4";
+const roundButton =
+  "flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-menta text-bosque transition hover:bg-bosque hover:text-crema focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800 sm:h-11 sm:w-11";
 
 // Tarjeta de una planta (catálogo y más vendidas).
 function PlantCard({ plant, rank }: PlantCardProps) {
   const [mainImage, hoverImage] = plant.images;
   const detailUrl = `/producto/${plant.slug}`;
   const isBestSeller = rank !== undefined;
+  const hasSizes = plant.sizes.length > 0;
+  const { add } = useCart();
 
   return (
     <article
@@ -98,25 +106,26 @@ function PlantCard({ plant, rank }: PlantCardProps) {
             {formatPriceLabel(plant.prices)}
           </p>
 
-          {isBestSeller ? (
-            <a
-              href={productWhatsAppUrl(plant.name)}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Pedir ${plant.name} por WhatsApp`}
-              className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-bosque px-3.5 text-sm font-semibold text-crema transition hover:-translate-y-0.5 hover:bg-hoja focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800 sm:min-h-11 sm:px-4"
-            >
-              Pedir
-              <ArrowRightIcon className="h-4 w-4" />
-            </a>
-          ) : (
+          {/* Con tamaños hay que elegir uno en la ficha; sin tamaños se agrega directo. */}
+          {hasSizes ? (
             <Link
               to={detailUrl}
-              aria-label={`Ver detalles de ${plant.name}`}
-              className="hidden h-10 w-10 shrink-0 items-center sm:flex justify-center rounded-full bg-menta text-bosque transition hover:bg-bosque hover:text-crema focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800 sm:h-11 sm:w-11"
+              aria-label={`Elegir tamaño de ${plant.name}`}
+              className={isBestSeller ? bestSellerButton : roundButton}
             >
-              <ArrowRightIcon />
+              {isBestSeller && "Elegir"}
+              <ArrowRightIcon className={isBestSeller ? "h-4 w-4" : "h-[18px] w-[18px]"} />
             </Link>
+          ) : (
+            <button
+              type="button"
+              onClick={() => add(plant)}
+              aria-label={`Agregar ${plant.name} al carrito`}
+              className={isBestSeller ? bestSellerButton : roundButton}
+            >
+              {isBestSeller && "Agregar"}
+              <CartIcon className={isBestSeller ? "h-4 w-4" : "h-[18px] w-[18px]"} />
+            </button>
           )}
         </div>
       </div>

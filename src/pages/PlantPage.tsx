@@ -3,9 +3,10 @@ import { Link, useParams } from "react-router-dom";
 import PlantGallery from "../components/plant/PlantGallery";
 import ShippingBadge from "../components/plant/ShippingBadge";
 import SizePicker from "../components/plant/SizePicker";
-import { DropIcon, SunIcon } from "../components/ui/icons";
+import { CartIcon, DropIcon, SunIcon } from "../components/ui/icons";
 import { vivero } from "../config/vivero";
 import { usePageSeo } from "../hooks/usePageSeo";
+import { useCart } from "../lib/carrito";
 import { findPlant } from "../lib/catalogo";
 import { formatPrice, formatPriceLabel, productWhatsAppUrl } from "../lib/formato";
 import { notFoundSeo, productSeo } from "../lib/seo";
@@ -33,6 +34,7 @@ function CareTip({ title, icon, children }: { title: string; icon: ReactNode; ch
 // foto y el tamaño elegidos vuelven al inicio.
 function PlantDetail({ plant }: { plant: Plant }) {
   const [sizeIndex, setSizeIndex] = useState(0);
+  const { add } = useCart();
   const size = plant.sizes[sizeIndex];
   const price = size ? formatPrice(size.price) : formatPriceLabel(plant.prices);
 
@@ -70,17 +72,28 @@ function PlantDetail({ plant }: { plant: Plant }) {
           </div>
         )}
 
-        <a
-          href={productWhatsAppUrl(plant.name, size)}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-bosque px-6 py-3 text-center font-semibold text-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:bg-hoja hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-green-800 sm:w-fit"
-        >
-          Comprar por WhatsApp
-          <span className="ml-2" aria-hidden="true">
-            ↗
-          </span>
-        </a>
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <button
+            type="button"
+            onClick={() => add(plant, size?.label)}
+            className="inline-flex min-h-12 items-center justify-center gap-2.5 rounded-full bg-bosque px-6 py-3 font-semibold text-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:bg-hoja hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-green-800"
+          >
+            <CartIcon className="h-5 w-5" />
+            Agregar al carrito
+          </button>
+
+          <a
+            href={productWhatsAppUrl(plant.name, size)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-12 items-center justify-center rounded-full border border-bosque px-6 py-3 text-center font-semibold text-bosque transition duration-200 hover:bg-bosque hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-green-800"
+          >
+            Comprar por WhatsApp
+            <span className="ml-2" aria-hidden="true">
+              ↗
+            </span>
+          </a>
+        </div>
 
         {plant.description && <p className="mt-7 leading-7 text-gray-600">{plant.description}</p>}
 

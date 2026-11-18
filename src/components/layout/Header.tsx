@@ -2,12 +2,13 @@ import { Link } from "react-router-dom";
 import { vivero, whatsappUrl } from "../../config/vivero";
 import { SECTION_IDS } from "../../lib/scroll";
 import { WhatsAppIcon } from "../ui/icons";
+import CartButton from "../cart/CartButton";
 import SearchBar from "./SearchBar";
 
 const navLink =
   "hidden py-2.5 transition-colors hover:text-hoja focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-green-800 sm:inline";
 
-// Encabezado fijo: logo, buscador, enlaces y botón de WhatsApp.
+// Encabezado fijo: logo, buscador, enlaces, carrito y botón de WhatsApp.
 function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-green-900/10 bg-crema/95 backdrop-blur-md">
@@ -35,6 +36,7 @@ function Header() {
           <a href={`/#${SECTION_IDS.contacto}`} className={navLink}>
             Contacto
           </a>
+          <CartButton />
           <a
             href={whatsappUrl()}
             target="_blank"
