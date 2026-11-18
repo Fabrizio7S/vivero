@@ -3,7 +3,7 @@ import { join } from "node:path";
 import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
-import { catalogo, sinExcel } from "./src/lib/catalogo.ts";
+import { catalogo, precioManualDistinto, sinExcel } from "./src/lib/catalogo.ts";
 import { homeSeo, productSeo, renderHead, renderSitemap, type PageSeo } from "./src/lib/seo.ts";
 
 // Escribe título, descripción, Open Graph y datos estructurados en el <head>.
@@ -52,6 +52,8 @@ function seoPlugin(): Plugin {
 
       // Avisos para revisar el Excel.
       if (sinExcel.length) console.warn(`No están en el Excel: ${sinExcel.join(", ")}`);
+      if (precioManualDistinto.length)
+        console.warn(`Precio manual distinto al Excel: ${precioManualDistinto.join("; ")}`);
       const sinPrecio = catalogo.filter((plant) => plant.prices.length === 0);
       if (sinPrecio.length) console.warn(`Sin precio: ${sinPrecio.map((p) => p.name).join(", ")}`);
     },

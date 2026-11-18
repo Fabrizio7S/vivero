@@ -70,6 +70,13 @@ Google Sheets **"Catálogo Vivero Nativa (web)"**.
 Si una columna del Excel está vacía para una planta, la web usa el texto de `src/data/plantas.ts`.
 Los nombres científicos marcados "por verificar" no se muestran.
 
+**Tamaños:** si un producto aparece en varias filas con distinto precio, la ficha muestra
+botones de tamaño (2 precios: Pequeño / Grande; 3: Pequeño / Mediano / Grande). Si agregas
+una columna **"Tamaño"** al Excel, se usan esos nombres.
+
+**Precio manual:** en `src/data/plantas.ts`, `precios: [70, 90, 150]` tiene prioridad sobre el
+Excel. Úsalo solo mientras se corrige el Excel; `npm run build` avisa si no coinciden.
+
 ---
 
 ## Comandos

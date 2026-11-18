@@ -6,7 +6,7 @@
 import { fotosPorPlanta } from "../data/fotos.ts";
 import { inventario } from "../data/inventario.ts";
 import { masVendidos, plantas } from "../data/plantas.ts";
-import type { ItemInventario, Plant, PlantaDatos } from "../types/plant.ts";
+import type { ItemInventario, Plant, PlantaDatos, PlantSize } from "../types/plant.ts";
 
 const normalizar = (texto: string) =>
   texto
@@ -27,6 +27,24 @@ function itemsDelExcel(planta: PlantaDatos): ItemInventario[] {
 
 // Plantas de data/plantas.ts que no se encontraron en el Excel (aviso al compilar).
 export const sinExcel: string[] = [];
+// Plantas con precio manual distinto al del Excel (aviso al compilar).
+export const precioManualDistinto: string[] = [];
+
+// Nombres de tamaño por defecto, según cuántos precios tenga la planta.
+const TAMANOS: Record<number, string[]> = {
+  2: ["Pequeño", "Grande"],
+  3: ["Pequeño", "Mediano", "Grande"],
+  4: ["Pequeño", "Mediano", "Grande", "Extra grande"],
+};
+
+function tamanos(precios: number[], nombres?: string[]): PlantSize[] {
+  if (precios.length < 2) return [];
+  const etiquetas =
+    nombres?.length === precios.length
+      ? nombres
+      : (TAMANOS[precios.length] ?? precios.map((_, i) => `Tamaño ${i + 1}`));
+  return precios.map((price, i) => ({ label: etiquetas[i], price }));
+}
 
 // Todas las plantas con al menos una foto, en el orden de data/plantas.ts.
 export const catalogo: Plant[] = plantas
@@ -35,11 +53,19 @@ export const catalogo: Plant[] = plantas
     if (items.length === 0) sinExcel.push(planta.nombre);
     const excel = items[0];
 
+    const preciosExcel = [...new Set(items.flatMap((item) => item.precios))].sort((a, b) => a - b);
+    const prices = planta.precios ? [...planta.precios].sort((a, b) => a - b) : preciosExcel;
+    if (planta.precios && prices.join() !== preciosExcel.join()) {
+      precioManualDistinto.push(`${planta.nombre} (web ${prices.join("/")}, Excel ${preciosExcel.join("/")})`);
+    }
+    const nombresTamano = !planta.precios && items.length === 1 ? excel?.tamanos : undefined;
+
     return {
       slug: planta.slug,
       name: planta.nombre,
       category: excel?.categoria ?? planta.categoria,
-      prices: [...new Set(items.flatMap((item) => item.precios))].sort((a, b) => a - b),
+      prices,
+      sizes: tamanos(prices, nombresTamano),
       images: fotosPorPlanta[planta.slug] ?? [],
       shipsNationwide: planta.envioNacional ?? true,
       scientificName: excel?.nombreCientifico,

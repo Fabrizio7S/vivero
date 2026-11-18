@@ -401,6 +401,9 @@ export const plantas: PlantaDatos[] = [
     slug: "monstera-thai-constellation",
     nombre: "Monstera Thai Constellation",
     categoria: "Interior",
+    // Precio confirmado por el jefe. El Excel dice 25 / 70 / 150: corregir el
+    // Excel y luego borrar esta línea.
+    precios: [70, 90, 150],
     descripcion: "Monstera de hojas grandes salpicadas de crema, como un cielo estrellado. Una de las plantas más buscadas por coleccionistas.",
     luz: "Luz indirecta brillante, imprescindible para mantener su variegado. Evita el sol directo.",
     riego: "Riega cuando los primeros 3–5 cm del sustrato estén secos. Usa sustrato aireado y con buen drenaje.",

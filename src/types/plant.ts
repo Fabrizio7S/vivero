@@ -4,6 +4,8 @@ export interface ItemInventario {
   nombre: string;
   // Varios precios = tamaños distintos (ordenados de menor a mayor).
   precios: number[];
+  // Nombre de cada tamaño, en el mismo orden (solo si el Excel tiene columna "Tamaño").
+  tamanos?: string[];
   nombreCientifico?: string;
   descripcion?: string;
   luz?: string;
@@ -22,11 +24,19 @@ export interface PlantaDatos {
   categoria: string;
   // Nombre(s) exactos en el Excel, si son distintos a `nombre`.
   nombresEnInventario?: string[];
+  // Precios manuales: tienen prioridad sobre el Excel. Usar solo mientras se
+  // corrige el Excel (al compilar se avisa si no coinciden).
+  precios?: number[];
   // Por defecto todas tienen envío a todo el Perú.
   envioNacional?: boolean;
   descripcion: string;
   luz: string;
   riego: string;
+}
+
+export interface PlantSize {
+  label: string;
+  price: number;
 }
 
 // Planta lista para mostrarse en la web (datos + precios + fotos).
@@ -37,6 +47,8 @@ export interface Plant {
   category: string;
   // Vacío = "Consultar precio"; varios = según tamaño (ordenados de menor a mayor).
   prices: number[];
+  // Un tamaño por precio, en el mismo orden (ej. Pequeño S/ 30, Grande S/ 80).
+  sizes: PlantSize[];
   images: string[];
   shipsNationwide: boolean;
   scientificName?: string;

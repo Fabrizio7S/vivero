@@ -56,11 +56,16 @@ function parseCsv(text) {
 }
 
 const [header, ...lines] = parseCsv(readFileSync(csvPath, "utf8").replace(/^\uFEFF/, ""));
+const findCol = (name) =>
+  header.findIndex((h) => h.trim().toLowerCase() === name.toLowerCase());
 const col = (name) => {
-  const index = header.findIndex((h) => h.trim().toLowerCase() === name.toLowerCase());
+  const index = findCol(name);
   if (index === -1) throw new Error(`Falta la columna "${name}" en ${csvPath}`);
   return index;
 };
+// Columna opcional "Tamaño" (ej. Pequeño / Mediano / Grande). Si no existe,
+// la web nombra los tamaños por precio.
+const colTamano = findCol("Tamaño");
 
 const C = {
   categoria: col("Categoría"),
@@ -92,8 +97,12 @@ for (const line of lines) {
     categoria: texto(line[C.categoria]),
     nombre,
     precios: [],
+    tamanos: [],
   };
-  if (precio && !item.precios.includes(precio)) item.precios.push(precio);
+  if (precio && !item.precios.includes(precio)) {
+    item.precios.push(precio);
+    item.tamanos.push(colTamano === -1 ? "" : (texto(line[colTamano]) ?? ""));
+  }
 
   // Los textos se toman de la primera fila del producto que los tenga.
   const cientifico = texto(line[C.cientifico]);
@@ -114,7 +123,15 @@ for (const line of lines) {
   productos.set(nombre, item);
 }
 
-for (const item of productos.values()) item.precios.sort((a, b) => a - b);
+// Precios de menor a mayor, con su tamaño al lado.
+for (const item of productos.values()) {
+  const pares = item.precios
+    .map((precio, i) => ({ precio, tamano: item.tamanos[i] }))
+    .sort((a, b) => a.precio - b.precio);
+  item.precios = pares.map((p) => p.precio);
+  // Solo se guardan los tamaños si el Excel los escribió todos.
+  item.tamanos = pares.every((p) => p.tamano) ? pares.map((p) => p.tamano) : undefined;
+}
 
 const lista = [...productos.values()].map((item) =>
   // Sin campos vacíos, para que el archivo sea más fácil de leer.

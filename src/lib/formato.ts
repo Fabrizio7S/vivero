@@ -1,4 +1,5 @@
 import { whatsappUrl } from "../config/vivero";
+import type { PlantSize } from "../types/plant";
 
 const priceFormatter = new Intl.NumberFormat("es-PE", {
   style: "currency",
@@ -26,12 +27,16 @@ export function normalize(text: string): string {
 }
 
 // Enlace de WhatsApp con el mensaje para consultar por una planta.
-export function productWhatsAppUrl(plantName: string): string {
+// Si se elige un tamaño, el mensaje lo incluye (ej. "Tamaño: Grande (S/ 150.00)").
+export function productWhatsAppUrl(plantName: string, size?: PlantSize): string {
   return whatsappUrl(
     [
       "Hola, Vivero Nativa. Quisiera consultar sobre este producto:",
       `Producto: ${plantName}.`,
+      size ? `Tamaño: ${size.label} (${formatPrice(size.price)}).` : "",
       "¿Me pueden brindar más información para realizar la compra?",
-    ].join(" "),
+    ]
+      .filter(Boolean)
+      .join(" "),
   );
 }

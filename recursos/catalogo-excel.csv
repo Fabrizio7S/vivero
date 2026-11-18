@@ -46,7 +46,7 @@ Interior,Boa Marble Queen,20.00,,Epipremnum aureum 'Marble Queen',"La Boa Marble
 Interior,Boa Marble Queen,30.00,,Epipremnum aureum 'Marble Queen',"La Boa Marble Queen tiene hojas jaspeadas en verde y blanco, como mármol. Es colgante, resistente y una de las favoritas para decorar interiores.",Luz indirecta brillante,Verano: cada 5-7 días · Invierno: cada 8-10 días,,"• Deja secar la tierra superficial entre riegos.
 • Con poca luz pierde su variegado.
 • Pódala para que crezca más tupida."
-Interior,Boa Brazil,15.00,,Philodendron hederaceum 'Brasil',"La Boa Brazil luce hojas verdes con una franja central verde limón muy vistosa. Es colgante, crece rápido y es ideal para principiantes.",Luz indirecta brillante,Verano: cada 5-7 días · Invierno: cada 8-10 días,,"• Deja secar la tierra superficial entre riegos.
+Interior,Boa Brazil,12.00,,Philodendron hederaceum 'Brasil',"La Boa Brazil luce hojas verdes con una franja central verde limón muy vistosa. Es colgante, crece rápido y es ideal para principiantes.",Luz indirecta brillante,Verano: cada 5-7 días · Invierno: cada 8-10 días,,"• Deja secar la tierra superficial entre riegos.
 • Evita el sol directo.
 • Pódala para que crezca más tupida."
 Interior,Boa Verde,15.00,,Epipremnum aureum,"La Boa Verde es la planta colgante más fácil de cuidar: resiste poca luz y olvidos de riego. Ideal para llenar de verde repisas, muebles altos y oficinas.",Semisombra,Verano: cada 5-7 días · Invierno: cada 8-10 días,,"• Deja secar la tierra superficial entre riegos.
@@ -211,8 +211,8 @@ Interior,Begonia Cruz de Hierro,30.00,,,,,,,
 Interior,Begonia Rex Fucsia,30.00,,,,,,,
 Interior,Begonia Rex Roja,30.00,,,,,,,
 Interior,Begonia Rex Rosada,30.00,,,,,,,
-Interior,Caladium Blanco Sirena,30.00,,,,,,,
-Interior,Caladium Blanco,55.00,,,,,,,
+Interior,Caladium Blanco Sirena,55.00,,,,,,,
+Interior,Caladium Blanco,30.00,,,,,,,
 Interior,Caladium Chispeado,40.00,,,,,,,
 Interior,Caladium Pañuelo,30.00,,,,,,,
 Interior,Caladium Rojo,55.00,,,,,,,
@@ -338,7 +338,7 @@ Flores y exterior,Breña,20.00,,POR VERIFICAR,,,,,
 Flores y exterior,Bugambilia,15.00,,Bougainvillea spp.,"La Bugambilia es una trepadora muy resistente que se cubre de flores de colores intensos. Ideal para muros, pérgolas y cercos soleados.",Sol directo,Verano: cada 4-5 días · Invierno: cada 8-12 días,,"• Necesita mucho sol.
 • Riega poco: florece mejor con algo de sequedad.
 • Pódala después de cada floración."
-Flores y exterior,Diplademia,30.00,,Mandevilla sanderi (Dipladenia),"La Diplademia es una trepadora de flores grandes en forma de trompeta, en rojo, rosado o blanco. Florece por meses y es perfecta para rejas, balcones y macetas.",Sol directo,Verano: cada 3-4 días · Invierno: cada 6-8 días,,"• Necesita sol para florecer.
+Flores y exterior,Diplademia,25.00,,Mandevilla sanderi (Dipladenia),"La Diplademia es una trepadora de flores grandes en forma de trompeta, en rojo, rosado o blanco. Florece por meses y es perfecta para rejas, balcones y macetas.",Sol directo,Verano: cada 3-4 días · Invierno: cada 6-8 días,,"• Necesita sol para florecer.
 • Dale un soporte para trepar.
 • Deja secar la tierra superficial entre riegos."
 Flores y exterior,Durante Limon Grande,8.00,,Duranta erecta 'Gold',"El Durante Limón Grande es un arbusto de hojas verde limón, ya desarrollado para formar cercos más rápido. Se poda fácilmente para darle forma.",Sol directo,Verano: cada 3-4 días · Invierno: cada 7-10 días,,"• Con más sol, color limón más intenso.
@@ -359,16 +359,13 @@ Flores y exterior,Durante Morada,2.00,,Duranta erecta,"El Durante Morada es un a
 Flores y exterior,Mioporo,2.00,,Myoporum laetum,"El Mioporo es un arbusto de crecimiento rápido, muy usado para cercos vivos en Lima. Resiste bien el clima costero y da privacidad al jardín.",Sol directo,Verano: cada 3-4 días · Invierno: cada 7-10 días,,"• Pódalo para formar el cerco.
 • Riega más mientras se establece.
 • Tolera el viento y la brisa marina."
-Flores y exterior,Pino,60.00,,Pinus spp. (por verificar especie),"El Pino es un árbol elegante de follaje siempre verde, ideal para jardines amplios. También es muy buscado como árbol de Navidad natural.",Sol directo,Verano: cada 4-5 días · Invierno: cada 8-12 días,,"• Necesita mucho sol.
-• Riega más mientras se establece.
-• Dale espacio para crecer."
 Flores y exterior,Tuja,20.00,,Platycladus orientalis (Thuja),"La Tuja es una conífera de forma cónica y follaje verde intenso, ideal para entradas y cercos elegantes. Es resistente y de bajo mantenimiento.",Sol directo,Verano: cada 3-4 días · Invierno: cada 7-10 días,,"• Necesita sol.
 • No dejes que la tierra se seque por completo.
 • Pódala ligeramente para mantener su forma."
 Flores y exterior,Tecomaria,2.00,,Tecoma capensis (Tecomaria),La Tecomaria es un arbusto de flores naranjas en forma de trompeta que atrae colibríes. Es resistente y perfecta para cercos y jardines soleados.,Sol directo,Verano: cada 3-4 días · Invierno: cada 7-10 días,,"• Necesita sol para florecer.
 • Pódala después de florecer.
 • Resiste bien la sequía una vez establecida."
-Flores y exterior,Palmera Hawaina Pequeña,25.00,,Dypsis lutescens (por verificar),"La Palmera Hawaiana es una palmera elegante de hojas arqueadas que da un aire tropical a salas, terrazas y jardines. Es una de las palmeras más usadas en decoración.",Luz indirecta brillante,Verano: cada 3-4 días · Invierno: cada 6-8 días,,"• Mantén la tierra ligeramente húmeda.
+Flores y exterior,Palmera Hawaina Pequeña,35.00,,Dypsis lutescens (por verificar),"La Palmera Hawaiana es una palmera elegante de hojas arqueadas que da un aire tropical a salas, terrazas y jardines. Es una de las palmeras más usadas en decoración.",Luz indirecta brillante,Verano: cada 3-4 días · Invierno: cada 6-8 días,,"• Mantén la tierra ligeramente húmeda.
 • Evita el sol fuerte del mediodía en interiores.
 • Retira las hojas secas."
 Flores y exterior,Achira,20.00,,Canna indica,La Achira tiene hojas grandes y flores de colores intensos que dan un aire tropical al jardín. Es resistente y crece rápido.,Sol directo,Verano: cada 2-3 días · Invierno: cada 5-7 días,,"• Necesita sol para florecer.
@@ -500,7 +497,7 @@ Macetas,Plástico Optimplast #14,20.00,,,"Maceta de plástico Optimplast N.º 14
 Macetas,Plástico Optimplast #12,15.00,,,"Maceta de plástico Optimplast N.º 12. Ligera, resistente y fácil de mover, ideal para interiores y exteriores.",,,,
 Macetas,Plástico Optimplast #10,12.00,,,"Maceta de plástico Optimplast N.º 10. Ligera, resistente y fácil de mover, ideal para interiores y exteriores.",,,,
 Macetas,Plástico Optimplast #8,8.00,,,"Maceta de plástico Optimplast N.º 8. Ligera, resistente y fácil de mover, ideal para interiores y exteriores.",,,,
-Macetas,Plástico Colgante Optimplast Ovni 30x15,30.00,,,"Maceta colgante de plástico Optimplast modelo Ovni, de 30 × 15 cm. Perfecta para plantas colgantes como boas, helechos y tradescantias.",,,,
+Macetas,Plástico Colgante Optimplast Ovni 30x15,15.00,,,"Maceta colgante de plástico Optimplast modelo Ovni, de 30 × 15 cm. Perfecta para plantas colgantes como boas, helechos y tradescantias.",,,,
 Macetas,Plástico Colgante Optimplast #40,20.00,,,"Maceta colgante de plástico Optimplast N.º 40. Perfecta para plantas colgantes como boas, helechos y tradescantias.",,,,
 Macetas,Plástico Rectangular Optimplast #46,15.00,,,"Jardinera rectangular de plástico Optimplast N.º 46. Ideal para balcones, ventanas y para sembrar aromáticas en fila.",,,,
 Macetas,Plástico Rectangular Optimplast #36,12.00,,,"Jardinera rectangular de plástico Optimplast N.º 36. Ideal para balcones, ventanas y para sembrar aromáticas en fila.",,,,
@@ -565,3 +562,28 @@ Parantes,Parante 60cm alto,40.00,,,Parante (tutor) de 60 cm de alto. Da soporte 
 Parantes,Parante 50cm alto,35.00,,,Parante (tutor) de 50 cm de alto. Da soporte a plantas trepadoras como monsteras y filodendros para que crezcan rectas.,,,,
 Parantes,Parante 40cm alto,30.00,,,Parante (tutor) de 40 cm de alto. Da soporte a plantas trepadoras como monsteras y filodendros para que crezcan rectas.,,,,
 Parantes,Parante 30cm alto,25.00,,,Parante (tutor) de 30 cm de alto. Da soporte a plantas trepadoras como monsteras y filodendros para que crezcan rectas.,,,,
+Interior,Caladium Rojo Mediano,30.00,,,,,,,
+Interior,Caladium Payasito,30.00,,,,,,,
+Interior,Caladium Pañuelo Rosado,60.00,,,,,,,
+Interior,Violeta de los Alpes,25.00,,,,,,,
+Interior,Violeta Africana,20.00,,,,,,,
+Interior,Caucho Variegado,70.00,,,,,,,
+Interior,Caucho Rubí,60.00,,,,,,,
+Interior,Calathea Dottie,45.00,,,,,,,
+Interior,Llama Plata,3.00,,,,,,,
+Interior,Anturio Premium,40.00,,,,,,,
+Interior,Boa Brazil,30.00,,,,,,,
+Flores y exterior,Clavelita,2.00,,,,,,,
+Flores y exterior,Corona de Cristo,10.00,,,,,,,
+Flores y exterior,Jazmín Limón,25.00,,,,,,,
+Flores y exterior,Madre Selva,15.00,,,,,,,
+Flores y exterior,Bellísima,25.00,,,,,,,
+Flores y exterior,Jade,10.00,,,,,,,
+Flores y exterior,Palmera Yuca,30.00,,,,,,,
+Flores y exterior,Pino Navideño,50.00,,,,,,,
+Flores y exterior,Pino Navideño,70.00,,,,,,,
+Flores y exterior,Ciprés Limón Grande,25.00,,,,,,,
+Aromáticas,Ají,2.00,,,,,,,
+Otros,Palmera Bruja,150.00,,,,,,,
+Otros,Aspersor 2 L,15.00,,,,,,,
+Líquidos,Humus Líquido 250ml,20.00,,,,,,,

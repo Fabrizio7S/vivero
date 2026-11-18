@@ -52,7 +52,8 @@ export const inventario: ItemInventario[] = [
     "categoria": "Interior",
     "nombre": "Anturio Premium",
     "precios": [
-      30
+      30,
+      40
     ],
     "nombreCientifico": "Anthurium andraeanum",
     "descripcion": "El Anturio Premium es una versión más grande y vistosa del anturio, con flores intensas y hojas brillantes. Perfecto para lucirse en salas, recepciones o como regalo.",
@@ -191,7 +192,8 @@ export const inventario: ItemInventario[] = [
     "categoria": "Interior",
     "nombre": "Boa Brazil",
     "precios": [
-      15
+      12,
+      30
     ],
     "nombreCientifico": "Philodendron hederaceum 'Brasil'",
     "descripcion": "La Boa Brazil luce hojas verdes con una franja central verde limón muy vistosa. Es colgante, crece rápido y es ideal para principiantes.",
@@ -904,14 +906,14 @@ export const inventario: ItemInventario[] = [
     "categoria": "Interior",
     "nombre": "Caladium Blanco Sirena",
     "precios": [
-      30
+      55
     ]
   },
   {
     "categoria": "Interior",
     "nombre": "Caladium Blanco",
     "precios": [
-      55
+      30
     ]
   },
   {
@@ -1016,6 +1018,7 @@ export const inventario: ItemInventario[] = [
     "categoria": "Interior",
     "nombre": "Llama Plata",
     "precios": [
+      3,
       15
     ]
   },
@@ -1611,7 +1614,7 @@ export const inventario: ItemInventario[] = [
     "categoria": "Flores y exterior",
     "nombre": "Diplademia",
     "precios": [
-      30
+      25
     ],
     "nombreCientifico": "Mandevilla sanderi (Dipladenia)",
     "descripcion": "La Diplademia es una trepadora de flores grandes en forma de trompeta, en rojo, rosado o blanco. Florece por meses y es perfecta para rejas, balcones y macetas.",
@@ -1721,21 +1724,6 @@ export const inventario: ItemInventario[] = [
   },
   {
     "categoria": "Flores y exterior",
-    "nombre": "Pino",
-    "precios": [
-      60
-    ],
-    "descripcion": "El Pino es un árbol elegante de follaje siempre verde, ideal para jardines amplios. También es muy buscado como árbol de Navidad natural.",
-    "luz": "Sol directo",
-    "riego": "Verano: cada 4-5 días · Invierno: cada 8-12 días",
-    "cuidados": [
-      "Necesita mucho sol.",
-      "Riega más mientras se establece.",
-      "Dale espacio para crecer."
-    ]
-  },
-  {
-    "categoria": "Flores y exterior",
     "nombre": "Tuja",
     "precios": [
       20
@@ -1770,7 +1758,7 @@ export const inventario: ItemInventario[] = [
     "categoria": "Flores y exterior",
     "nombre": "Palmera Hawaina Pequeña",
     "precios": [
-      25
+      35
     ],
     "descripcion": "La Palmera Hawaiana es una palmera elegante de hojas arqueadas que da un aire tropical a salas, terrazas y jardines. Es una de las palmeras más usadas en decoración.",
     "luz": "Luz indirecta brillante",
@@ -2503,7 +2491,7 @@ export const inventario: ItemInventario[] = [
     "categoria": "Macetas",
     "nombre": "Plástico Colgante Optimplast Ovni 30x15",
     "precios": [
-      30
+      15
     ],
     "descripcion": "Maceta colgante de plástico Optimplast modelo Ovni, de 30 × 15 cm. Perfecta para plantas colgantes como boas, helechos y tradescantias."
   },
@@ -2995,5 +2983,153 @@ export const inventario: ItemInventario[] = [
       25
     ],
     "descripcion": "Parante (tutor) de 30 cm de alto. Da soporte a plantas trepadoras como monsteras y filodendros para que crezcan rectas."
+  },
+  {
+    "categoria": "Interior",
+    "nombre": "Caladium Rojo Mediano",
+    "precios": [
+      30
+    ]
+  },
+  {
+    "categoria": "Interior",
+    "nombre": "Caladium Payasito",
+    "precios": [
+      30
+    ]
+  },
+  {
+    "categoria": "Interior",
+    "nombre": "Caladium Pañuelo Rosado",
+    "precios": [
+      60
+    ]
+  },
+  {
+    "categoria": "Interior",
+    "nombre": "Violeta de los Alpes",
+    "precios": [
+      25
+    ]
+  },
+  {
+    "categoria": "Interior",
+    "nombre": "Violeta Africana",
+    "precios": [
+      20
+    ]
+  },
+  {
+    "categoria": "Interior",
+    "nombre": "Caucho Variegado",
+    "precios": [
+      70
+    ]
+  },
+  {
+    "categoria": "Interior",
+    "nombre": "Caucho Rubí",
+    "precios": [
+      60
+    ]
+  },
+  {
+    "categoria": "Interior",
+    "nombre": "Calathea Dottie",
+    "precios": [
+      45
+    ]
+  },
+  {
+    "categoria": "Flores y exterior",
+    "nombre": "Clavelita",
+    "precios": [
+      2
+    ]
+  },
+  {
+    "categoria": "Flores y exterior",
+    "nombre": "Corona de Cristo",
+    "precios": [
+      10
+    ]
+  },
+  {
+    "categoria": "Flores y exterior",
+    "nombre": "Jazmín Limón",
+    "precios": [
+      25
+    ]
+  },
+  {
+    "categoria": "Flores y exterior",
+    "nombre": "Madre Selva",
+    "precios": [
+      15
+    ]
+  },
+  {
+    "categoria": "Flores y exterior",
+    "nombre": "Bellísima",
+    "precios": [
+      25
+    ]
+  },
+  {
+    "categoria": "Flores y exterior",
+    "nombre": "Jade",
+    "precios": [
+      10
+    ]
+  },
+  {
+    "categoria": "Flores y exterior",
+    "nombre": "Palmera Yuca",
+    "precios": [
+      30
+    ]
+  },
+  {
+    "categoria": "Flores y exterior",
+    "nombre": "Pino Navideño",
+    "precios": [
+      50,
+      70
+    ]
+  },
+  {
+    "categoria": "Flores y exterior",
+    "nombre": "Ciprés Limón Grande",
+    "precios": [
+      25
+    ]
+  },
+  {
+    "categoria": "Aromáticas",
+    "nombre": "Ají",
+    "precios": [
+      2
+    ]
+  },
+  {
+    "categoria": "Otros",
+    "nombre": "Palmera Bruja",
+    "precios": [
+      150
+    ]
+  },
+  {
+    "categoria": "Otros",
+    "nombre": "Aspersor 2 L",
+    "precios": [
+      15
+    ]
+  },
+  {
+    "categoria": "Líquidos",
+    "nombre": "Humus Líquido 250ml",
+    "precios": [
+      20
+    ]
   }
 ];
