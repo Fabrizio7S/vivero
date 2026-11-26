@@ -323,6 +323,7 @@ export const inventario: ItemInventario[] = [
     "precios": [
       25,
       70,
+      90,
       150
     ],
     "nombreCientifico": "Monstera deliciosa 'Thai Constellation'",
@@ -391,6 +392,8 @@ export const inventario: ItemInventario[] = [
     "categoria": "Interior",
     "nombre": "Tradescantia",
     "precios": [
+      15,
+      20,
       25
     ],
     "nombreCientifico": "Tradescantia spp.",
@@ -423,7 +426,9 @@ export const inventario: ItemInventario[] = [
     "categoria": "Interior",
     "nombre": "Oreja de Elefante",
     "precios": [
-      30
+      20,
+      30,
+      50
     ],
     "descripcion": "La Oreja de Elefante tiene hojas enormes que dan un aire tropical inmediato a jardines, terrazas y espacios amplios. Es una planta de gran presencia que crece con vigor.",
     "luz": "Semisombra",
@@ -690,7 +695,7 @@ export const inventario: ItemInventario[] = [
     ]
   },
   {
-    "categoria": "Interior",
+    "categoria": "Palmeras",
     "nombre": "Palmera Esterlicia Gigante",
     "precios": [
       40
@@ -738,7 +743,7 @@ export const inventario: ItemInventario[] = [
     ]
   },
   {
-    "categoria": "Interior",
+    "categoria": "Palmeras",
     "nombre": "Palmera Bambú",
     "precios": [
       80
@@ -754,7 +759,7 @@ export const inventario: ItemInventario[] = [
     ]
   },
   {
-    "categoria": "Interior",
+    "categoria": "Palmeras",
     "nombre": "Palmera Catarata",
     "precios": [
       45
@@ -1004,7 +1009,8 @@ export const inventario: ItemInventario[] = [
     "categoria": "Interior",
     "nombre": "Helecho Alemán",
     "precios": [
-      25
+      25,
+      60
     ]
   },
   {
@@ -1755,7 +1761,7 @@ export const inventario: ItemInventario[] = [
     ]
   },
   {
-    "categoria": "Flores y exterior",
+    "categoria": "Palmeras",
     "nombre": "Palmera Hawaina Pequeña",
     "precios": [
       35
@@ -2195,7 +2201,7 @@ export const inventario: ItemInventario[] = [
     ]
   },
   {
-    "categoria": "Otros",
+    "categoria": "Palmeras",
     "nombre": "Palmeras Gigantes",
     "precios": [
       150
@@ -3083,7 +3089,7 @@ export const inventario: ItemInventario[] = [
     ]
   },
   {
-    "categoria": "Flores y exterior",
+    "categoria": "Palmeras",
     "nombre": "Palmera Yuca",
     "precios": [
       30
@@ -3112,7 +3118,7 @@ export const inventario: ItemInventario[] = [
     ]
   },
   {
-    "categoria": "Otros",
+    "categoria": "Palmeras",
     "nombre": "Palmera Bruja",
     "precios": [
       150
@@ -3128,6 +3134,206 @@ export const inventario: ItemInventario[] = [
   {
     "categoria": "Líquidos",
     "nombre": "Humus Líquido 250ml",
+    "precios": [
+      20
+    ]
+  },
+  {
+    "categoria": "Palmeras",
+    "nombre": "Palmera Botella",
+    "precios": [
+      120
+    ]
+  },
+  {
+    "categoria": "Interior",
+    "nombre": "Caladium Común",
+    "precios": [
+      10,
+      15,
+      50
+    ]
+  },
+  {
+    "categoria": "Interior",
+    "nombre": "Pachira",
+    "precios": [
+      150
+    ]
+  },
+  {
+    "categoria": "Interior",
+    "nombre": "Bambú Arreglo",
+    "precios": [
+      12
+    ]
+  },
+  {
+    "categoria": "Interior",
+    "nombre": "Alocasia Macrorriza",
+    "precios": [
+      55
+    ]
+  },
+  {
+    "categoria": "Flores y exterior",
+    "nombre": "Hortensia",
+    "precios": [
+      28,
+      35
+    ]
+  },
+  {
+    "categoria": "Interior",
+    "nombre": "Boa Neón",
+    "precios": [
+      12,
+      30
+    ]
+  },
+  {
+    "categoria": "Flores y exterior",
+    "nombre": "Dalia",
+    "precios": [
+      13
+    ]
+  },
+  {
+    "categoria": "Frutales",
+    "nombre": "Guanábana",
+    "precios": [
+      15
+    ]
+  },
+  {
+    "categoria": "Flores y exterior",
+    "nombre": "Lirio",
+    "precios": [
+      25
+    ]
+  },
+  {
+    "categoria": "Flores y exterior",
+    "nombre": "Cola de Zorro",
+    "precios": [
+      15
+    ]
+  },
+  {
+    "categoria": "Interior",
+    "nombre": "Pulmón de Gato",
+    "precios": [
+      30
+    ]
+  },
+  {
+    "categoria": "Palmeras",
+    "nombre": "Palmera Viajera",
+    "precios": [
+      45
+    ]
+  },
+  {
+    "categoria": "Interior",
+    "nombre": "Cuerno de Alce",
+    "precios": [
+      40
+    ]
+  },
+  {
+    "categoria": "Sustratos y abonos",
+    "nombre": "Basacote 1KG",
+    "precios": [
+      80
+    ]
+  },
+  {
+    "categoria": "Palmeras",
+    "nombre": "Palmera Lemon",
+    "precios": [
+      70
+    ]
+  },
+  {
+    "categoria": "Flores y exterior",
+    "nombre": "Señorita",
+    "precios": [
+      20
+    ]
+  },
+  {
+    "categoria": "Interior",
+    "nombre": "Pico de Loro",
+    "precios": [
+      35
+    ]
+  },
+  {
+    "categoria": "Interior",
+    "nombre": "Zamioculca Pequeña",
+    "precios": [
+      28
+    ]
+  },
+  {
+    "categoria": "Interior",
+    "nombre": "Caladium Rosado",
+    "precios": [
+      25
+    ]
+  },
+  {
+    "categoria": "Flores y exterior",
+    "nombre": "Flor Señorita",
+    "precios": [
+      3
+    ]
+  },
+  {
+    "categoria": "Interior",
+    "nombre": "Cissus",
+    "precios": [
+      25
+    ]
+  },
+  {
+    "categoria": "Flores y exterior",
+    "nombre": "Rosario",
+    "precios": [
+      15
+    ]
+  },
+  {
+    "categoria": "Flores y exterior",
+    "nombre": "Laurel",
+    "precios": [
+      15
+    ]
+  },
+  {
+    "categoria": "Flores y exterior",
+    "nombre": "Rosas Injertadas",
+    "precios": [
+      8
+    ]
+  },
+  {
+    "categoria": "Interior",
+    "nombre": "Orquídea Cattleya",
+    "precios": [
+      150
+    ]
+  },
+  {
+    "categoria": "Macetas",
+    "nombre": "Maceta Jazmín #12",
+    "precios": [
+      25
+    ]
+  },
+  {
+    "categoria": "Macetas",
+    "nombre": "Maceta Jazmín #10",
     "precios": [
       20
     ]

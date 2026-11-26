@@ -91,7 +91,10 @@ function Footer() {
           © {currentYear} {vivero.nombre}. Todos los derechos reservados.
         </p>
         <p>
-          {vivero.direccion.distrito}, {vivero.direccion.ciudad} · Perú
+          {vivero.direccion.distrito}, {vivero.direccion.ciudad} · Perú ·{" "}
+          <Link to="/creditos" className="underline underline-offset-2 hover:text-white">
+            Créditos de fotos
+          </Link>
         </p>
       </div>
     </footer>

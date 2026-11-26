@@ -3,7 +3,7 @@ Interior,Orquídea Phalaenopsis Grande,90.00,,Phalaenopsis spp.,"La Orquídea es
 • Riega solo cuando las raíces se vean plateadas.
 • No dejes agua acumulada en el fondo.
 • Usa sustrato especial para orquídeas."
-Interior,Orquídea Phalaenopsis Mini,80.00,,,,,,,
+Interior,Orquídea Phalaenopsis Mini,80.00
 Interior,Anturio,25.00,,Anthurium andraeanum,El Anturio destaca por sus flores rojas brillantes con forma de corazón que duran mucho tiempo. Es ideal para dar color a interiores con buena luz.,Luz indirecta brillante,Verano: cada 3-4 días · Invierno: cada 6-8 días,,"• Evita el sol directo.
 • Mantén la tierra húmeda, sin encharcar.
 • Limpia sus hojas con un paño húmedo.
@@ -27,7 +27,7 @@ Interior,Helecho Babilónico,30.00,,Nephrolepis exaltata,"El Helecho Babilónico
 Interior,Hiedra Vinca,30.00,,Vinca major 'Variegata' (por verificar),"La Hiedra Vincas es una planta colgante de hojas verdes con bordes claros, muy fácil de cuidar. Ideal para macetas colgantes, repisas y balcones.",Semisombra,Verano: cada 3-4 días · Invierno: cada 6-8 días,,"• Riega cuando la tierra superficial esté seca.
 • Pódala para que crezca más tupida.
 • Tolera algo de sol suave por la mañana."
-Interior,Suprema,40.00,,POR VERIFICAR,,,,,
+Interior,Suprema,40.00,,POR VERIFICAR
 Interior,Aglaonema Verde Hoja Normal,25.00,,Aglaonema commutatum,"La Aglaonema Verde es una de las plantas de interior más resistentes, con hojas verdes jaspeadas y elegantes. Se adapta a poca luz, ideal para oficinas y departamentos.",Semisombra,Verano: cada 5-7 días · Invierno: cada 10-12 días,,"• Tolera poca luz, pero evita el sol directo.
 • Deja secar la tierra superficial entre riegos.
 • Limpia sus hojas con un paño húmedo."
@@ -166,7 +166,7 @@ Interior,Peperomia Verde,15.00,,Peperomia obtusifolia,"La Peperomia Verde tiene 
 Interior,Peperomia Pilea,35.00,,Pilea peperomioides,"La Peperomia Pilea, también llamada planta china del dinero, tiene hojas redondas como monedas. Es moderna, simpática y muy popular en decoración.",Luz indirecta brillante,Verano: cada 5-7 días · Invierno: cada 10-12 días,,"• Gira la maceta para que crezca derecha.
 • Deja secar la tierra superficial entre riegos.
 • Evita el sol directo."
-Interior,Palmera Esterlicia Gigante,40.00,,Strelitzia nicolai,"La Esterlicia Gigante tiene hojas enormes, parecidas a las del plátano, que dan un aire tropical y sofisticado. Es ideal para espacios amplios, salas grandes y jardines.",Sol directo o luz indirecta brillante,Verano: cada 5-7 días · Invierno: cada 10-12 días,,"• Le gusta mucha luz.
+Palmeras,Palmera Esterlicia Gigante,40.00,,Strelitzia nicolai,"La Esterlicia Gigante tiene hojas enormes, parecidas a las del plátano, que dan un aire tropical y sofisticado. Es ideal para espacios amplios, salas grandes y jardines.",Sol directo o luz indirecta brillante,Verano: cada 5-7 días · Invierno: cada 10-12 días,,"• Le gusta mucha luz.
 • Deja secar la tierra superficial entre riegos.
 • Limpia sus hojas regularmente."
 Interior,Ficus Lirata,40.00,,Ficus lyrata,El Ficus Lirata tiene grandes hojas en forma de violín que lo convierten en una de las plantas favoritas en decoración. Luce espectacular en salas y espacios luminosos.,Luz indirecta brillante,Verano: cada 5-7 días · Invierno: cada 10-12 días,,"• Necesita mucha luz indirecta.
@@ -176,10 +176,10 @@ Interior,Ficus Lirata,40.00,,Ficus lyrata,El Ficus Lirata tiene grandes hojas en
 Interior,Drascenia Pluma de India,30.00,,Dracaena (por verificar),La Drascenia Pluma de India tiene hojas largas y delgadas que forman un penacho elegante. Es resistente y aporta altura y estilo a interiores.,Luz indirecta brillante,Verano: cada 6-8 días · Invierno: cada 12-15 días,,"• Deja secar la tierra entre riegos.
 • Evita el exceso de agua.
 • Evita el sol fuerte del mediodía."
-Interior,Palmera Bambú,80.00,,Chamaedorea seifrizii,"La Palmera Bambú forma tallos delgados con hojas finas, como un pequeño bambú. Purifica el ambiente y da un toque tropical a salas y oficinas.",Luz indirecta brillante,Verano: cada 4-5 días · Invierno: cada 7-10 días,,"• Mantén la tierra ligeramente húmeda.
+Palmeras,Palmera Bambú,80.00,,Chamaedorea seifrizii,"La Palmera Bambú forma tallos delgados con hojas finas, como un pequeño bambú. Purifica el ambiente y da un toque tropical a salas y oficinas.",Luz indirecta brillante,Verano: cada 4-5 días · Invierno: cada 7-10 días,,"• Mantén la tierra ligeramente húmeda.
 • Evita el sol directo.
 • Rocía sus hojas en días secos."
-Interior,Palmera Catarata,45.00,,Chamaedorea cataractarum,"La Palmera Catarata forma un arbusto de hojas que caen como una cascada verde. Es resistente, frondosa e ideal para interiores y terrazas con sombra.",Semisombra,Verano: cada 3-4 días · Invierno: cada 6-8 días,,"• Le gusta la tierra húmeda.
+Palmeras,Palmera Catarata,45.00,,Chamaedorea cataractarum,"La Palmera Catarata forma un arbusto de hojas que caen como una cascada verde. Es resistente, frondosa e ideal para interiores y terrazas con sombra.",Semisombra,Verano: cada 3-4 días · Invierno: cada 6-8 días,,"• Le gusta la tierra húmeda.
 • Evita el sol directo.
 • Retira las hojas secas."
 Interior,Planta Carnívora,15.00,,"Varias especies (Dionaea, Sarracenia, Nepenthes, etc.)","La Planta Carnívora atrapa pequeños insectos con sus hojas especiales, lo que la hace fascinante para grandes y chicos. Es una planta original y perfecta como regalo.",Sol directo o luz indirecta brillante,Verano: mantener siempre húmedo (riego diario) · Invierno: cada 2-3 días,,"• Riega con agua destilada o de lluvia, nunca de caño.
@@ -197,43 +197,43 @@ Interior,Planta Carnívora,30.00,,"Varias especies (Dionaea, Sarracenia, Nepenth
 Interior,Lengua de Suegra,15.00,,Dracaena trifasciata (antes Sansevieria),La Lengua de Suegra es casi indestructible: resiste poca luz y largos periodos sin agua. Purifica el aire y luce moderna en cualquier rincón de la casa u oficina.,Semisombra,Verano: cada 10-14 días · Invierno: cada 20-30 días,,"• Riega poco: el exceso de agua la pudre.
 • Tolera desde poca luz hasta luz brillante.
 • Usa sustrato con buen drenaje."
-Interior,Aglaonema Blanco,35.00,,,,,,,
-Interior,Aglaonema Roja Vena,30.00,,,,,,,
-Interior,Aglaonema Rosada Legacy,60.00,,,,,,,
-Interior,Anturio Amarillo,25.00,,,,,,,
-Interior,Anturio Chocolate,25.00,,,,,,,
-Interior,Anturio Magnífico,40.00,,,,,,,
-Interior,Anturio Morado,25.00,,,,,,,
-Interior,Anturio Rojo,25.00,,,,,,,
-Interior,Anturio Rosado,25.00,,,,,,,
-Interior,Bambú de la Suerte,22.00,,,,,,,
-Interior,Begonia Cruz de Hierro,30.00,,,,,,,
-Interior,Begonia Rex Fucsia,30.00,,,,,,,
-Interior,Begonia Rex Roja,30.00,,,,,,,
-Interior,Begonia Rex Rosada,30.00,,,,,,,
-Interior,Caladium Blanco Sirena,55.00,,,,,,,
-Interior,Caladium Blanco,30.00,,,,,,,
-Interior,Caladium Chispeado,40.00,,,,,,,
-Interior,Caladium Pañuelo,30.00,,,,,,,
-Interior,Caladium Rojo,55.00,,,,,,,
-Interior,Calathea Medallion,35.00,,,,,,,
-Interior,Caucho Negro,50.00,,,,,,,
-Interior,Cuna de Moisés Variegado,30.00,,,,,,,
-Interior,Dieffenbachia,55.00,,,,,,,
-Interior,Ficus Tineke,70.00,,,,,,,
-Interior,Fittonia Amarilla,12.00,,,,,,,
-Interior,Fittonia Blanca Grande,25.00,,,,,,,
-Interior,Fittonia Roja Mini,12.00,,,,,,,
-Interior,Fittonia Verde Mini,12.00,,,,,,,
-Interior,Helecho Alemán,25.00,,,,,,,
-Interior,Helecho Angora Variegado,45.00,,,,,,,
-Interior,Llama Plata,15.00,,,,,,,
-Interior,Monstera Adansonii,30.00,,,,,,,
-Interior,Boa Dorada,25.00,,,,,,,
-Interior,Boa Limón,30.00,,,,,,,
-Interior,Syngonium,25.00,,,,,,,
-Interior,Zamioculca Negra,95.00,,,,,,,
-Interior,Zamioculca Verde,85.00,,,,,,,
+Interior,Aglaonema Blanco,35.00
+Interior,Aglaonema Roja Vena,30.00
+Interior,Aglaonema Rosada Legacy,60.00
+Interior,Anturio Amarillo,25.00
+Interior,Anturio Chocolate,25.00
+Interior,Anturio Magnífico,40.00
+Interior,Anturio Morado,25.00
+Interior,Anturio Rojo,25.00
+Interior,Anturio Rosado,25.00
+Interior,Bambú de la Suerte,22.00
+Interior,Begonia Cruz de Hierro,30.00
+Interior,Begonia Rex Fucsia,30.00
+Interior,Begonia Rex Roja,30.00
+Interior,Begonia Rex Rosada,30.00
+Interior,Caladium Blanco Sirena,55.00
+Interior,Caladium Blanco,30.00
+Interior,Caladium Chispeado,40.00
+Interior,Caladium Pañuelo,30.00
+Interior,Caladium Rojo,55.00
+Interior,Calathea Medallion,35.00
+Interior,Caucho Negro,50.00
+Interior,Cuna de Moisés Variegado,30.00
+Interior,Dieffenbachia,55.00
+Interior,Ficus Tineke,70.00
+Interior,Fittonia Amarilla,12.00
+Interior,Fittonia Blanca Grande,25.00
+Interior,Fittonia Roja Mini,12.00
+Interior,Fittonia Verde Mini,12.00
+Interior,Helecho Alemán,25.00
+Interior,Helecho Angora Variegado,45.00
+Interior,Llama Plata,15.00
+Interior,Monstera Adansonii,30.00
+Interior,Boa Dorada,25.00
+Interior,Boa Limón,30.00
+Interior,Syngonium,25.00
+Interior,Zamioculca Negra,95.00
+Interior,Zamioculca Verde,85.00
 Aromáticas,Menta,2.00,,Mentha × piperita,"La Menta es una aromática fresca e intensa, ideal para infusiones, jugos y postres. Crece rápido y es perfecta para tener siempre a mano en la cocina.",Sol directo o semisombra,Verano: cada 2-3 días · Invierno: cada 4-6 días,,"• Mantén la tierra húmeda.
 • Corta sus hojas seguido para que crezca más.
 • Mejor en maceta propia: se expande rápido."
@@ -326,15 +326,15 @@ Flores y exterior,Rosas Enanas,5.00,,Rosa spp. (variedad miniatura),"Las Rosas E
 Flores y exterior,Rosas Gigantes,12.00,,Rosa spp.,"Las Rosas Gigantes son rosales de flores grandes y vistosas, perfectas para jardines y para cortar flores. Un clásico que nunca pasa de moda.",Sol directo,Verano: cada 2-3 días · Invierno: cada 5-7 días,,"• Necesita al menos 5 horas de sol.
 • Pódalo en invierno.
 • Abona cada mes."
-Flores y exterior,Corazón de Jesús,3.00,,POR VERIFICAR,,,,,
-Flores y exterior,Lentejita,2.00,,POR VERIFICAR,,,,,
+Flores y exterior,Corazón de Jesús,3.00,,POR VERIFICAR
+Flores y exterior,Lentejita,2.00,,POR VERIFICAR
 Flores y exterior,Margarita,3.00,,Argyranthemum frutescens (por verificar),"La Margarita florece en abundancia con flores sencillas y alegres. Es ideal para bordes de jardín, macetas y balcones soleados.",Sol directo,Verano: cada 2-3 días · Invierno: cada 5-7 días,,"• Necesita sol para florecer.
 • Retira las flores secas.
 • Evita el exceso de agua."
 Flores y exterior,Begonia,3.00,,Begonia semperflorens,"La Begonia de exterior florece casi todo el año con flores pequeñas y abundantes. Es perfecta para bordes, jardineras y macetas.",Semisombra,Verano: cada 2-3 días · Invierno: cada 5-7 días,,"• Evita el sol fuerte del mediodía.
 • Riega la tierra, no las hojas.
 • Retira las flores secas."
-Flores y exterior,Breña,20.00,,POR VERIFICAR,,,,,
+Flores y exterior,Breña,20.00,,POR VERIFICAR
 Flores y exterior,Bugambilia,15.00,,Bougainvillea spp.,"La Bugambilia es una trepadora muy resistente que se cubre de flores de colores intensos. Ideal para muros, pérgolas y cercos soleados.",Sol directo,Verano: cada 4-5 días · Invierno: cada 8-12 días,,"• Necesita mucho sol.
 • Riega poco: florece mejor con algo de sequedad.
 • Pódala después de cada floración."
@@ -365,7 +365,7 @@ Flores y exterior,Tuja,20.00,,Platycladus orientalis (Thuja),"La Tuja es una con
 Flores y exterior,Tecomaria,2.00,,Tecoma capensis (Tecomaria),La Tecomaria es un arbusto de flores naranjas en forma de trompeta que atrae colibríes. Es resistente y perfecta para cercos y jardines soleados.,Sol directo,Verano: cada 3-4 días · Invierno: cada 7-10 días,,"• Necesita sol para florecer.
 • Pódala después de florecer.
 • Resiste bien la sequía una vez establecida."
-Flores y exterior,Palmera Hawaina Pequeña,35.00,,Dypsis lutescens (por verificar),"La Palmera Hawaiana es una palmera elegante de hojas arqueadas que da un aire tropical a salas, terrazas y jardines. Es una de las palmeras más usadas en decoración.",Luz indirecta brillante,Verano: cada 3-4 días · Invierno: cada 6-8 días,,"• Mantén la tierra ligeramente húmeda.
+Palmeras,Palmera Hawaina Pequeña,35.00,,Dypsis lutescens (por verificar),"La Palmera Hawaiana es una palmera elegante de hojas arqueadas que da un aire tropical a salas, terrazas y jardines. Es una de las palmeras más usadas en decoración.",Luz indirecta brillante,Verano: cada 3-4 días · Invierno: cada 6-8 días,,"• Mantén la tierra ligeramente húmeda.
 • Evita el sol fuerte del mediodía en interiores.
 • Retira las hojas secas."
 Flores y exterior,Achira,20.00,,Canna indica,La Achira tiene hojas grandes y flores de colores intensos que dan un aire tropical al jardín. Es resistente y crece rápido.,Sol directo,Verano: cada 2-3 días · Invierno: cada 5-7 días,,"• Necesita sol para florecer.
@@ -392,7 +392,7 @@ Frutales,Frambuesa,15.00,,Rubus idaeus,La Frambuesa te permite cosechar frutos d
 Frutales,Higo,12.00,,Ficus carica,El Higo es un frutal resistente y generoso que da frutos dulces. Se adapta bien al clima de Lima y puede crecer en maceta grande o en el jardín.,Sol directo,Verano: cada 3-4 días · Invierno: cada 7-10 días,,"• Necesita mucho sol.
 • Deja secar la tierra superficial entre riegos.
 • Pódalo en invierno."
-Frutales,Sakura,15.00,,POR VERIFICAR,,,,,
+Frutales,Sakura,15.00,,POR VERIFICAR
 Frutales,Tumbo,15.00,,Passiflora (por verificar especie),"El Tumbo es una enredadera frutal que da frutos ácidos y aromáticos, ideales para jugos y postres. Crece rápido sobre rejas y pérgolas.",Sol directo,Verano: cada 2-3 días · Invierno: cada 5-7 días,,"• Dale un soporte para trepar.
 • Necesita sol.
 • Abona cada mes en época de crecimiento."
@@ -459,131 +459,169 @@ Frutales,Guayaba,10.00,,Psidium guajava,"La Guayaba es un frutal resistente de f
 Frutales,Moringa,15.00,,Moringa oleifera,"La Moringa es un árbol de crecimiento rápido, conocido por sus hojas nutritivas usadas en infusiones y polvos. Es muy resistente a la sequía.",Sol directo,Verano: cada 4-5 días · Invierno: cada 10-14 días,,"• Necesita mucho sol.
 • Riega poco: resiste la sequía.
 • Pódala para que no crezca demasiado alta."
-Otros,Palmeras Gigantes,150.00,,POR VERIFICAR,,,,,
-Otros,Árbol de Meijo,25.00,,POR VERIFICAR,,,,,
+Palmeras,Palmeras Gigantes,150.00,,POR VERIFICAR
+Otros,Árbol de Meijo,25.00,,POR VERIFICAR
 Otros,Aralia,50.00,,Polyscias spp. (por verificar),"La Aralia es una planta de follaje fino y elegante, muy usada en decoración de interiores y terrazas. Aporta altura y un aire sofisticado.",Luz indirecta brillante,Verano: cada 4-5 días · Invierno: cada 8-10 días,,"• Deja secar la tierra superficial entre riegos.
 • No la cambies de lugar seguido.
 • Evita el sol fuerte del mediodía."
-Macetas,Arcilla 38x35 Panal,40.00,,,Maceta de arcilla modelo Panal de 38 cm de diámetro × 35 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.,,,,
-Macetas,Arcilla 38x35 Chilena,40.00,,,Maceta de arcilla modelo Chilena de 38 cm de diámetro × 35 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.,,,,
-Macetas,Arcilla 38x35 Balde,40.00,,,Maceta de arcilla modelo Balde de 38 cm de diámetro × 35 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.,,,,
-Macetas,Arcilla 32x30 Panal,30.00,,,Maceta de arcilla modelo Panal de 32 cm de diámetro × 30 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.,,,,
-Macetas,Arcilla 32x30 Chilena,30.00,,,Maceta de arcilla modelo Chilena de 32 cm de diámetro × 30 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.,,,,
-Macetas,Arcilla 32x30 Balde,30.00,,,Maceta de arcilla modelo Balde de 32 cm de diámetro × 30 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.,,,,
-Macetas,Arcilla 28x26 Panal,20.00,,,Maceta de arcilla modelo Panal de 28 cm de diámetro × 26 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.,,,,
-Macetas,Arcilla 28x26 Chilena,20.00,,,Maceta de arcilla modelo Chilena de 28 cm de diámetro × 26 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.,,,,
-Macetas,Arcilla 28x26 Balde,20.00,,,Maceta de arcilla modelo Balde de 28 cm de diámetro × 26 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.,,,,
-Macetas,Arcilla 24x20 Panal,15.00,,,Maceta de arcilla modelo Panal de 24 cm de diámetro × 20 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.,,,,
-Macetas,Arcilla 24x20 Chilena,15.00,,,Maceta de arcilla modelo Chilena de 24 cm de diámetro × 20 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.,,,,
-Macetas,Arcilla 24x20 Balde,15.00,,,Maceta de arcilla modelo Balde de 24 cm de diámetro × 20 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.,,,,
-Macetas,Arcilla 20x18 Panal,10.00,,,Maceta de arcilla modelo Panal de 20 cm de diámetro × 18 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.,,,,
-Macetas,Arcilla 20x18 Chilena,10.00,,,Maceta de arcilla modelo Chilena de 20 cm de diámetro × 18 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.,,,,
-Macetas,Arcilla 20x18 Balde,10.00,,,Maceta de arcilla modelo Balde de 20 cm de diámetro × 18 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.,,,,
-Macetas,Arcilla 17x14 Panal,6.00,,,Maceta de arcilla modelo Panal de 17 cm de diámetro × 14 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.,,,,
-Macetas,Arcilla 17x14 Chilena,6.00,,,Maceta de arcilla modelo Chilena de 17 cm de diámetro × 14 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.,,,,
-Macetas,Arcilla 17x14 Balde,6.00,,,Maceta de arcilla modelo Balde de 17 cm de diámetro × 14 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.,,,,
-Macetas,Arcilla Esfera Grande,50.00,,,"Maceta de arcilla en forma de esfera, tamaño grande. Una pieza decorativa con estilo que destaca en salas, terrazas y jardines.",,,,
-Macetas,Arcilla 30x32 Cilindro,40.00,,,Maceta de arcilla en forma de cilindro de 30 cm de diámetro × 32 cm de alto. Su línea recta y moderna combina con cualquier estilo de decoración.,,,,
-Macetas,Arcilla 25x26 Cilindro,30.00,,,Maceta de arcilla en forma de cilindro de 25 cm de diámetro × 26 cm de alto. Su línea recta y moderna combina con cualquier estilo de decoración.,,,,
-Macetas,Arcilla 20x20 Cilindro,20.00,,,Maceta de arcilla en forma de cilindro de 20 cm de diámetro × 20 cm de alto. Su línea recta y moderna combina con cualquier estilo de decoración.,,,,
-Macetas,Arcilla 17x17 Cilindro,12.00,,,Maceta de arcilla en forma de cilindro de 17 cm de diámetro × 17 cm de alto. Su línea recta y moderna combina con cualquier estilo de decoración.,,,,
-Macetas,Arcilla 13x13 Cilindro,10.00,,,Maceta de arcilla en forma de cilindro de 13 cm de diámetro × 13 cm de alto. Su línea recta y moderna combina con cualquier estilo de decoración.,,,,
-Macetas,Arcilla 33x46 Cono,50.00,,,Maceta de arcilla en forma de cono de 33 cm de diámetro × 46 cm de alto. Su forma alta y estilizada es ideal para plantas protagonistas.,,,,
-Macetas,Arcilla 28x40 Cono,35.00,,,Maceta de arcilla en forma de cono de 28 cm de diámetro × 40 cm de alto. Su forma alta y estilizada es ideal para plantas protagonistas.,,,,
-Macetas,Arcilla 23x35 Cono,25.00,,,Maceta de arcilla en forma de cono de 23 cm de diámetro × 35 cm de alto. Su forma alta y estilizada es ideal para plantas protagonistas.,,,,
-Macetas,Plástico Optimplast #18,35.00,,,"Maceta de plástico Optimplast N.º 18. Ligera, resistente y fácil de mover, ideal para interiores y exteriores.",,,,
-Macetas,Plástico Optimplast #16,25.00,,,"Maceta de plástico Optimplast N.º 16. Ligera, resistente y fácil de mover, ideal para interiores y exteriores.",,,,
-Macetas,Plástico Optimplast #14,20.00,,,"Maceta de plástico Optimplast N.º 14. Ligera, resistente y fácil de mover, ideal para interiores y exteriores.",,,,
-Macetas,Plástico Optimplast #12,15.00,,,"Maceta de plástico Optimplast N.º 12. Ligera, resistente y fácil de mover, ideal para interiores y exteriores.",,,,
-Macetas,Plástico Optimplast #10,12.00,,,"Maceta de plástico Optimplast N.º 10. Ligera, resistente y fácil de mover, ideal para interiores y exteriores.",,,,
-Macetas,Plástico Optimplast #8,8.00,,,"Maceta de plástico Optimplast N.º 8. Ligera, resistente y fácil de mover, ideal para interiores y exteriores.",,,,
-Macetas,Plástico Colgante Optimplast Ovni 30x15,15.00,,,"Maceta colgante de plástico Optimplast modelo Ovni, de 30 × 15 cm. Perfecta para plantas colgantes como boas, helechos y tradescantias.",,,,
-Macetas,Plástico Colgante Optimplast #40,20.00,,,"Maceta colgante de plástico Optimplast N.º 40. Perfecta para plantas colgantes como boas, helechos y tradescantias.",,,,
-Macetas,Plástico Rectangular Optimplast #46,15.00,,,"Jardinera rectangular de plástico Optimplast N.º 46. Ideal para balcones, ventanas y para sembrar aromáticas en fila.",,,,
-Macetas,Plástico Rectangular Optimplast #36,12.00,,,"Jardinera rectangular de plástico Optimplast N.º 36. Ideal para balcones, ventanas y para sembrar aromáticas en fila.",,,,
-Macetas,Plástico Diamante 22x20,12.00,,,Maceta de plástico modelo Diamante de 22 cm de diámetro × 20 cm de alto. Su diseño facetado le da un toque moderno a tus plantas.,,,,
-Macetas,Plástico Diamante 33x30,25.00,,,Maceta de plástico modelo Diamante de 33 cm de diámetro × 30 cm de alto. Su diseño facetado le da un toque moderno a tus plantas.,,,,
-Macetas,Plástico Cuadrada 20x20,6.00,,,"Maceta cuadrada de plástico de 20 × 20 cm. Práctica, ligera y fácil de acomodar en repisas y jardineras.",,,,
-Macetas,Plástico Transparente #19,7.00,,,Maceta transparente de plástico N.º 19. Permite ver las raíces y la humedad del sustrato; ideal para orquídeas.,,,,
-Macetas,Plástico Transparente #17,6.00,,,Maceta transparente de plástico N.º 17. Permite ver las raíces y la humedad del sustrato; ideal para orquídeas.,,,,
-Macetas,Plástico Transparente #14,4.00,,,Maceta transparente de plástico N.º 14. Permite ver las raíces y la humedad del sustrato; ideal para orquídeas.,,,,
-Macetas,Plástico Transparente #13,4.00,,,Maceta transparente de plástico N.º 13. Permite ver las raíces y la humedad del sustrato; ideal para orquídeas.,,,,
-Macetas,Plástico Transparente #12,3.00,,,Maceta transparente de plástico N.º 12. Permite ver las raíces y la humedad del sustrato; ideal para orquídeas.,,,,
-Macetas,Plástico Terracota #15,3.00,,,"Maceta de plástico color terracota N.º 15. Tiene el look clásico del barro, pero es ligera y económica.",,,,
-Macetas,Plástico Terracota #14,3.00,,,"Maceta de plástico color terracota N.º 14. Tiene el look clásico del barro, pero es ligera y económica.",,,,
-Macetas,Plástico Terracota #13,3.00,,,"Maceta de plástico color terracota N.º 13. Tiene el look clásico del barro, pero es ligera y económica.",,,,
-Macetas,Plástico Terracota #11,2.00,,,"Maceta de plástico color terracota N.º 11. Tiene el look clásico del barro, pero es ligera y económica.",,,,
-Macetas,Plástico Terracota #10,2.00,,,"Maceta de plástico color terracota N.º 10. Tiene el look clásico del barro, pero es ligera y económica.",,,,
-Macetas,Plástico Rectangular China,8.00,,,"Maceta rectangular de plástico, diseño importado. Práctica y decorativa para repisas, ventanas y escritorios.",,,,
-Macetas,Plástico Esfera China,8.00,,,"Maceta de plástico en forma de esfera, diseño importado. Un detalle moderno y decorativo para plantas pequeñas.",,,,
-Macetas,Loza 20x20,40.00,,,Maceta de loza de 20 cm de diámetro × 20 cm de alto. Su acabado fino y elegante realza cualquier planta de interior.,,,,
-Macetas,Loza 17x16,25.00,,,Maceta de loza de 17 cm de diámetro × 16 cm de alto. Su acabado fino y elegante realza cualquier planta de interior.,,,,
-Macetas,Loza 15x13,15.00,,,Maceta de loza de 15 cm de diámetro × 13 cm de alto. Su acabado fino y elegante realza cualquier planta de interior.,,,,
-Macetas,Loza 10x10,10.00,,,Maceta de loza de 10 cm de diámetro × 10 cm de alto. Su acabado fino y elegante realza cualquier planta de interior.,,,,
-Macetas,Maceta Pequeña,2.00,,,"Maceta pequeña, ideal para suculentas, aromáticas y plantas pequeñas. Práctica y económica para recuerdos y regalos.",,,,
-Macetas,Maceta Pequeña,3.00,,,"Maceta pequeña, ideal para suculentas, aromáticas y plantas pequeñas. Práctica y económica para recuerdos y regalos.",,,,
-Macetas,Maceta Pequeña,4.00,,,"Maceta pequeña, ideal para suculentas, aromáticas y plantas pequeñas. Práctica y económica para recuerdos y regalos.",,,,
-Macetas,Plastico Carnívoras,2.00,,,Maceta de plástico especial para plantas carnívoras. Tamaño justo para su crecimiento y fácil de mantener húmeda.,,,,
-Sustratos y abonos,Fibra de Coco,10.00,,,"Fibra de coco para mezclar con tu sustrato. Retiene la humedad, airea la tierra y es ideal para plantas tropicales de interior.",,,,
-Sustratos y abonos,Corteza de Pino,10.00,,,"Corteza de pino para orquídeas, anturios y plantas tropicales. Mejora el drenaje y la aireación de las raíces; también sirve como cobertura decorativa.",,,,
-Sustratos y abonos,Perlita,10.00,,,"Perlita para mezclar con tu sustrato. Aligera la tierra, mejora el drenaje y evita que las raíces se pudran.",,,,
-Sustratos y abonos,Musgo Blanco,10.00,,,"Musgo blanco (sphagnum) que retiene mucha humedad. Ideal para orquídeas, plantas carnívoras y para enraizar esquejes.",,,,
-Sustratos y abonos,Sustrato para Orquídeas,10.00,,,"Sustrato listo para orquídeas, con la aireación y el drenaje que sus raíces necesitan. Solo trasplanta y riega.",,,,
-Sustratos y abonos,Sustrato para Anturios,5.00,,,"Sustrato listo para anturios, con buen drenaje y la humedad justa para que crezcan sanos y florezcan.",,,,
-Sustratos y abonos,Sustrato para Anturios,10.00,,,"Sustrato listo para anturios, con buen drenaje y la humedad justa para que crezcan sanos y florezcan.",,,,
-Sustratos y abonos,Sustrato para Suculentas y Cactus,5.00,,,"Sustrato listo para suculentas y cactus, de drenaje rápido para evitar que sus raíces se pudran.",,,,
-Sustratos y abonos,Sustrato para carnívora,3.00,,,"Sustrato especial para plantas carnívoras, pobre en nutrientes y con la humedad que necesitan.",,,,
-Sustratos y abonos,Piedra Pomes,8.00,,,"Piedra pómez para mezclar con tu sustrato o usar como cobertura. Mejora el drenaje y es ideal para suculentas, cactus y bonsáis.",,,,
-Sustratos y abonos,Abono Urea 1KG,8.00,,,"Abono urea de 1 kg, rico en nitrógeno. Estimula el crecimiento de hojas verdes y frondosas; úsalo en poca cantidad.",,,,
-Sustratos y abonos,Abono 20/20/20,8.00,,,"Abono soluble 20-20-20, balanceado en nitrógeno, fósforo y potasio. Nutre a tus plantas de forma completa en todas sus etapas.",,,,
-Sustratos y abonos,Abono Humus 1KG,3.00,,,"Humus de lombriz de 1 kg, abono orgánico natural. Mejora la tierra y nutre a tus plantas sin quemarlas.",,,,
-Sustratos y abonos,Abono Humus 5KG,8.00,,,"Humus de lombriz de 5 kg, abono orgánico natural. Mejora la tierra y nutre a tus plantas sin quemarlas.",,,,
-Sustratos y abonos,Abono Humus 12KG,12.00,,,"Humus de lombriz de 12 kg, abono orgánico natural. Mejora la tierra y nutre a tus plantas sin quemarlas.",,,,
-Sustratos y abonos,Saco Abono Humus 35KG,20.00,,,"Saco de humus de lombriz de 35 kg, abono orgánico natural. Ideal para jardines, huertos y para preparar mucha tierra.",,,,
-Sustratos y abonos,Musgo Serrano,12.00,,,"Musgo serrano natural, ideal para decorar macetas, nacimientos, terrarios y arreglos. También ayuda a conservar la humedad del sustrato.",,,,
-Sustratos y abonos,Tierra Negra,12.00,,,"Tierra negra rica en materia orgánica, ideal para jardines, macetas y para mejorar suelos pobres.",,,,
-Sustratos y abonos,Saco Tierra Preparada,8.00,,,"Saco de tierra preparada lista para usar, con la mezcla justa para sembrar y trasplantar tus plantas.",,,,
-Sustratos y abonos,Bolsa Tierra Preparada,3.00,,,"Bolsa de tierra preparada lista para usar, práctica para macetas y trasplantes pequeños.",,,,
-Sustratos y abonos,Saco de Compus,12.00,,,"Saco de compost, abono orgánico que mejora la estructura de la tierra y aporta nutrientes a jardines y huertos.",,,,
-Sustratos y abonos,Arcilla Expandida (Leca),13.00,,,Arcilla expandida (leca) en bolitas para drenaje. Colócala en el fondo de la maceta o úsala en cultivo semi-hidropónico.,,,,
-Líquidos,Bioestimulante Algas Marinas 250ml,20.00,,,"Bioestimulante de algas marinas de 250 ml. Fortalece a tus plantas, estimula raíces y brotes nuevos, y las ayuda a recuperarse del estrés.",,,,
-Líquidos,Bioestimulante Algas Marinas,10.00,,,"Bioestimulante de algas marinas en presentación pequeña. Fortalece a tus plantas, estimula raíces y brotes nuevos, y las ayuda a recuperarse del estrés.",,,,
-Líquidos,Insecticida Triple Acción 250ml,20.00,,,"Insecticida Triple Acción de 250 ml para controlar plagas comunes como pulgones, cochinillas y mosca blanca.",,,,
-Líquidos,Insecticida Triple Acción,10.00,,,"Insecticida Triple Acción en presentación pequeña para controlar plagas comunes como pulgones, cochinillas y mosca blanca.",,,,
-Líquidos,Fertilizante Orquídea,10.00,,,Fertilizante líquido para orquídeas. Aporta los nutrientes que necesitan para crecer sanas y volver a florecer.,,,,
-Líquidos,Fertilizante Anturio,10.00,,,Fertilizante líquido para anturios. Estimula hojas brillantes y una floración abundante.,,,,
-Líquidos,Insecticida Orgánico Jabón potásico,10.00,,,"Insecticida orgánico de jabón potásico. Controla pulgones, mosca blanca y cochinilla de forma natural y segura.",,,,
-Líquidos,Insecticida Orgánico Aceite de Neem,10.00,,,Insecticida orgánico de aceite de neem. Repele y controla plagas de forma natural; ideal para un cuidado preventivo.,,,,
-Líquidos,Fertilizante Frutales Calcio Boro,10.00,,,"Fertilizante líquido con calcio y boro para frutales. Mejora la floración, el cuajado y la calidad de los frutos.",,,,
-Líquidos,Gotero,5.00,,,,,,,
-Líquidos,Semillas,1.50,,,Semillas para sembrar en casa. Una forma económica y entretenida de empezar tu propio huerto o jardín.,,,,
-Líquidos,Sobre,3.00,,,,,,,
-Parantes,Parante 60cm alto,40.00,,,Parante (tutor) de 60 cm de alto. Da soporte a plantas trepadoras como monsteras y filodendros para que crezcan rectas.,,,,
-Parantes,Parante 50cm alto,35.00,,,Parante (tutor) de 50 cm de alto. Da soporte a plantas trepadoras como monsteras y filodendros para que crezcan rectas.,,,,
-Parantes,Parante 40cm alto,30.00,,,Parante (tutor) de 40 cm de alto. Da soporte a plantas trepadoras como monsteras y filodendros para que crezcan rectas.,,,,
-Parantes,Parante 30cm alto,25.00,,,Parante (tutor) de 30 cm de alto. Da soporte a plantas trepadoras como monsteras y filodendros para que crezcan rectas.,,,,
-Interior,Caladium Rojo Mediano,30.00,,,,,,,
-Interior,Caladium Payasito,30.00,,,,,,,
-Interior,Caladium Pañuelo Rosado,60.00,,,,,,,
-Interior,Violeta de los Alpes,25.00,,,,,,,
-Interior,Violeta Africana,20.00,,,,,,,
-Interior,Caucho Variegado,70.00,,,,,,,
-Interior,Caucho Rubí,60.00,,,,,,,
-Interior,Calathea Dottie,45.00,,,,,,,
-Interior,Llama Plata,3.00,,,,,,,
-Interior,Anturio Premium,40.00,,,,,,,
-Interior,Boa Brazil,30.00,,,,,,,
-Flores y exterior,Clavelita,2.00,,,,,,,
-Flores y exterior,Corona de Cristo,10.00,,,,,,,
-Flores y exterior,Jazmín Limón,25.00,,,,,,,
-Flores y exterior,Madre Selva,15.00,,,,,,,
-Flores y exterior,Bellísima,25.00,,,,,,,
-Flores y exterior,Jade,10.00,,,,,,,
-Flores y exterior,Palmera Yuca,30.00,,,,,,,
-Flores y exterior,Pino Navideño,50.00,,,,,,,
-Flores y exterior,Pino Navideño,70.00,,,,,,,
-Flores y exterior,Ciprés Limón Grande,25.00,,,,,,,
-Aromáticas,Ají,2.00,,,,,,,
-Otros,Palmera Bruja,150.00,,,,,,,
-Otros,Aspersor 2 L,15.00,,,,,,,
-Líquidos,Humus Líquido 250ml,20.00,,,,,,,
+Macetas,Arcilla 38x35 Panal,40.00,,,Maceta de arcilla modelo Panal de 38 cm de diámetro × 35 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.
+Macetas,Arcilla 38x35 Chilena,40.00,,,Maceta de arcilla modelo Chilena de 38 cm de diámetro × 35 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.
+Macetas,Arcilla 38x35 Balde,40.00,,,Maceta de arcilla modelo Balde de 38 cm de diámetro × 35 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.
+Macetas,Arcilla 32x30 Panal,30.00,,,Maceta de arcilla modelo Panal de 32 cm de diámetro × 30 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.
+Macetas,Arcilla 32x30 Chilena,30.00,,,Maceta de arcilla modelo Chilena de 32 cm de diámetro × 30 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.
+Macetas,Arcilla 32x30 Balde,30.00,,,Maceta de arcilla modelo Balde de 32 cm de diámetro × 30 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.
+Macetas,Arcilla 28x26 Panal,20.00,,,Maceta de arcilla modelo Panal de 28 cm de diámetro × 26 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.
+Macetas,Arcilla 28x26 Chilena,20.00,,,Maceta de arcilla modelo Chilena de 28 cm de diámetro × 26 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.
+Macetas,Arcilla 28x26 Balde,20.00,,,Maceta de arcilla modelo Balde de 28 cm de diámetro × 26 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.
+Macetas,Arcilla 24x20 Panal,15.00,,,Maceta de arcilla modelo Panal de 24 cm de diámetro × 20 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.
+Macetas,Arcilla 24x20 Chilena,15.00,,,Maceta de arcilla modelo Chilena de 24 cm de diámetro × 20 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.
+Macetas,Arcilla 24x20 Balde,15.00,,,Maceta de arcilla modelo Balde de 24 cm de diámetro × 20 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.
+Macetas,Arcilla 20x18 Panal,10.00,,,Maceta de arcilla modelo Panal de 20 cm de diámetro × 18 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.
+Macetas,Arcilla 20x18 Chilena,10.00,,,Maceta de arcilla modelo Chilena de 20 cm de diámetro × 18 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.
+Macetas,Arcilla 20x18 Balde,10.00,,,Maceta de arcilla modelo Balde de 20 cm de diámetro × 18 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.
+Macetas,Arcilla 17x14 Panal,6.00,,,Maceta de arcilla modelo Panal de 17 cm de diámetro × 14 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.
+Macetas,Arcilla 17x14 Chilena,6.00,,,Maceta de arcilla modelo Chilena de 17 cm de diámetro × 14 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.
+Macetas,Arcilla 17x14 Balde,6.00,,,Maceta de arcilla modelo Balde de 17 cm de diámetro × 14 cm de alto. La arcilla deja respirar las raíces y le da un acabado natural y cálido a tus plantas.
+Macetas,Arcilla Esfera Grande,50.00,,,"Maceta de arcilla en forma de esfera, tamaño grande. Una pieza decorativa con estilo que destaca en salas, terrazas y jardines."
+Macetas,Arcilla 30x32 Cilindro,40.00,,,Maceta de arcilla en forma de cilindro de 30 cm de diámetro × 32 cm de alto. Su línea recta y moderna combina con cualquier estilo de decoración.
+Macetas,Arcilla 25x26 Cilindro,30.00,,,Maceta de arcilla en forma de cilindro de 25 cm de diámetro × 26 cm de alto. Su línea recta y moderna combina con cualquier estilo de decoración.
+Macetas,Arcilla 20x20 Cilindro,20.00,,,Maceta de arcilla en forma de cilindro de 20 cm de diámetro × 20 cm de alto. Su línea recta y moderna combina con cualquier estilo de decoración.
+Macetas,Arcilla 17x17 Cilindro,12.00,,,Maceta de arcilla en forma de cilindro de 17 cm de diámetro × 17 cm de alto. Su línea recta y moderna combina con cualquier estilo de decoración.
+Macetas,Arcilla 13x13 Cilindro,10.00,,,Maceta de arcilla en forma de cilindro de 13 cm de diámetro × 13 cm de alto. Su línea recta y moderna combina con cualquier estilo de decoración.
+Macetas,Arcilla 33x46 Cono,50.00,,,Maceta de arcilla en forma de cono de 33 cm de diámetro × 46 cm de alto. Su forma alta y estilizada es ideal para plantas protagonistas.
+Macetas,Arcilla 28x40 Cono,35.00,,,Maceta de arcilla en forma de cono de 28 cm de diámetro × 40 cm de alto. Su forma alta y estilizada es ideal para plantas protagonistas.
+Macetas,Arcilla 23x35 Cono,25.00,,,Maceta de arcilla en forma de cono de 23 cm de diámetro × 35 cm de alto. Su forma alta y estilizada es ideal para plantas protagonistas.
+Macetas,Plástico Optimplast #18,35.00,,,"Maceta de plástico Optimplast N.º 18. Ligera, resistente y fácil de mover, ideal para interiores y exteriores."
+Macetas,Plástico Optimplast #16,25.00,,,"Maceta de plástico Optimplast N.º 16. Ligera, resistente y fácil de mover, ideal para interiores y exteriores."
+Macetas,Plástico Optimplast #14,20.00,,,"Maceta de plástico Optimplast N.º 14. Ligera, resistente y fácil de mover, ideal para interiores y exteriores."
+Macetas,Plástico Optimplast #12,15.00,,,"Maceta de plástico Optimplast N.º 12. Ligera, resistente y fácil de mover, ideal para interiores y exteriores."
+Macetas,Plástico Optimplast #10,12.00,,,"Maceta de plástico Optimplast N.º 10. Ligera, resistente y fácil de mover, ideal para interiores y exteriores."
+Macetas,Plástico Optimplast #8,8.00,,,"Maceta de plástico Optimplast N.º 8. Ligera, resistente y fácil de mover, ideal para interiores y exteriores."
+Macetas,Plástico Colgante Optimplast Ovni 30x15,15.00,,,"Maceta colgante de plástico Optimplast modelo Ovni, de 30 × 15 cm. Perfecta para plantas colgantes como boas, helechos y tradescantias."
+Macetas,Plástico Colgante Optimplast #40,20.00,,,"Maceta colgante de plástico Optimplast N.º 40. Perfecta para plantas colgantes como boas, helechos y tradescantias."
+Macetas,Plástico Rectangular Optimplast #46,15.00,,,"Jardinera rectangular de plástico Optimplast N.º 46. Ideal para balcones, ventanas y para sembrar aromáticas en fila."
+Macetas,Plástico Rectangular Optimplast #36,12.00,,,"Jardinera rectangular de plástico Optimplast N.º 36. Ideal para balcones, ventanas y para sembrar aromáticas en fila."
+Macetas,Plástico Diamante 22x20,12.00,,,Maceta de plástico modelo Diamante de 22 cm de diámetro × 20 cm de alto. Su diseño facetado le da un toque moderno a tus plantas.
+Macetas,Plástico Diamante 33x30,25.00,,,Maceta de plástico modelo Diamante de 33 cm de diámetro × 30 cm de alto. Su diseño facetado le da un toque moderno a tus plantas.
+Macetas,Plástico Cuadrada 20x20,6.00,,,"Maceta cuadrada de plástico de 20 × 20 cm. Práctica, ligera y fácil de acomodar en repisas y jardineras."
+Macetas,Plástico Transparente #19,7.00,,,Maceta transparente de plástico N.º 19. Permite ver las raíces y la humedad del sustrato; ideal para orquídeas.
+Macetas,Plástico Transparente #17,6.00,,,Maceta transparente de plástico N.º 17. Permite ver las raíces y la humedad del sustrato; ideal para orquídeas.
+Macetas,Plástico Transparente #14,4.00,,,Maceta transparente de plástico N.º 14. Permite ver las raíces y la humedad del sustrato; ideal para orquídeas.
+Macetas,Plástico Transparente #13,4.00,,,Maceta transparente de plástico N.º 13. Permite ver las raíces y la humedad del sustrato; ideal para orquídeas.
+Macetas,Plástico Transparente #12,3.00,,,Maceta transparente de plástico N.º 12. Permite ver las raíces y la humedad del sustrato; ideal para orquídeas.
+Macetas,Plástico Terracota #15,3.00,,,"Maceta de plástico color terracota N.º 15. Tiene el look clásico del barro, pero es ligera y económica."
+Macetas,Plástico Terracota #14,3.00,,,"Maceta de plástico color terracota N.º 14. Tiene el look clásico del barro, pero es ligera y económica."
+Macetas,Plástico Terracota #13,3.00,,,"Maceta de plástico color terracota N.º 13. Tiene el look clásico del barro, pero es ligera y económica."
+Macetas,Plástico Terracota #11,2.00,,,"Maceta de plástico color terracota N.º 11. Tiene el look clásico del barro, pero es ligera y económica."
+Macetas,Plástico Terracota #10,2.00,,,"Maceta de plástico color terracota N.º 10. Tiene el look clásico del barro, pero es ligera y económica."
+Macetas,Plástico Rectangular China,8.00,,,"Maceta rectangular de plástico, diseño importado. Práctica y decorativa para repisas, ventanas y escritorios."
+Macetas,Plástico Esfera China,8.00,,,"Maceta de plástico en forma de esfera, diseño importado. Un detalle moderno y decorativo para plantas pequeñas."
+Macetas,Loza 20x20,40.00,,,Maceta de loza de 20 cm de diámetro × 20 cm de alto. Su acabado fino y elegante realza cualquier planta de interior.
+Macetas,Loza 17x16,25.00,,,Maceta de loza de 17 cm de diámetro × 16 cm de alto. Su acabado fino y elegante realza cualquier planta de interior.
+Macetas,Loza 15x13,15.00,,,Maceta de loza de 15 cm de diámetro × 13 cm de alto. Su acabado fino y elegante realza cualquier planta de interior.
+Macetas,Loza 10x10,10.00,,,Maceta de loza de 10 cm de diámetro × 10 cm de alto. Su acabado fino y elegante realza cualquier planta de interior.
+Macetas,Maceta Pequeña,2.00,,,"Maceta pequeña, ideal para suculentas, aromáticas y plantas pequeñas. Práctica y económica para recuerdos y regalos."
+Macetas,Maceta Pequeña,3.00,,,"Maceta pequeña, ideal para suculentas, aromáticas y plantas pequeñas. Práctica y económica para recuerdos y regalos."
+Macetas,Maceta Pequeña,4.00,,,"Maceta pequeña, ideal para suculentas, aromáticas y plantas pequeñas. Práctica y económica para recuerdos y regalos."
+Macetas,Plastico Carnívoras,2.00,,,Maceta de plástico especial para plantas carnívoras. Tamaño justo para su crecimiento y fácil de mantener húmeda.
+Sustratos y abonos,Fibra de Coco,10.00,,,"Fibra de coco para mezclar con tu sustrato. Retiene la humedad, airea la tierra y es ideal para plantas tropicales de interior."
+Sustratos y abonos,Corteza de Pino,10.00,,,"Corteza de pino para orquídeas, anturios y plantas tropicales. Mejora el drenaje y la aireación de las raíces; también sirve como cobertura decorativa."
+Sustratos y abonos,Perlita,10.00,,,"Perlita para mezclar con tu sustrato. Aligera la tierra, mejora el drenaje y evita que las raíces se pudran."
+Sustratos y abonos,Musgo Blanco,10.00,,,"Musgo blanco (sphagnum) que retiene mucha humedad. Ideal para orquídeas, plantas carnívoras y para enraizar esquejes."
+Sustratos y abonos,Sustrato para Orquídeas,10.00,,,"Sustrato listo para orquídeas, con la aireación y el drenaje que sus raíces necesitan. Solo trasplanta y riega."
+Sustratos y abonos,Sustrato para Anturios,5.00,,,"Sustrato listo para anturios, con buen drenaje y la humedad justa para que crezcan sanos y florezcan."
+Sustratos y abonos,Sustrato para Anturios,10.00,,,"Sustrato listo para anturios, con buen drenaje y la humedad justa para que crezcan sanos y florezcan."
+Sustratos y abonos,Sustrato para Suculentas y Cactus,5.00,,,"Sustrato listo para suculentas y cactus, de drenaje rápido para evitar que sus raíces se pudran."
+Sustratos y abonos,Sustrato para carnívora,3.00,,,"Sustrato especial para plantas carnívoras, pobre en nutrientes y con la humedad que necesitan."
+Sustratos y abonos,Piedra Pomes,8.00,,,"Piedra pómez para mezclar con tu sustrato o usar como cobertura. Mejora el drenaje y es ideal para suculentas, cactus y bonsáis."
+Sustratos y abonos,Abono Urea 1KG,8.00,,,"Abono urea de 1 kg, rico en nitrógeno. Estimula el crecimiento de hojas verdes y frondosas; úsalo en poca cantidad."
+Sustratos y abonos,Abono 20/20/20,8.00,,,"Abono soluble 20-20-20, balanceado en nitrógeno, fósforo y potasio. Nutre a tus plantas de forma completa en todas sus etapas."
+Sustratos y abonos,Abono Humus 1KG,3.00,,,"Humus de lombriz de 1 kg, abono orgánico natural. Mejora la tierra y nutre a tus plantas sin quemarlas."
+Sustratos y abonos,Abono Humus 5KG,8.00,,,"Humus de lombriz de 5 kg, abono orgánico natural. Mejora la tierra y nutre a tus plantas sin quemarlas."
+Sustratos y abonos,Abono Humus 12KG,12.00,,,"Humus de lombriz de 12 kg, abono orgánico natural. Mejora la tierra y nutre a tus plantas sin quemarlas."
+Sustratos y abonos,Saco Abono Humus 35KG,20.00,,,"Saco de humus de lombriz de 35 kg, abono orgánico natural. Ideal para jardines, huertos y para preparar mucha tierra."
+Sustratos y abonos,Musgo Serrano,12.00,,,"Musgo serrano natural, ideal para decorar macetas, nacimientos, terrarios y arreglos. También ayuda a conservar la humedad del sustrato."
+Sustratos y abonos,Tierra Negra,12.00,,,"Tierra negra rica en materia orgánica, ideal para jardines, macetas y para mejorar suelos pobres."
+Sustratos y abonos,Saco Tierra Preparada,8.00,,,"Saco de tierra preparada lista para usar, con la mezcla justa para sembrar y trasplantar tus plantas."
+Sustratos y abonos,Bolsa Tierra Preparada,3.00,,,"Bolsa de tierra preparada lista para usar, práctica para macetas y trasplantes pequeños."
+Sustratos y abonos,Saco de Compus,12.00,,,"Saco de compost, abono orgánico que mejora la estructura de la tierra y aporta nutrientes a jardines y huertos."
+Sustratos y abonos,Arcilla Expandida (Leca),13.00,,,Arcilla expandida (leca) en bolitas para drenaje. Colócala en el fondo de la maceta o úsala en cultivo semi-hidropónico.
+Líquidos,Bioestimulante Algas Marinas 250ml,20.00,,,"Bioestimulante de algas marinas de 250 ml. Fortalece a tus plantas, estimula raíces y brotes nuevos, y las ayuda a recuperarse del estrés."
+Líquidos,Bioestimulante Algas Marinas,10.00,,,"Bioestimulante de algas marinas en presentación pequeña. Fortalece a tus plantas, estimula raíces y brotes nuevos, y las ayuda a recuperarse del estrés."
+Líquidos,Insecticida Triple Acción 250ml,20.00,,,"Insecticida Triple Acción de 250 ml para controlar plagas comunes como pulgones, cochinillas y mosca blanca."
+Líquidos,Insecticida Triple Acción,10.00,,,"Insecticida Triple Acción en presentación pequeña para controlar plagas comunes como pulgones, cochinillas y mosca blanca."
+Líquidos,Fertilizante Orquídea,10.00,,,Fertilizante líquido para orquídeas. Aporta los nutrientes que necesitan para crecer sanas y volver a florecer.
+Líquidos,Fertilizante Anturio,10.00,,,Fertilizante líquido para anturios. Estimula hojas brillantes y una floración abundante.
+Líquidos,Insecticida Orgánico Jabón potásico,10.00,,,"Insecticida orgánico de jabón potásico. Controla pulgones, mosca blanca y cochinilla de forma natural y segura."
+Líquidos,Insecticida Orgánico Aceite de Neem,10.00,,,Insecticida orgánico de aceite de neem. Repele y controla plagas de forma natural; ideal para un cuidado preventivo.
+Líquidos,Fertilizante Frutales Calcio Boro,10.00,,,"Fertilizante líquido con calcio y boro para frutales. Mejora la floración, el cuajado y la calidad de los frutos."
+Líquidos,Gotero,5.00
+Líquidos,Semillas,1.50,,,Semillas para sembrar en casa. Una forma económica y entretenida de empezar tu propio huerto o jardín.
+Líquidos,Sobre,3.00
+Parantes,Parante 60cm alto,40.00,,,Parante (tutor) de 60 cm de alto. Da soporte a plantas trepadoras como monsteras y filodendros para que crezcan rectas.
+Parantes,Parante 50cm alto,35.00,,,Parante (tutor) de 50 cm de alto. Da soporte a plantas trepadoras como monsteras y filodendros para que crezcan rectas.
+Parantes,Parante 40cm alto,30.00,,,Parante (tutor) de 40 cm de alto. Da soporte a plantas trepadoras como monsteras y filodendros para que crezcan rectas.
+Parantes,Parante 30cm alto,25.00,,,Parante (tutor) de 30 cm de alto. Da soporte a plantas trepadoras como monsteras y filodendros para que crezcan rectas.
+Interior,Caladium Rojo Mediano,30.00
+Interior,Caladium Payasito,30.00
+Interior,Caladium Pañuelo Rosado,60.00
+Interior,Violeta de los Alpes,25.00
+Interior,Violeta Africana,20.00
+Interior,Caucho Variegado,70.00
+Interior,Caucho Rubí,60.00
+Interior,Calathea Dottie,45.00
+Interior,Llama Plata,3.00
+Interior,Anturio Premium,40.00
+Interior,Boa Brazil,30.00
+Flores y exterior,Clavelita,2.00
+Flores y exterior,Corona de Cristo,10.00
+Flores y exterior,Jazmín Limón,25.00
+Flores y exterior,Madre Selva,15.00
+Flores y exterior,Bellísima,25.00
+Flores y exterior,Jade,10.00
+Palmeras,Palmera Yuca,30.00
+Flores y exterior,Pino Navideño,50.00
+Flores y exterior,Pino Navideño,70.00
+Flores y exterior,Ciprés Limón Grande,25.00
+Aromáticas,Ají,2.00
+Palmeras,Palmera Bruja,150.00
+Otros,Aspersor 2 L,15.00
+Líquidos,Humus Líquido 250ml,20.00
+Palmeras,Palmera Botella,120.00
+Interior,Monstera Thai Constellation,90.00
+Interior,Helecho Alemán,60.00
+Interior,Oreja de Elefante,20.00
+Interior,Oreja de Elefante,50.00
+Interior,Caladium Común,10.00
+Interior,Caladium Común,15.00
+Interior,Caladium Común,50.00
+Interior,Pachira,150.00
+Interior,Bambú Arreglo,12.00
+Interior,Alocasia Macrorriza,55.00
+Flores y exterior,Hortensia,35.00
+Interior,Boa Neón,12.00
+Interior,Boa Neón,30.00
+Flores y exterior,Dalia,13.00
+Frutales,Guanábana,15.00
+Flores y exterior,Lirio,25.00
+Flores y exterior,Cola de Zorro,15.00
+Interior,Pulmón de Gato,30.00
+Palmeras,Palmera Viajera,45.00
+Interior,Cuerno de Alce,40.00
+Sustratos y abonos,Basacote 1KG,80.00
+Palmeras,Palmera Lemon,70.00
+Flores y exterior,Señorita,20.00
+Interior,Pico de Loro,35.00
+Interior,Zamioculca Pequeña,28.00
+Interior,Caladium Rosado,25.00
+Flores y exterior,Flor Señorita,3.00
+Interior,Cissus,25.00
+Interior,Tradescantia,15.00
+Interior,Tradescantia,20.00
+Flores y exterior,Rosario,15.00
+Flores y exterior,Laurel,15.00
+Flores y exterior,Rosas Injertadas,8.00
+Flores y exterior,Hortensia,28.00
+Interior,Orquídea Cattleya,150.00
+Macetas,Maceta Jazmín #12,25.00
+Macetas,Maceta Jazmín #10,20.00

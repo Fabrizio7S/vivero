@@ -4,7 +4,7 @@ import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import { catalogo, precioManualDistinto, sinExcel } from "./src/lib/catalogo.ts";
-import { homeSeo, productSeo, renderHead, renderSitemap, type PageSeo } from "./src/lib/seo.ts";
+import { creditsSeo, homeSeo, productSeo, renderHead, renderSitemap, type PageSeo } from "./src/lib/seo.ts";
 
 // Escribe título, descripción, Open Graph y datos estructurados en el <head>.
 function fillHead(html: string, seo: PageSeo): string {
@@ -44,6 +44,7 @@ function seoPlugin(): Plugin {
           fillHead(template, productSeo(plant)),
         );
       }
+      writeFileSync(join(outDir, "creditos.html"), fillHead(template, creditsSeo()));
 
       const today = new Date().toISOString().slice(0, 10);
       writeFileSync(join(outDir, "sitemap.xml"), renderSitemap(today));

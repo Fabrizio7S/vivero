@@ -88,13 +88,18 @@ function CartDrawer() {
                     onClick={close}
                     className="h-20 w-20 shrink-0 overflow-hidden rounded-xl bg-arena"
                   >
+                    {/* Sin foto (macetas, sustratos…): hoja de la marca. */}
                     <img
-                      src={line.plant.images[0]}
+                      src={line.plant.images[0] ?? "/marca/icono-192.png"}
                       alt={line.plant.name}
                       width={1200}
                       height={1200}
                       loading="lazy"
-                      className="h-full w-full object-cover"
+                      className={
+                        line.plant.images[0]
+                          ? "h-full w-full object-cover"
+                          : "m-auto h-1/2 w-1/2 translate-y-1/2 opacity-30 grayscale"
+                      }
                     />
                   </Link>
 

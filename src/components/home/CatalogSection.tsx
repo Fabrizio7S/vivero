@@ -1,29 +1,62 @@
-import { useMemo, useRef, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useMemo, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
+import { useCart } from "../../lib/carrito";
 import { catalogo, categories as plantCategories } from "../../lib/catalogo";
-import { normalize } from "../../lib/formato";
+import { formatPriceLabel, normalize } from "../../lib/formato";
 import { SECTION_IDS } from "../../lib/scroll";
+import type { Plant } from "../../types/plant";
 import PlantCard from "../plant/PlantCard";
+import { PlusIcon } from "../ui/icons";
 
-const ITEMS_PER_PAGE = 12;
+const PAGE_SIZE = 12;
 const ALL = "Todas";
 
-// Botones de filtro: "Todas" + las categorías que tienen plantas con fotos.
+// Botones de filtro: "Todas" + las categorías del catálogo, en el orden de lib/catalogo.ts.
 const categories = [ALL, ...plantCategories];
 
-// "Todo el catálogo": filtros por categoría, búsqueda (desde el encabezado) y paginación.
+// Fila de la lista de precios (productos sin foto: macetas, sustratos, parantes).
+function PriceListRow({ plant, showCategory }: { plant: Plant; showCategory: boolean }) {
+  const { add } = useCart();
+  const canQuickAdd = plant.sizes.length === 0 && plant.prices.length > 0;
+
+  return (
+    <li className="flex items-center justify-between gap-3 border-b border-green-900/10 py-3">
+      <Link to={`/producto/${plant.slug}`} className="min-w-0 flex-1 hover:text-hoja">
+        <span className="block font-medium leading-tight text-bosque">{plant.name}</span>
+        <span className="block text-sm text-gray-600">
+          {showCategory ? `${plant.category} · ` : ""}
+          {formatPriceLabel(plant.prices)}
+          {plant.sizes.length > 1 ? ` · ${plant.sizes.length} tamaños` : ""}
+        </span>
+      </Link>
+      {canQuickAdd ? (
+        <button
+          type="button"
+          onClick={() => add(plant)}
+          aria-label={`Agregar ${plant.name} al carrito`}
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-menta text-bosque transition hover:bg-bosque hover:text-crema focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800"
+        >
+          <PlusIcon className="h-5 w-5" />
+        </button>
+      ) : (
+        <Link
+          to={`/producto/${plant.slug}`}
+          className="shrink-0 text-sm font-semibold text-bosque underline underline-offset-4"
+        >
+          Elegir
+        </Link>
+      )}
+    </li>
+  );
+}
+
+// "Todo el catálogo": filtros por categoría, búsqueda (desde el encabezado) y "Ver más".
 function CatalogSection() {
   // La búsqueda vive en la URL (?q=) porque el buscador está en el encabezado.
   const [searchParams, setSearchParams] = useSearchParams();
   const search = searchParams.get("q") ?? "";
 
   const [selectedCategory, setSelectedCategory] = useState(ALL);
-  // La página se guarda junto a la búsqueda: si la búsqueda cambia, vuelve a la 1.
-  const [pagination, setPagination] = useState({ page: 1, search });
-  const currentPage = pagination.search === search ? pagination.page : 1;
-  const setCurrentPage = (page: number) => setPagination({ page, search });
-
-  const catalogTopRef = useRef<HTMLElement>(null);
 
   const filteredPlants = useMemo(() => {
     const normalizedSearch = normalize(search.trim());
@@ -40,27 +73,19 @@ function CatalogSection() {
     });
   }, [search, selectedCategory]);
 
-  const totalPages = Math.ceil(filteredPlants.length / ITEMS_PER_PAGE);
+  // Con foto: tarjetas. Sin foto (macetas, sustratos, parantes): lista de precios.
+  const withPhoto = filteredPlants.filter((plant) => plant.images.length > 0);
+  const priceList = filteredPlants.filter((plant) => plant.images.length === 0);
 
-  const paginatedPlants = useMemo(() => {
-    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-    return filteredPlants.slice(startIndex, startIndex + ITEMS_PER_PAGE);
-  }, [filteredPlants, currentPage]);
-
-  const changePage = (page: number) => {
-    setCurrentPage(Math.max(1, Math.min(totalPages, page)));
-
-    requestAnimationFrame(() => {
-      catalogTopRef.current?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    });
-  };
+  // Cuántas tarjetas se ven. Al cambiar de categoría o búsqueda vuelve a PAGE_SIZE.
+  const filterKey = `${selectedCategory}|${search}`;
+  const [shown, setShown] = useState({ count: PAGE_SIZE, key: filterKey });
+  const visibleCount = shown.key === filterKey ? shown.count : PAGE_SIZE;
+  const visiblePlants = withPhoto.slice(0, visibleCount);
+  const hiddenCount = withPhoto.length - visiblePlants.length;
 
   const clearFilters = () => {
     setSelectedCategory(ALL);
-    setCurrentPage(1);
     setSearchParams({}, { replace: true });
   };
 
@@ -77,7 +102,6 @@ function CatalogSection() {
       className="mx-auto max-w-7xl scroll-mt-28 px-4 py-12 sm:px-6 sm:py-16"
     >
       <section
-        ref={catalogTopRef}
         aria-labelledby="catalogo-title"
         className="scroll-mt-28"
       >
@@ -107,10 +131,7 @@ function CatalogSection() {
                 <button
                   key={category}
                   type="button"
-                  onClick={() => {
-                    setSelectedCategory(category);
-                    setCurrentPage(1);
-                  }}
+                  onClick={() => setSelectedCategory(category)}
                   aria-pressed={isSelected}
                   className={chipClass(isSelected)}
                 >
@@ -123,53 +144,42 @@ function CatalogSection() {
 
         {filteredPlants.length > 0 ? (
           <>
-            <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-8 sm:gap-6 md:grid-cols-3 lg:grid-cols-4">
-              {paginatedPlants.map((plant) => (
-                <PlantCard key={plant.slug} plant={plant} />
-              ))}
-            </div>
+            {withPhoto.length > 0 && (
+              <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-8 sm:gap-6 md:grid-cols-3 lg:grid-cols-4">
+                {visiblePlants.map((plant) => (
+                  <PlantCard key={plant.slug} plant={plant} />
+                ))}
+              </div>
+            )}
 
-            {totalPages > 1 && (
-              <nav
-                className="mt-10 flex flex-wrap items-center justify-center gap-2"
-                aria-label="Paginación de productos"
-              >
+            {hiddenCount > 0 && (
+              <div className="mt-10 text-center">
                 <button
                   type="button"
-                  onClick={() => changePage(currentPage - 1)}
-                  disabled={currentPage === 1}
-                  className="min-h-11 rounded-full border border-green-900/20 px-4 text-sm font-semibold text-bosque transition hover:bg-arena focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800 disabled:cursor-not-allowed disabled:opacity-40"
+                  onClick={() => setShown({ count: visibleCount + PAGE_SIZE, key: filterKey })}
+                  className="min-h-12 rounded-full border border-green-900/20 px-7 font-semibold text-bosque transition hover:bg-bosque hover:text-crema focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800"
                 >
-                  Anterior
+                  Ver más ({hiddenCount} restantes)
                 </button>
+              </div>
+            )}
 
-                {Array.from({ length: totalPages }, (_, index) => index + 1).map(
-                  (page) => (
-                    <button
-                      key={page}
-                      type="button"
-                      onClick={() => changePage(page)}
-                      aria-current={currentPage === page ? "page" : undefined}
-                      className={`h-11 min-w-11 rounded-full px-3 text-sm font-bold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800 ${
-                        currentPage === page
-                          ? "bg-bosque text-crema"
-                          : "bg-arena text-bosque hover:bg-arena-oscura"
-                      }`}
-                    >
-                      {page}
-                    </button>
-                  ),
+            {/* Macetas, sustratos y parantes: sin foto, como lista de precios. */}
+            {priceList.length > 0 && (hiddenCount === 0 || selectedCategory !== ALL) && (
+              <div className={withPhoto.length > 0 ? "mt-14" : "mt-6 sm:mt-8"}>
+                {withPhoto.length > 0 && (
+                  <h3 className="font-display text-2xl font-medium text-bosque">Lista de precios</h3>
                 )}
-
-                <button
-                  type="button"
-                  onClick={() => changePage(currentPage + 1)}
-                  disabled={currentPage === totalPages}
-                  className="min-h-11 rounded-full border border-green-900/20 px-4 text-sm font-semibold text-bosque transition hover:bg-arena focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800 disabled:cursor-not-allowed disabled:opacity-40"
-                >
-                  Siguiente
-                </button>
-              </nav>
+                <ul className="mt-2 grid gap-x-10 sm:grid-cols-2 lg:grid-cols-3">
+                  {priceList.map((plant) => (
+                    <PriceListRow
+                      key={plant.slug}
+                      plant={plant}
+                      showCategory={selectedCategory === ALL}
+                    />
+                  ))}
+                </ul>
+              </div>
             )}
           </>
         ) : (

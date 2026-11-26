@@ -4,6 +4,7 @@ import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
 import ScrollToTop from "./components/layout/ScrollToTop";
 import { CartProvider } from "./lib/carrito";
+import CreditsPage from "./pages/CreditsPage";
 import HomePage from "./pages/HomePage";
 import NotFoundPage from "./pages/NotFoundPage";
 import PlantPage from "./pages/PlantPage";
@@ -11,6 +12,7 @@ import PlantPage from "./pages/PlantPage";
 // Estructura de la web: encabezado y footer fijos, y la página según la dirección.
 //   /                 -> portada (HomePage)
 //   /producto/<slug>  -> ficha de una planta (PlantPage)
+//   /creditos         -> autores de las fotos referenciales (CreditsPage)
 //   cualquier otra    -> página no encontrada
 // El carrito (CartProvider + CartDrawer) está disponible en todas las páginas.
 function App() {
@@ -23,6 +25,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/producto/:slug" element={<PlantPage />} />
+          <Route path="/creditos" element={<CreditsPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
 

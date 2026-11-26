@@ -57,4 +57,17 @@ export interface Plant {
   watering: string;
   height?: string;
   careTips: string[];
+  // Foto que no es del vivero (Wikimedia Commons) o falta de foto: se muestra
+  // la etiqueta "Foto referencial" y el crédito del autor.
+  referencial?: boolean;
+  credito?: CreditoFoto;
+  // Producto que no es planta (maceta, sustrato…): usa la foto de su categoría
+  // y no muestra luz ni riego.
+  esProducto?: boolean;
+}
+
+export interface CreditoFoto {
+  autor: string;
+  licencia: string;
+  fuente: string; // página del archivo en Wikimedia Commons
 }

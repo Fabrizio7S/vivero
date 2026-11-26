@@ -15,14 +15,25 @@ function PlantGallery({ images, name }: PlantGalleryProps) {
   return (
     <div className="flex flex-col gap-3">
       <div className="relative aspect-square overflow-hidden rounded-xl bg-piedra">
-        <img
-          src={images[selected]}
-          alt={`${name}, foto ${selected + 1} de ${total}`}
-          width={1200}
-          height={1200}
-          fetchPriority="high"
-          className="h-full w-full object-cover"
-        />
+        {total > 0 ? (
+          <img
+            src={images[selected]}
+            alt={`${name}, foto ${selected + 1} de ${total}`}
+            width={1200}
+            height={1200}
+            fetchPriority="high"
+            className="h-full w-full object-cover"
+          />
+        ) : (
+          // Productos sin foto (macetas, sustratos, parantes): hoja de la marca.
+          <img
+            src="/marca/icono-192.png"
+            alt=""
+            width={192}
+            height={192}
+            className="absolute left-1/2 top-1/2 w-1/4 -translate-x-1/2 -translate-y-1/2 opacity-30 grayscale"
+          />
+        )}
 
         {total > 1 && (
           <>

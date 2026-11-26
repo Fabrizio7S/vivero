@@ -15,7 +15,11 @@ const patron = /^(.+)-(\d+)-[a-z]+\.(webp|jpe?g|png)$/i;
 const fotos = {};
 const ignoradas = [];
 
-for (const archivo of readdirSync(carpetaFotos).sort()) {
+// Solo archivos: la subcarpeta ref/ (fotos referenciales) se maneja aparte.
+for (const archivo of readdirSync(carpetaFotos, { withFileTypes: true })
+  .filter((e) => e.isFile())
+  .map((e) => e.name)
+  .sort()) {
   const coincidencia = archivo.match(patron);
 
   if (!coincidencia) {

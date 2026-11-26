@@ -16,6 +16,11 @@
   --color-piedra: #e9e9df; /* fondo de la galería */
   --color-menta: #e7efe3; /* distintivo de envío */
   --color-salvia: #d7dfc9; /* subtítulos sobre fondo verde */
+  --color-estudio: #e7e4de; /* fondo de estudio de las fotos: fondo de la portada */
+  --color-nombre: #d6d0c5; /* "NATIVA" detrás de la planta (un tono más oscuro) */
+  --color-sol: #f1b52e; /* amarillo de la marca: etiqueta "Más pedida" */
+
+  --font-marca: "Bricolage Grotesque", Inter, sans-serif; /* solo el nombre NATIVA */
 }
 
 :root {
@@ -45,4 +50,92 @@ html {
 ::selection {
   color: #f8f6ef;
   background: #203b2d;
+}
+
+/* ---------- Portada: las plantas crecen y se van, una tras otra ---------- */
+
+.escena-planta {
+  /* bordes de la foto que se disuelven en el fondo */
+  mask-image: radial-gradient(closest-side, #000 74%, transparent 100%);
+  object-fit: cover;
+  clip-path: inset(100% 0 0 0);
+  transform: translateY(3%) scale(0.97);
+  opacity: 0;
+  transition:
+    clip-path 0.9s cubic-bezier(0.65, 0, 0.35, 1),
+    transform 0.9s cubic-bezier(0.65, 0, 0.35, 1),
+    opacity 0.4s linear 0.5s;
+}
+
+.escena-planta.activa {
+  clip-path: inset(0 0 0 0);
+  transform: none;
+  opacity: 1;
+  transition:
+    clip-path 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.55s,
+    transform 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.55s,
+    opacity 0.01s linear 0.55s;
+}
+
+/* Textos que suben recién cuando la primera planta terminó de crecer */
+.tras-crecer {
+  animation: subir 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(1.6s + var(--i, 0) * 0.12s);
+}
+
+/* Nombre y precio de la planta en escena: cambian con cada planta */
+.cambio-texto {
+  animation: subir 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.7s both;
+}
+
+@keyframes subir {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Barra de tiempo bajo la miniatura activa (dura lo mismo que cada planta) */
+.barra-tiempo {
+  animation: llenar 5.2s linear both;
+  transform-origin: left;
+}
+
+@keyframes llenar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* "NATIVA" detrás de la planta: más oscuro que el fondo y más claro que las
+   hojas, así la planta siempre queda delante */
+.nombre-fondo {
+  mix-blend-mode: darken;
+  color: var(--color-nombre);
+  font-family: var(--font-marca);
+  font-stretch: 75%;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 0.8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .tras-crecer,
+  .cambio-texto,
+  .barra-tiempo {
+    animation: none;
+  }
+  .escena-planta {
+    transition: none;
+  }
 }

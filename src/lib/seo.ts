@@ -134,13 +134,14 @@ export function productSeo(plant: Plant): PageSeo {
             seller: { "@id": viveroId },
           };
 
-  // Google muestra unos 60 caracteres del título: si no cabe, versión corta.
-  // Nombre de la planta al inicio (es lo que busca la gente). Google muestra unos
-  // 60 caracteres: se usa la versión más completa que quepa.
+  // Nombre del producto al inicio (es lo que busca la gente). Google muestra unos
+  // 60 caracteres: se usa la versión más completa que quepa. Las macetas,
+  // sustratos, etc. no llevan "cuidados".
+  const cuidados = plant.esProducto ? "" : " y cuidados";
   const title =
     [
-      `${plant.name}: precio en Lima y cuidados | ${SITE_NAME}`,
-      `${plant.name}: precio y cuidados | ${SITE_NAME}`,
+      `${plant.name}: precio en Lima${cuidados} | ${SITE_NAME}`,
+      `${plant.name}: precio${cuidados} | ${SITE_NAME}`,
     ].find((option) => option.length <= 60) ?? `${plant.name} | ${SITE_NAME}`;
 
   const { distrito, ciudad } = datosVivero.direccion;
@@ -175,6 +176,16 @@ export function productSeo(plant: Plant): PageSeo {
         ],
       },
     ],
+  };
+}
+
+export function creditsSeo(): PageSeo {
+  return {
+    ...homeSeo(),
+    path: "/creditos",
+    title: `Créditos de fotos | ${SITE_NAME}`,
+    description: "Autores y licencias de las fotos referenciales del catálogo de Vivero Nativa.",
+    jsonLd: [],
   };
 }
 

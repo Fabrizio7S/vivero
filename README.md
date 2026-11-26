@@ -18,7 +18,8 @@ Hecha con React + TypeScript + Vite + Tailwind CSS.
 | Cambiar las plantas "más vendidas"              | `src/data/plantas.ts` (`masVendidos`)    |
 | Cambiar los colores de la marca                 | `src/index.css` (bloque `@theme`)        |
 | Cambiar el título/descripción en Google         | `src/lib/seo.ts` (`homeSeo`)             |
-| Cambiar la foto de portada                      | `public/imagenes/portada.webp`           |
+| Cambiar las plantas de la portada (NATIVA)      | `src/components/home/Hero.tsx` (`DESTACADAS`) |
+| Foto referencial de una planta sin foto propia  | `public/Web/ref/<slug>-ref.webp` + `src/data/referenciales.ts` |
 | Cambiar el logo                                 | `public/marca/` (mismos nombres de archivo) |
 
 ### Agregar una planta nueva
@@ -147,6 +148,16 @@ vercel.json             Configuración de Vercel (direcciones limpias)
 ```
 
 ★ = archivos pensados para editarse a mano.
+
+---
+
+## Catálogo completo y fotos referenciales
+
+- Aparecen **todos** los productos del Excel. Primero los fotografiados en el vivero.
+- Plantas sin foto propia: foto referencial en `public/Web/ref/` (etiqueta "Foto referencial"),
+  registrada en `src/data/referenciales.ts`. Si la foto es de Wikimedia, lleva `credito` y sale
+  en `/creditos` (lo exige su licencia).
+- Macetas, sustratos y parantes: sin foto, como lista de precios.
 
 ---
 

@@ -19,4 +19,8 @@ export function render(url: string): string {
 }
 
 // Direcciones que se generan como HTML: la portada y una por planta.
-export const routes: string[] = ["/", ...catalogo.map((plant) => `/producto/${plant.slug}`)];
+export const routes: string[] = [
+  "/",
+  "/creditos",
+  ...catalogo.map((plant) => `/producto/${plant.slug}`),
+];

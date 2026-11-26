@@ -97,7 +97,29 @@ function PlantDetail({ plant }: { plant: Plant }) {
 
         {plant.description && <p className="mt-7 leading-7 text-gray-600">{plant.description}</p>}
 
-        {(plant.light || plant.watering) && (
+        {plant.referencial && (
+          <p className="mt-4 rounded-2xl bg-lino p-4 text-sm leading-6 text-gray-600">
+            <span className="font-semibold text-bosque">Foto referencial:</span> así luce esta
+            especie. La planta que recibes puede variar en tamaño y forma.
+            {plant.credito && (
+              <>
+                {" "}
+                Foto de{" "}
+                <a
+                  href={plant.credito.fuente}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-2"
+                >
+                  {plant.credito.autor || "Wikimedia Commons"}
+                </a>{" "}
+                ({plant.credito.licencia}).
+              </>
+            )}
+          </p>
+        )}
+
+        {!plant.esProducto && (plant.light || plant.watering) && (
           <div className="mt-6 grid gap-3">
             {plant.light && (
               <CareTip title="Iluminación" icon={<SunIcon className="h-5 w-5" />}>
