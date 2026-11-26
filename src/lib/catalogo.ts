@@ -118,7 +118,7 @@ const slugDe = (t: string) => normalizar(t).replace(/[^a-z0-9]+/g, "-").replace(
 const NO_PLANTAS = ["Macetas", "Sustratos y abonos", "Líquidos", "Parantes"];
 // Categorías que por ahora van sin foto (lista con precios). Para darles foto,
 // quítalas de aquí y pon public/categorias/<categoria>.webp o fotos propias.
-export const CATEGORIAS_SIN_FOTO = ["Macetas", "Sustratos y abonos", "Parantes"];
+export const CATEGORIAS_SIN_FOTO = ["Macetas", "Sustratos y abonos", "Líquidos", "Parantes"];
 
 const productos: Plant[] = inventario
   .filter((i) => !yaIncluidos.has(normalizar(i.nombre)))

@@ -73,12 +73,6 @@ function PlantCard({ plant, rank }: PlantCardProps) {
             </span>
           )}
 
-          {/* Fotos que no son de esta planta en el vivero. */}
-          {(plant.referencial || plant.esProducto) && (
-            <span className="absolute right-2 top-2 rounded-full bg-black/45 px-2 py-0.5 text-[10px] font-medium text-white backdrop-blur sm:right-2.5 sm:top-2.5 sm:text-[11px]">
-              {plant.esProducto ? "Foto de la categoría" : "Foto referencial"}
-            </span>
-          )}
         </div>
       </Link>
 

@@ -77,12 +77,12 @@ function CatalogSection() {
   const withPhoto = filteredPlants.filter((plant) => plant.images.length > 0);
   const priceList = filteredPlants.filter((plant) => plant.images.length === 0);
 
-  // Cuántas tarjetas se ven. Al cambiar de categoría o búsqueda vuelve a PAGE_SIZE.
+  // Paginación. Al cambiar categoría o búsqueda vuelve a la página 0.
   const filterKey = `${selectedCategory}|${search}`;
-  const [shown, setShown] = useState({ count: PAGE_SIZE, key: filterKey });
-  const visibleCount = shown.key === filterKey ? shown.count : PAGE_SIZE;
-  const visiblePlants = withPhoto.slice(0, visibleCount);
-  const hiddenCount = withPhoto.length - visiblePlants.length;
+  const [pageState, setPageState] = useState({ page: 0, key: filterKey });
+  const page = pageState.key === filterKey ? pageState.page : 0;
+  const totalPages = Math.ceil(withPhoto.length / PAGE_SIZE);
+  const visiblePlants = withPhoto.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
 
   const clearFilters = () => {
     setSelectedCategory(ALL);
@@ -152,20 +152,12 @@ function CatalogSection() {
               </div>
             )}
 
-            {hiddenCount > 0 && (
-              <div className="mt-10 text-center">
-                <button
-                  type="button"
-                  onClick={() => setShown({ count: visibleCount + PAGE_SIZE, key: filterKey })}
-                  className="min-h-12 rounded-full border border-green-900/20 px-7 font-semibold text-bosque transition hover:bg-bosque hover:text-crema focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800"
-                >
-                  Ver más ({hiddenCount} restantes)
-                </button>
-              </div>
+            {totalPages > 1 && (
+              <Pagination page={page} total={totalPages} onChange={(p) => { setPageState({ page: p, key: filterKey }); document.getElementById(SECTION_IDS.catalogo)?.scrollIntoView({ behavior: "smooth", block: "start" }); }} />
             )}
 
-            {/* Macetas, sustratos y parantes: sin foto, como lista de precios. */}
-            {priceList.length > 0 && (hiddenCount === 0 || selectedCategory !== ALL) && (
+            {/* Macetas, sustratos, líquidos y parantes: sin foto, como lista de precios. */}
+            {priceList.length > 0 && (page === totalPages - 1 || totalPages <= 1 || selectedCategory !== ALL) && (
               <div className={withPhoto.length > 0 ? "mt-14" : "mt-6 sm:mt-8"}>
                 {withPhoto.length > 0 && (
                   <h3 className="font-display text-2xl font-medium text-bosque">Lista de precios</h3>
@@ -200,6 +192,52 @@ function CatalogSection() {
           </div>
         )}
       </section>
+    </div>
+  );
+}
+
+// Paginación numerada con elipsis cuando hay muchas páginas.
+function Pagination({ page, total, onChange }: { page: number; total: number; onChange: (p: number) => void }) {
+  // Genera los números de página que se muestran (máx. 7 botones).
+  const pages: (number | "…")[] = (() => {
+    if (total <= 7) return Array.from({ length: total }, (_, i) => i);
+    if (page < 4) return [0, 1, 2, 3, 4, "…", total - 1];
+    if (page > total - 5) return [0, "…", total - 5, total - 4, total - 3, total - 2, total - 1];
+    return [0, "…", page - 1, page, page + 1, "…", total - 1];
+  })();
+
+  const btn = (label: string | number, to: number, active = false, disabled = false) => (
+    <button
+      key={label}
+      type="button"
+      disabled={disabled}
+      onClick={() => !disabled && onChange(to)}
+      aria-current={active ? "page" : undefined}
+      className={`flex h-10 min-w-10 items-center justify-center rounded-full px-3 text-sm font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800 ${
+        active
+          ? "bg-bosque text-crema"
+          : disabled
+            ? "cursor-not-allowed opacity-30 text-bosque"
+            : "text-bosque hover:bg-bosque/10"
+      }`}
+    >
+      {label}
+    </button>
+  );
+
+  return (
+    <div className="mt-10 flex items-center justify-center gap-1">
+      {btn("←", page - 1, false, page === 0)}
+      {pages.map((p, i) =>
+        p === "…" ? (
+          <span key={`ellipsis-${i}`} className="flex h-10 w-6 items-center justify-center text-bosque/40 select-none">
+            …
+          </span>
+        ) : (
+          btn(p + 1, p, p === page)
+        ),
+      )}
+      {btn("→", page + 1, false, page === total - 1)}
     </div>
   );
 }
